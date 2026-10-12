@@ -17,107 +17,85 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>
  */
 
+/*
+ * The console.  TermWrite interprets the p-System screen control codes
+ * and passes the resulting operations to one of three backends:
+ *
+ *   batch  stdin/stdout, no screen control (used by the tests)
+ *   sdl    an SDL3 window, see term_sdl.c (HAVE_SDL)
+ *   tty    the controlling terminal via termios and terminfo (HAVE_CURSES)
+ */
+
 #include <fcntl.h>
-#include <libexplain/accept.h>
-#include <libexplain/bind.h>
-#include <libexplain/getsockname.h>
-#include <libexplain/listen.h>
-#include <libexplain/open.h>
-#include <libexplain/socket.h>
-#include <libexplain/system.h>
 #include <libexplain/write.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
-#ifndef _AMIGA
-#include <assert.h>
-#include <curses.h>
-#include <netinet/in.h>
-#include <signal.h>
-#include <sys/ioctl.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <sys/stat.h>
+#include <sys/select.h>
 #include <sys/time.h>
-#include <term.h>
-#include <termios.h>
-#endif
+#include <sys/types.h>
+#include <unistd.h>
 
 #include <lib/psystem.h>
 #include <lib/memory.h>
 #include <ucsdpsys_vm/term.h>
-
-#if defined(SIGWINCH) && defined(TIOCGWINSZ)
-#define CAN_RESIZE 1
-#else
-#undef CAN_RESIZE
-#error shit
-#endif
+#include <ucsdpsys_vm/term_sdl.h>
+#include <ucsdpsys_vm/term_tty.h>
 
 
-#ifdef CAN_RESIZE
-
-static int sigwinch_happened;
-
-
-static void
-sigwinch(int signum)
-{
-    (void)signum;
-    sigwinch_happened = 1;
-    signal(SIGWINCH, sigwinch);
-}
-
-
-static void
-sigwinch_process(void)
-{
-    struct winsize  size;
-
-    if (ioctl(fileno(stdout), TIOCGWINSZ, &size) == 0)
-    {
-        resize_term(size.ws_row, size.ws_col);
-        wrefresh(curscr);
-        LINES = size.ws_row;
-        COLS = size.ws_col;
-    }
-    sigwinch_happened = 0;
-}
-
-
-static inline void
-sigwinch_check(void)
-{
-    if (sigwinch_happened)
-        sigwinch_process();
-}
-
-#endif /* CAN_RESIZE */
-
-
+static const struct term_ops *Ops;
 static int BatchMode = 0;
 static int TermIn = -1;
 static int TermOut = -1;
-#ifndef _AMIGA
-struct termios OldTerm;
-#else
-/*
- * Watch out for "\x" because it isn't exactly 2 hex digits long, and
- * becomes ambiguous for "\x9bC" and similar.  By using two strings,
- * they will be glued together for us by the C lexer.
- */
-#define AMIGA_PREFIX "\x9b"
-static char *clr_eol = AMIGA_PREFIX "K";
-static char *clr_eos = AMIGA_PREFIX "J";
-static char *clear_screen = AMIGA_PREFIX "2J";
-static char *cursor_home = AMIGA_PREFIX "H";
-static char *cursor_up = AMIGA_PREFIX "A";
-static char *cursor_right = AMIGA_PREFIX "C";
-static char *cursor_address = AMIGA_PREFIX "%d;%dH";
-#define tgoto(cursor_address, x, y) s,sprintf(s, cursor_address, y+1, x+1)
-#endif /* _AMIGA */
 
+
+/* ---------- batch backend ---------------------------------------------- */
+
+static void
+batch_put(char ch)
+{
+    explain_write_or_die(TermOut, &ch, 1);
+}
+
+
+static void
+batch_newline(void)
+{
+    batch_put('\n');
+}
+
+
+static void
+batch_nothing(void)
+{
+}
+
+
+static void
+batch_gotoxy(int x, int y)
+{
+    (void)x;
+    (void)y;
+}
+
+
+static const struct term_ops batch_ops =
+{
+    batch_put,
+    batch_nothing,      /* bell */
+    batch_newline,
+    batch_nothing,      /* clear_eos */
+    batch_nothing,      /* clear_screen */
+    batch_nothing,      /* insert_line */
+    batch_newline,      /* home */
+    batch_nothing,      /* right */
+    batch_nothing,      /* clear_eol */
+    batch_gotoxy,
+    batch_nothing,      /* up */
+};
+
+
+/* ---------- control code interpretation -------------------------------- */
 
 /*
  * erase line=0
@@ -137,7 +115,6 @@ TermWrite(char ch, word Mode)
     static int state = 0;
     static int x;
     int y;
-    char *s;
 
     switch (state)
     {
@@ -146,43 +123,28 @@ TermWrite(char ch, word Mode)
         {
         case 0:
             /* erase line ??? */
-            if (!(Mode & 0x8))
-                ;
-            else
-                explain_write_or_die(TermOut, &ch, 1);
+            if (Mode & 0x8)
+                Ops->put(ch);
             break;
 
         case 7:
-            if (!BatchMode)
-                explain_write_or_die(TermOut, &ch, 1);
+            Ops->bell();
             break;
 
         case 11:
-            /* erase to end of screen */
-            if (!BatchMode && clr_eos)
-                explain_write_or_die(TermOut, clr_eos, strlen(clr_eos));
+            Ops->clear_eos();
             break;
 
         case 12:
-            /* erase screen */
-            if (!BatchMode && clear_screen)
-            {
-                explain_write_or_die(TermOut, clear_screen,
-                    strlen(clear_screen));
-            }
+            Ops->clear_screen();
             break;
 
         case 13:
             /* carriage return */
             if (!(Mode & 0x4))
-            {
-                if (!BatchMode)
-                    explain_write_or_die(TermOut, "\r\n", 2);
-                else
-                    explain_write_or_die(TermOut, "\n", 1);
-            }
+                Ops->newline();
             else
-                explain_write_or_die(TermOut, &ch, 1);
+                Ops->put(ch);
             break;
 
         case 16:
@@ -192,31 +154,19 @@ TermWrite(char ch, word Mode)
             break;
 
         case 22:
-            if (!BatchMode && insert_line)
-                explain_write_or_die(TermOut, insert_line, strlen(insert_line));
+            Ops->insert_line();
             break;
 
         case 25:
-            /* move cursor home */
-            if (!BatchMode && cursor_home)
-                explain_write_or_die(TermOut, cursor_home, strlen(cursor_home));
-            else
-                explain_write_or_die(TermOut, "\n", 1);
+            Ops->home();
             break;
 
         case 28:
-            /* move cursor right */
-            if (!BatchMode && cursor_right)
-            {
-                explain_write_or_die(TermOut, cursor_right,
-                    strlen(cursor_right));
-            }
+            Ops->right();
             break;
 
         case 29:
-            /* erase to end of line */
-            if (!BatchMode && clr_eol)
-                explain_write_or_die(TermOut, clr_eol, strlen(clr_eol));
+            Ops->clear_eol();
             break;
 
         case 30:
@@ -225,13 +175,11 @@ TermWrite(char ch, word Mode)
             break;
 
         case 31:
-            /* move cursor up */
-            if (!BatchMode && cursor_up)
-                explain_write_or_die(TermOut, cursor_up, strlen(cursor_up));
+            Ops->up();
             break;
 
         default:
-            explain_write_or_die(TermOut, &ch, 1);
+            Ops->put(ch);
             break;
         }
         break;
@@ -244,51 +192,52 @@ TermWrite(char ch, word Mode)
     case 2:
         /* gotoxy complete */
         y = ch - ' ';
-        if (!BatchMode && cursor_address)
-        {
-            s = tgoto(cursor_address, x, y);
-            explain_write_or_die(TermOut, s, strlen(s));
-        }
+        Ops->gotoxy(x, y);
         state = 0;
         break;
 
     case 3:
         /* char after DLE */
         ch -= 0x20;
-        while (ch--)
-            explain_write_or_die(TermOut, " ", 1);
+        while (ch-- > 0)
+            Ops->put(' ');
         state = 0;
         break;
     }
 }
 
 
+/* ---------- keyboard ---------------------------------------------------- */
+
 struct translator
 {
     struct translator *Next;
-    char *Pattern;
+    const char *Pattern;
     byte Key;
-    void (*Action) (byte);
 };
 
 static struct translator *Keys = NULL;
 
 
-static void
-AddKeyTranslation(byte Key, char *Pattern, void (*Action)(byte))
+void
+term_add_key_translation(unsigned char Key, const char *Pattern)
 {
     struct translator *NewKey = malloc(sizeof(struct translator));
-    assert(NewKey);
+    if (!NewKey)
+        abort();
     NewKey->Key = Key;
     NewKey->Pattern = Pattern;
-    NewKey->Action = Action;
     NewKey->Next = Keys;
     Keys = NewKey;
 }
 
 
-char
-TermRead(void)
+/*
+ * Read a key from TermIn, turning escape sequences (such as cursor keys)
+ * into p-System characters.
+ */
+static char
+fd_read(void)
 {
     unsigned char ch;
 
@@ -307,9 +256,8 @@ TermRead(void)
             tv.tv_sec = 0;
             tv.tv_usec = 25000;
 
-#if CAN_RESIZE
-            sigwinch_check();
-#endif
+            if (!BatchMode)
+                term_tty_poll_resize();
             if (select(TermIn + 1, &fds, NULL, NULL, BufIdx ? &tv : NULL) > 0)
             {
                 /* a sign is available */
@@ -320,10 +268,8 @@ TermRead(void)
                     if (BatchMode)
                         exit(0);
 
-#ifndef XXX
                 if (ch == '\0') /* XXX Quick-Hack :-( */
                     continue;
-#endif
 
                 Buffer[BufIdx++] = ch;
                 for (t = Keys; t; t = t->Next)
@@ -369,8 +315,8 @@ TermRead(void)
 }
 
 
-int
-TermStat(void)
+static int
+fd_stat(void)
 {
     fd_set fds;
     struct timeval tv;
@@ -383,126 +329,52 @@ TermStat(void)
 }
 
 
-static void
-OpenXTerm(void)
+char
+TermRead(void)
 {
-    socklen_t i;
-    int s;
-    struct sockaddr_in addr;
-    char Buffer[256];
-
-    unsigned char TelnetInit[] = { 255, 253, 3, 255, 251, 3, 255, 251, 1 };
-
-    s = explain_socket_or_die(PF_INET, SOCK_STREAM, 0);
-    addr.sin_family = AF_INET;
-    addr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
-    addr.sin_port = htons(0);
-    explain_bind_or_die(s, (struct sockaddr *)&addr, sizeof(addr));
-    explain_listen_or_die(s, 1);
-    i = sizeof(addr);
-    explain_getsockname_or_die(s, (struct sockaddr *)&addr, &i);
-
-    snprintf(Buffer, sizeof(Buffer), "xterm -geometry 80x24 -e "
-        "telnet -E localhost %d&", ntohs(addr.sin_port));
-    explain_system_success_or_die(Buffer);
-
-    i = sizeof(addr);
-    TermOut = explain_accept_or_die(s, (struct sockaddr *)&addr, &i);
-
-    close(s);
-
-    explain_write_or_die(TermOut, TelnetInit, sizeof(TelnetInit));
-    for (i = 0; i < sizeof(TelnetInit); i++)
-    {
-        if (read(TermOut, &s, 1) <= 0)
-            break;
-    }
+    if (term_sdl_active())
+        return term_sdl_read();
+    return fd_read();
 }
 
 
-void
-TermOpen(int UseXTerm, int BatchFd)
+int
+TermStat(void)
 {
-    struct termios NewTerm;
+    if (term_sdl_active())
+        return term_sdl_stat();
+    return fd_stat();
+}
 
-#ifdef CAN_RESIZE
-    signal(SIGWINCH, sigwinch);
-#endif
-    if (BatchFd < 0)
-    {
-        BatchMode = 0;
-    }
-    else
+
+/* ---------- opening and closing ----------------------------------------- */
+
+void
+TermOpen(int UseXTerm, int BatchFd, int UseTty)
+{
+    if (BatchFd >= 0)
     {
         BatchMode = 1;
         TermIn = BatchFd;
+        TermOut = 1;
+        Ops = &batch_ops;
+        term_add_key_translation('\r', "\n");
+        return;
     }
 
-    if (UseXTerm)
+    if (!UseTty && !UseXTerm)
     {
-        OpenXTerm();
-        setupterm("xterm", TermOut, NULL);
-    }
-    else
-    {
-        if (BatchMode)
-        {
-            TermOut = 1;
-            setupterm("dumb", TermOut, NULL);
-        }
-        else
-        {
-            TermOut = explain_open_or_die("/dev/tty", O_RDWR, 0666);
-            setupterm(NULL, TermOut, NULL);
-        }
+        Ops = term_sdl_open();
+        if (Ops)
+            return;
     }
 
-    if (TermIn < 0)
-        TermIn = TermOut;
-
-    if (BatchMode)
+    Ops = term_tty_open(UseXTerm, &TermIn, &TermOut);
+    if (!Ops)
     {
-        AddKeyTranslation('\r', "\n", NULL);
-    }
-    else
-    {
-        tcgetattr(TermOut, &OldTerm);
-        NewTerm = OldTerm;
-        NewTerm.c_iflag &= ~(PARMRK | ISTRIP | INLCR | IGNCR |
-            ICRNL | IUCLC | IXOFF | IXON);
-        NewTerm.c_oflag &= ~OPOST;
-        NewTerm.c_lflag &= ~(ISIG | ICANON | ECHO | ECHONL | IEXTEN);
-        NewTerm.c_cc[VMIN] = 1;
-        NewTerm.c_cc[VTIME] = 0;
-        tcsetattr(TermOut, TCSANOW, &NewTerm);
-
-        if (init_1string)
-            explain_write_or_die(TermOut, init_1string, strlen(init_1string));
-        if (init_2string)
-            explain_write_or_die(TermOut, init_2string, strlen(init_2string));
-        if (init_3string)
-            explain_write_or_die(TermOut, init_3string, strlen(init_3string));
-        if (enter_ca_mode)
-            explain_write_or_die(TermOut, enter_ca_mode, strlen(enter_ca_mode));
-
-        AddKeyTranslation(0x0b, "\033[A", NULL);
-        AddKeyTranslation(0x0a, "\033[B", NULL);
-        AddKeyTranslation(0x15, "\033[C", NULL);
-        AddKeyTranslation(0x08, "\033[D", NULL);
-
-        AddKeyTranslation(0x0b, "\033[OA", NULL);
-        AddKeyTranslation(0x0a, "\033[OB", NULL);
-        AddKeyTranslation(0x15, "\033[OC", NULL);
-        AddKeyTranslation(0x08, "\033[OD", NULL);
-
-        if (key_up)
-            AddKeyTranslation(0x0b, key_up, NULL);
-        if (key_down)
-            AddKeyTranslation(0x0a, key_down, NULL);
-        if (key_right)
-            AddKeyTranslation(0x15, key_right, NULL);
-        if (key_left)
-            AddKeyTranslation(0x08, key_left, NULL);
+        fprintf(stderr, "ucsdpsys_vm: no console: built without SDL3 and "
+            "curses, use --batch\n");
+        exit(1);
     }
 }
 
@@ -510,36 +382,28 @@ TermOpen(int UseXTerm, int BatchFd)
 void
 TermClose(void)
 {
-#ifdef CAN_RESIZE
-    signal(SIGWINCH, SIG_IGN);
-#endif
-    if (!BatchMode)
+    if (!Ops)
+        return;
+    if (BatchMode)
     {
-        explain_write_or_die(TermOut, "\r\n", 2);
-        if (exit_ca_mode)
-            explain_write_or_die(TermOut, exit_ca_mode, strlen(exit_ca_mode));
-        if (reset_1string)
-            explain_write_or_die(TermOut, reset_1string, strlen(reset_1string));
-        if (reset_2string)
-            explain_write_or_die(TermOut, reset_2string, strlen(reset_2string));
-        if (reset_3string)
-            explain_write_or_die(TermOut, reset_3string, strlen(reset_3string));
-        tcsetattr(TermOut, TCSANOW, &OldTerm);
-    }
-    else
         explain_write_or_die(TermOut, "\n", 1);
-    close(TermOut);
-    close(TermIn);
+        close(TermOut);
+        close(TermIn);
+    }
+    else if (term_sdl_active())
+        term_sdl_close();
+    else
+        term_tty_close();
+    Ops = NULL;
 }
 
 
 int
 term_width(void)
 {
-    int             xcolumns;
+    int xcolumns = BatchMode ? 80 : term_sdl_active() ? term_sdl_width() :
+        term_tty_width();
 
-    sigwinch_check();
-    xcolumns = COLS;
     if (xcolumns < 1)
         xcolumns = 1;
     else if (xcolumns >= 32768)
@@ -551,12 +415,9 @@ term_width(void)
 int
 term_height(void)
 {
-    int             ylines;
+    int ylines = BatchMode ? 24 : term_sdl_active() ? term_sdl_height() :
+        term_tty_height();
 
-#ifdef CAN_RESIZE
-    sigwinch_check();
-#endif
-    ylines = LINES;
     if (ylines < 1)
         ylines = 1;
     else if (ylines >= 32768)
@@ -569,4 +430,19 @@ int
 term_is_batch_mode(void)
 {
     return BatchMode;
+}
+
+
+int
+term_has_graphics(void)
+{
+    return term_sdl_active();
+}
+
+
+void
+term_graphics_mode(int on)
+{
+    if (term_sdl_active())
+        term_sdl_graphics_mode(on);
 }

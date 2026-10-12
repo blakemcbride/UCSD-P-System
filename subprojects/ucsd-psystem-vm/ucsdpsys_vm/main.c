@@ -3092,6 +3092,7 @@ static const struct option options[] =
     { "version", 0, 0, 'V' },
     { "write", 1, 0, 'w' },
     { "xterm", 1, 0, 'x' },
+    { "terminal", 0, 0, 'K' },
     { "printer", 2, 0, 'p' },
     { 0, 0, 0, 0 }
 };
@@ -3104,6 +3105,7 @@ main(int argc, char **argv)
     int             i;
     int             Unit;
     int             UseXTerm;
+    int             UseTty;
     int             BatchFd;
     const char      *PrinterPath;
     int             UsePrinter;
@@ -3116,6 +3118,7 @@ main(int argc, char **argv)
     always_dump_core = 0;
     Unit = 4;
     UseXTerm = 0;
+    UseTty = 0;
     BatchFd = -1;
     UsePrinter = 0;
     PrinterPath = NULL;
@@ -3280,6 +3283,10 @@ main(int argc, char **argv)
             UseXTerm++;
             break;
 
+        case 'K':
+            UseTty++;
+            break;
+
         case 'p':
             UsePrinter++;
             if (optarg) {
@@ -3296,7 +3303,7 @@ main(int argc, char **argv)
         }
     }
 
-    TermOpen(UseXTerm, BatchFd);
+    TermOpen(UseXTerm, BatchFd, UseTty);
     PrinterInit(UsePrinter, PrinterPath);
 
 #ifndef WORD_MEMORY

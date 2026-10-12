@@ -19,11 +19,13 @@
 
 #include <libexplain/execlp.h>
 #include <libexplain/fork.h>
+#include <libexplain/malloc.h>
 #include <libexplain/socketpair.h>
 #include <math.h>
 #include <signal.h>
 #include <stdarg.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -33,8 +35,10 @@
 #include <lib/memory.h>
 #include <lib/pcode.h>
 #include <lib/psystem.h>
+#include <lib/turtle.h>
 
 #include <ucsdpsys_vm/stack.h>
+#include <ucsdpsys_vm/term.h>
 #include <ucsdpsys_vm/turtlegr.h>
 
 #ifdef TURTLEGRAPHICS
@@ -152,6 +156,13 @@ TurnTo(int Angle)
 #endif
 
 
+/*
+ * With the SDL console, Turtle Graphics are drawn in its window by the
+ * VM itself; otherwise the commands go to ucsdpsys_turtleserver.
+ */
+#define INPROC term_has_graphics()
+
+
 void
 TurtleGraphics(word EntryPoint)
 {
@@ -168,11 +179,27 @@ TurtleGraphics(word EntryPoint)
 
     p = &func[16];
     if (strcmp(p, "INITTURTLE") == 0)
-        tprintf("INITTURTLE");
+    {
+        if (INPROC)
+        {
+            turtle_init();
+            term_graphics_mode(1);
+        }
+        else
+            tprintf("INITTURTLE");
+#ifdef TURTLE_SPEEDUP
+        CurrentTurtleX = 139;
+        CurrentTurtleY = 95;
+        CurrentTurtleAng = 0;
+#endif
+    }
     else if (strcmp(p, "TURN") == 0)
     {
         Integer j = PopInteger();
-        tprintf("TURN %d", j);
+        if (INPROC)
+            turtle_turn(j);
+        else
+            tprintf("TURN %d", j);
 #ifdef TURTLE_SPEEDUP
         TurnTo(CurrentTurtleAng + j);
 #endif
@@ -180,7 +207,10 @@ TurtleGraphics(word EntryPoint)
     else if (strcmp(p, "TURNTO") == 0)
     {
         Integer j = PopInteger();
-        tprintf("TURNTO %d", j);
+        if (INPROC)
+            turtle_turnto(j);
+        else
+            tprintf("TURNTO %d", j);
 #ifdef TURTLE_SPEEDUP
         TurnTo(j);
 #endif
@@ -188,7 +218,10 @@ TurtleGraphics(word EntryPoint)
     else if (strcmp(p, "MOVE") == 0)
     {
         Integer j = PopInteger();
-        tprintf("MOVE %d", j);
+        if (INPROC)
+            turtle_move(j);
+        else
+            tprintf("MOVE %d", j);
 #ifdef TURTLE_SPEEDUP
         CurrentTurtleX += round(cos(CurrentTurtleAng * 3.14 / 180) * j);
         CurrentTurtleY += round(sin(CurrentTurtleAng * 3.14 / 180) * j);
@@ -198,60 +231,103 @@ TurtleGraphics(word EntryPoint)
     {
         Integer y = PopInteger();
         Integer x = PopInteger();
-        tprintf("MOVETO %d %d", x, y);
+        if (INPROC)
+            turtle_moveto(x, y);
+        else
+            tprintf("MOVETO %d %d", x, y);
 #ifdef TURTLE_SPEEDUP
         CurrentTurtleX = x;
         CurrentTurtleY = y;
 #endif
     }
     else if (strcmp(p, "PENCOLOR") == 0)
-        tprintf("PENCOLOR %d", Pop());
+    {
+        word c = Pop();
+        if (INPROC)
+            turtle_pencolor(c);
+        else
+            tprintf("PENCOLOR %d", c);
+    }
     else if (strcmp(p, "TEXTMODE") == 0)
-        tprintf("TEXTMODE");
+    {
+        if (INPROC)
+            term_graphics_mode(0);
+        else
+            tprintf("TEXTMODE");
+    }
     else if (strcmp(p, "GRAFMODE") == 0)
-        tprintf("GRAFMODE");
+    {
+        if (INPROC)
+            term_graphics_mode(1);
+        else
+            tprintf("GRAFMODE");
+    }
     else if (strcmp(p, "FILLSCREEN") == 0)
-        tprintf("FILLSCREEN %d", Pop());
+    {
+        word c = Pop();
+        if (INPROC)
+            turtle_fillscreen(c);
+        else
+            tprintf("FILLSCREEN %d", c);
+    }
     else if (strcmp(p, "VIEWPORT") == 0)
     {
         int yMax = PopInteger();
         int yMin = PopInteger();
         int xMax = PopInteger();
         int xMin = PopInteger();
-        tprintf("VIEWPORT %d %d %d %d", xMin, xMax, yMin, yMax);
+        if (INPROC)
+            turtle_viewport(xMin, xMax, yMin, yMax);
+        else
+            tprintf("VIEWPORT %d %d %d %d", xMin, xMax, yMin, yMax);
     }
     else if (strcmp(p, "TURTLEX") == 0)
     {
         Pop();
         Pop();
+        if (INPROC)
+            Push(turtle_x());
+        else
+        {
 #ifdef TURTLE_SPEEDUP
-        Push(CurrentTurtleX);
+            Push(CurrentTurtleX);
 #else
-        tprintf("TURTLEX");
-        Push(tgetint());
+            tprintf("TURTLEX");
+            Push(tgetint());
 #endif
+        }
     }
     else if (strcmp(p, "TURTLEY") == 0)
     {
         Pop();
         Pop();
+        if (INPROC)
+            Push(turtle_y());
+        else
+        {
 #ifdef TURTLE_SPEEDUP
-        Push(CurrentTurtleY);
+            Push(CurrentTurtleY);
 #else
-        tprintf("TURTLEY");
-        Push(tgetint());
+            tprintf("TURTLEY");
+            Push(tgetint());
 #endif
+        }
     }
     else if (strcmp(p, "TURTLEANG") == 0)
     {
         Pop();
         Pop();
+        if (INPROC)
+            Push(turtle_angle());
+        else
+        {
 #ifdef TURTLE_SPEEDUP
-        Push(CurrentTurtleAng);
+            Push(CurrentTurtleAng);
 #else
-        tprintf("TURTLEANG");
-        Push(tgetint());
+            tprintf("TURTLEANG");
+            Push(tgetint());
 #endif
+        }
     }
     else if (strcmp(p, "SCREENBIT") == 0)
     {
@@ -263,8 +339,13 @@ TurtleGraphics(word EntryPoint)
         Pop();
         y = PopInteger();
         x = PopInteger();
-        tprintf("SCREENBIT %d %d", x, y);
-        Push(tgetint());
+        if (INPROC)
+            Push(turtle_screenbit(x, y));
+        else
+        {
+            tprintf("SCREENBIT %d %d", x, y);
+            Push(tgetint());
+        }
     }
     else if (strcmp(p, "DRAWBLOCK") == 0)
     {
@@ -279,23 +360,36 @@ TurtleGraphics(word EntryPoint)
         Integer XSkip = PopInteger();
         Integer RowSize = PopInteger();
         word Source = Pop();
+        /* the bytes each row's bits occupy, from bit XSkip on */
+        int RowBytes = ((XSkip & 7) + Width + 7) / 8;
+        unsigned char *Data;
 
-        tprintf("DRAWBLOCK %d %d %d %d %d %d %d %d",
-            (((XSkip + Width + 7) & ~7) - (XSkip & ~7)) >> 3, XSkip & 7, 0,
-            Width, Height, XScreen, YScreen, Mode);
+        if (Width <= 0 || Height <= 0)
+            return;
+        Data = explain_malloc_or_die((size_t)RowBytes * Height);
         for (y = 0; y < Height; y++)
+            for (x = 0; x < RowBytes; x++)
+                Data[y * RowBytes + x] =
+                    MemRdByte(Source, (y + YSkip) * RowSize + XSkip / 8 + x);
+        if (INPROC)
+            turtle_drawblock(Data, RowBytes, XSkip & 7, Width, Height,
+                XScreen, YScreen, Mode);
+        else
         {
-            for (x = (XSkip & 7); x < ((XSkip + Width + 7) & ~7); x += 8)
-            {
-                if (TurtleServer)
-                    putc(MemRdByte(Source, (y + YSkip) * RowSize + x / 8),
-                        TurtleServer);
-            }
+            tprintf("DRAWBLOCK %d %d %d %d %d %d %d %d", RowBytes, XSkip & 7,
+                0, Width, Height, XScreen, YScreen, Mode);
+            if (TurtleServer)
+                fwrite(Data, RowBytes, Height, TurtleServer);
         }
+        free(Data);
     }
     else if (strcmp(p, "WCHAR") == 0)
     {
-        tprintf("WCHAR %d", Pop() & 0xff);
+        int c = Pop() & 0xff;
+        if (INPROC)
+            turtle_wchar(c);
+        else
+            tprintf("WCHAR %d", c);
 #ifdef TURTLE_SPEEDUP
         CurrentTurtleX += 7;
 #endif
@@ -306,15 +400,29 @@ TurtleGraphics(word EntryPoint)
         int Len = MemRdByte(Addr, 0);
         int j;
 
-        tprintf("WSTRING %d", Len);
-        for (j = 0; j < Len && TurtleServer; j++)
-            putc(MemRdByte(Addr, j + 1), TurtleServer);
+        if (INPROC)
+        {
+            for (j = 0; j < Len; j++)
+                turtle_wchar(MemRdByte(Addr, j + 1));
+        }
+        else
+        {
+            tprintf("WSTRING %d", Len);
+            for (j = 0; j < Len && TurtleServer; j++)
+                putc(MemRdByte(Addr, j + 1), TurtleServer);
+        }
 #ifdef TURTLE_SPEEDUP
         CurrentTurtleX += 7 * Len;
 #endif
     }
     else if (strcmp(p, "CHARTYPE") == 0)
-        tprintf("CHARTYPE %d", Pop() & 0x0f);
+    {
+        int c = Pop() & 0x0f;
+        if (INPROC)
+            turtle_chartype(c);
+        else
+            tprintf("CHARTYPE %d", c);
+    }
     else
         XeqError(XNOTIMP);
     if (TurtleServer)
@@ -326,6 +434,9 @@ void
 GraphicsClear(void)
 {
     int status;
+
+    if (INPROC)
+        term_graphics_mode(0);
     if (TurtleServer)
     {
         fclose(TurtleServer);

@@ -22,30 +22,58 @@
 
 #include <lib/memory.h>
 
-void TermOpen(int UseXTerm, int BatchFd);
+/**
+  * The TermOpen function is used to open the console.
+  *
+  * In batch mode (BatchFd >= 0) input comes from BatchFd and output goes
+  * to stdout.  Otherwise the console is an SDL3 window when one can be
+  * opened, or the controlling terminal (curses and termios).
+  *
+  * @param UseXTerm
+  *     Run the console in a new xterm (terminal backend only).
+  * @param BatchFd
+  *     The batch input file descriptor, or -1.
+  * @param UseTty
+  *     Use the terminal even if a window could be opened.
+  */
+void TermOpen(int UseXTerm, int BatchFd, int UseTty);
+
+/**
+  * The TermClose function is used to restore the console at exit.
+  */
 void TermClose(void);
+
+/**
+  * The TermWrite function is used to write a character, interpreting
+  * the p-System screen control codes.
+  */
 void TermWrite(char ch, word Mode);
+
+/**
+  * The TermRead function is used to read a character from the keyboard,
+  * waiting for one if necessary.
+  */
 char TermRead(void);
+
+/**
+  * The TermStat function returns non-zero if a character is waiting.
+  */
 int TermStat(void);
 
-/**
-  * The term_width function may be used to obtain the width of the
-  * terminal in character columns.  This assumes an old-time CRT
-  * terminal, or an emulation such as xterm or GnomeTerminal.
-  */
 int term_width(void);
-
-/**
-  * The term_height function may be used to obtain the height of the
-  * terminal in text lines.  This assumes an old-time CRT terminal, or
-  * an emulation such as xterm or GnomeTerminal.
-  */
 int term_height(void);
+int term_is_batch_mode(void);
 
 /**
-  * The term_is_batch_mode function may be used to determine whether or
-  * not the terminal is in batch mode (true) or "curses" mode (false).
+  * The term_has_graphics function returns non-zero if the console can
+  * show Turtle Graphics itself (the SDL3 window).
   */
-int term_is_batch_mode(void);
+int term_has_graphics(void);
+
+/**
+  * The term_graphics_mode function switches the SDL3 window between
+  * Turtle Graphics (non-zero) and text (zero).
+  */
+void term_graphics_mode(int on);
 
 #endif /* UCSDPSYS_VM_TERM_H */

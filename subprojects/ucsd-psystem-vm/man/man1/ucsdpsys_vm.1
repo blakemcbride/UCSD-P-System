@@ -29,6 +29,19 @@ able to run UCSD Pascal II.0
 (an ancient programming environment)
 .\" and Apple ][ Pascal (equally ancient)
 on today's computer systems.
+.SS The console
+The console is an 80\(mu24 text window drawn with SDL3, when the program
+was built with SDL3 and a display is available.
+Turtle Graphics are shown in the same window: INITTURTLE and GRAFMODE
+switch it to the 280\(mu192 graphics screen, TEXTMODE back to text.
+Press F2 to switch between the two at any time; the system does not
+return to text by itself when a graphics program ends.
+Closing the window ends the virtual machine.
+.PP
+Otherwise, or with \fB\-\-terminal\fP, the console is the terminal
+the program runs in, and Turtle Graphics, if used, open a separate
+window (see \f[I]ucsdpsys_turtleserver\fP(1)).
+In batch mode (\fB\-b\fP) there is no screen control at all.
 .SH OPTIONS
 The following options are understood:
 .TP 8n
@@ -127,6 +140,9 @@ to the standard output.
 \fB\-\-version\fP
 prints the version number and exits
 .TP 8n
+\fB\-\-terminal\fP
+Use the terminal for the console, even when a window could be opened.
+.TP 8n
 \fB\-w\fP \f[I]volume-file\fP
 .TP 8n
 \fB\-\-write=\fP\f[I]filename\fP
@@ -136,7 +152,8 @@ This option may be given more than once.
 \fB\-x\fP
 .TP 8n
 \fB\-\-xterm\fP
-Start an \f[I]xterm\fP(1) for \f[CW]CONSOLE:\fP and \f[CW]SYSTERM:\fP.
+Start an \f[I]xterm\fP(1) for \f[CW]CONSOLE:\fP and \f[CW]SYSTERM:\fP
+(implies \fB\-\-terminal\fP).
 Especially useful when using the debugger and its messages are output
 to the standard output and stderr.
 .\" ------------------------------------------------------------------------
@@ -189,9 +206,10 @@ something works, or even to fix a bug.
 The ucsd-psystem-os project encourages contributions.
 .\" ------------------------------------------------------------------------
 .SS system.charset
-You need \f[CW]SYSTEM.CHARSET\fP file from your Apple Pascal system disk
-in order to use Turtle Graphics.  This file contains the bit-mapped
-front for characters.  A utility called \f[I]ucsdpsys_disk\fP(1) can
+Turtle Graphics text is drawn by \f[I]ucsdpsys_turtleserver\fP(1)
+with a built-in character set, so no \f[CW]SYSTEM.CHARSET\fP file is
+needed.  That file contains the bit-mapped font for characters, as used
+on an Apple Pascal system disk.  A utility called \f[I]ucsdpsys_disk\fP(1) can
 be used to extract \f[CW]SYSTEM.CHARSET\fP from an UCSD disk image.
 .PP
 .RS
@@ -311,6 +329,9 @@ Quit interpreter
 .\" ------------------------------------------------------------------------
 .SH "SEE ALSO"
 .TP 8n
+\f[I]ucsdpsys_turtleserver\fP(1)
+Turtle Graphics window, started by this program as needed
+.TP 8n
 \f[I]ucsdpsys_disk\fP(1)
 read and write p-System disk images
 (from the ucsd-psystem-fs project, http://ucsd-psystem-fs.sourceforge.net/)
@@ -345,17 +366,14 @@ BREAK-handling
 removing (or hiding) the debug stuff
 .TP 2m
 \(bu
-resizing the TURTLEGRAPHICS screen
-.TP 2m
-\(bu
 adding more colors to TURTLEGRAPHICS
 .TP 2m
 \(bu
 better documentations (in the source code as well as in separate files)
 .TP 2m
 \(bu
-Porting the device drivers (mainly the console and turtlegraphics) to
-Windows and MacOS (could be obsolete with MacOS X)
+Porting the console driver to Windows
+(Turtle Graphics already runs anywhere SDL3 does)
 .\" ------------------------------------------------------------------------
 .so man/man1/z_exit.so
 .so man/man1/z_copyright.so

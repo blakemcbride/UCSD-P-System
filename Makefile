@@ -8,7 +8,8 @@
 #   make distclean  also remove run/ (the VM's working copies of the volumes)
 #
 # Optional parts are built when pkg-config finds their libraries.  Force
-# them on or off with FUSE=yes|no, SDL=yes|no or PNG=yes|no.
+# them on or off with FUSE=yes|no, SDL=yes|no or PNG=yes|no.  CURSES=no
+# drops the VM's terminal console (leaving the SDL3 window and batch mode).
 
 PREFIX     ?= /usr/local
 BINDIR     ?= $(PREFIX)/bin
@@ -31,7 +32,21 @@ FUSE ?= $(call have,fuse)
 SDL  ?= $(call have,sdl3)
 PNG  ?= $(call have,libpng)
 
+CURSES ?= yes
+ifeq ($(CURSES),yes)
 CURSES_LIBS ?= $(shell $(PKG_CONFIG) --libs ncurses 2>/dev/null || echo -lcurses)
+endif
+
+# The VM's console backends: an SDL3 window and/or the terminal.
+VM_CONSOLE_CFLAGS :=
+VM_CONSOLE_LIBS   := $(CURSES_LIBS)
+ifeq ($(CURSES),yes)
+VM_CONSOLE_CFLAGS += -DHAVE_CURSES
+endif
+ifeq ($(SDL),yes)
+VM_CONSOLE_CFLAGS += -DHAVE_SDL $(shell $(PKG_CONFIG) --cflags sdl3)
+VM_CONSOLE_LIBS   += $(shell $(PKG_CONFIG) --libs sdl3)
+endif
 
 B     := build
 BIN   := $(B)/bin
@@ -170,9 +185,11 @@ $(call objs,$(FS)/ucsdpsys_mount,cc): FS_EXTRA = $(shell $(PKG_CONFIG) --cflags 
 FS_LIBS_ucsdpsys_mount := $(shell $(PKG_CONFIG) --libs fuse)
 endif
 
+$(call objs,$(VM)/ucsdpsys_vm,c): VM_EXTRA = $(VM_CONSOLE_CFLAGS)
+
 $(BIN)/ucsdpsys_vm: $(call objs,$(VM)/ucsdpsys_vm,c) $(VM_LDLIBS)
 	$(mkdir_p)
-	$(CC) $(LDFLAGS) -o $@ $^ $(CURSES_LIBS) -lm
+	$(CC) $(LDFLAGS) -o $@ $^ $(VM_CONSOLE_LIBS) -lm
 
 # Turtle graphics window, started by the VM on demand.
 ifeq ($(SDL),yes)
