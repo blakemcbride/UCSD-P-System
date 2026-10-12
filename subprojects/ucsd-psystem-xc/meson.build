@@ -10,7 +10,8 @@ bison_gen = generator(
   bison,
   output : ['@BASENAME@.yacc.cc', '@BASENAME@.yacc.h'],
   arguments : [
-    '@INPUT@', '-Wno-yacc', '--defines=@OUTPUT1@', '--output=@OUTPUT0@'
+    '@INPUT@', '-Wno-yacc', '-Wno-conflicts-sr', '-Wno-conflicts-rr',
+    '--defines=@OUTPUT1@', '--output=@OUTPUT0@'
   ],
 )
 

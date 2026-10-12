@@ -99,7 +99,7 @@ expression_error::logical_traversal(int, label::pointer &,
 
 expression::pointer
 expression_error::assignment_expression_factory(
-    const expression::pointer &)
+    const expression::pointer &) const
 {
     return clone(get_location());
 }
@@ -107,6 +107,7 @@ expression_error::assignment_expression_factory(
 
 expression::pointer
 expression_error::function_call_expression_factory(const expression_list &)
+    const
 {
     return clone(get_location());
 }
@@ -114,7 +115,7 @@ expression_error::function_call_expression_factory(const expression_list &)
 
 expression::pointer
 expression_error::dot_expression_factory(const location &,
-    const variable_name &)
+    const symbol::pointer &) const
 {
     return clone(get_location());
 }

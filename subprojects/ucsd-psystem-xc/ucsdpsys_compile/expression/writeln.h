@@ -60,6 +60,9 @@ protected:
         const expression::pointer &width);
 
 public:
+    // Keep the base class overload visible alongside the private one below.
+    using expression::function_call_expression_factory;
+
     /**
       * The create class method is used to create new dynamically
       * allocated instances of this class.

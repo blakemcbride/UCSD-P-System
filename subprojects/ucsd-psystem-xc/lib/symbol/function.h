@@ -203,11 +203,11 @@ protected:
       *
       * @param given
       *     The list of expressions given; used for its location and its size
-      * @param requires
+      * @param required
       *     The correct number of parameters
       */
     void parameter_error_wrong_number(const expression_list &given,
-        int requires) const;
+        int required) const;
 
     /**
       * The parameter_error_wrong_type method is used to issue and error
@@ -218,11 +218,11 @@ protected:
       *     counting from the left starting at one.
       * @param given
       *     The actual expression given, used for its location and its type.
-      * @param requires
+      * @param required
       *     The actual type that was needed.
       */
     void parameter_error_wrong_type(int param_number,
-        const expression::pointer &given, const type::pointer &requires) const;
+        const expression::pointer &given, const type::pointer &required) const;
 
     /**
       * The get_parameter method is used to obtain the name and type of

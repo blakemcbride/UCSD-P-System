@@ -78,15 +78,15 @@ protected:
 
     // See base class for documentation.
     expression::pointer assignment_expression_factory(
-        const expression::pointer &rhs);
+        const expression::pointer &rhs) const;
 
     // See base class for documentation.
     expression::pointer function_call_expression_factory(
-        const expression_list &args);
+        const expression_list &args) const;
 
     // See base class for documentation.
     expression::pointer dot_expression_factory(const location &locn,
-        const variable_name &member_name);
+        const symbol::pointer &member) const;
 
     // See base class for documentation.
     expression::pointer optimize(void) const;

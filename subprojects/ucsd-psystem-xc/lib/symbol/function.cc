@@ -99,7 +99,7 @@ symbol_function::attach_function_parameters(const name_type_list &ntl)
 
 void
 symbol_function::parameter_error_wrong_number(const expression_list &given,
-    int requires) const
+    int required) const
 {
     pascal_lex_error
     (
@@ -110,15 +110,15 @@ symbol_function::parameter_error_wrong_number(const expression_list &given,
         get_name().quote_c().c_str(),
         cardinal(given.size() - 1).c_str(),
         (given.size() == 2 ? "" : "s"),
-        cardinal(requires).c_str(),
-        (requires == 1 ? "" : "s")
+        cardinal(required).c_str(),
+        (required == 1 ? "" : "s")
     );
 }
 
 
 void
 symbol_function::parameter_error_wrong_type(int pnum,
-    const expression::pointer &given, const type::pointer &requires) const
+    const expression::pointer &given, const type::pointer &required) const
 {
     // don't nag
     if (given->is_error())
@@ -133,7 +133,7 @@ symbol_function::parameter_error_wrong_type(int pnum,
         get_name().quote_c().c_str(),
         cardinal(pnum).c_str(),
         given->get_description().c_str(),
-        requires->get_name().c_str()
+        required->get_name().c_str()
     );
 }
 
