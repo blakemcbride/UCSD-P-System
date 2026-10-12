@@ -29,7 +29,7 @@ class scope_interface:
     public scope
 {
 public:
-    typedef boost::shared_ptr<scope_interface> pointer;
+    typedef std::shared_ptr<scope_interface> pointer;
 
     /**
       * The destructor.

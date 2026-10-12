@@ -31,7 +31,7 @@ class expression_address_publref:
     public expression_address
 {
 public:
-    typedef boost::shared_ptr<expression_address_publref> pointer;
+    typedef std::shared_ptr<expression_address_publref> pointer;
 
     /**
       * The destructor.

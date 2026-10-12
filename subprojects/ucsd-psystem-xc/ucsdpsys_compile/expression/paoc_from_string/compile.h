@@ -32,7 +32,7 @@ class expression_paoc_from_string_compile:
     public expression_paoc_from_string
 {
 public:
-    typedef boost::shared_ptr<expression_paoc_from_string_compile> pointer;
+    typedef std::shared_ptr<expression_paoc_from_string_compile> pointer;
 
     /**
       * The destructor.

@@ -31,7 +31,7 @@ class expression_integer_division_compile:
     public expression_integer_division
 {
 public:
-    typedef boost::shared_ptr<expression_integer_division_compile> pointer;
+    typedef std::shared_ptr<expression_integer_division_compile> pointer;
 
     /**
       * The destructor.

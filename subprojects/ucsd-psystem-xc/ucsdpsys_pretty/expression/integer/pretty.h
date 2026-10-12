@@ -31,7 +31,7 @@ class expression_integer_pretty:
     public expression_integer
 {
 public:
-    typedef boost::shared_ptr<expression_integer_pretty> pointer;
+    typedef std::shared_ptr<expression_integer_pretty> pointer;
 
     /**
       * The destructor.

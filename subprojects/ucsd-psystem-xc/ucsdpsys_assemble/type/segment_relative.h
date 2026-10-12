@@ -30,7 +30,7 @@ class type_segment_relative:
     public type
 {
 public:
-    typedef boost::shared_ptr<type_segment_relative> pointer;
+    typedef std::shared_ptr<type_segment_relative> pointer;
 
     /**
       * The destructor.

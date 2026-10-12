@@ -32,7 +32,7 @@ class expression_ternary:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_ternary> pointer;
+    typedef std::shared_ptr<expression_ternary> pointer;
 
     /**
       * The destructor.

@@ -37,7 +37,7 @@ class symbol; // forward
 class code_source_map
 {
 public:
-    typedef boost::shared_ptr<code_source_map> pointer;
+    typedef std::shared_ptr<code_source_map> pointer;
 
     /**
       * The destructor.
@@ -123,7 +123,7 @@ private:
       */
     discolumns report;
 
-    typedef boost::shared_ptr<location> location_p;
+    typedef std::shared_ptr<location> location_p;
 
     symtab<location_p> location_by_name_and_line;
 
@@ -145,7 +145,7 @@ private:
     class progress
     {
     public:
-        typedef boost::shared_ptr<progress> pointer;
+        typedef std::shared_ptr<progress> pointer;
         ~progress();
         static pointer create(const rcstring &file_name);
         int get_line_number(void);

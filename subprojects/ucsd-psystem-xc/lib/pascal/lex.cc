@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cstdlib>
 #include <lib/ac/assert.h>
 #include <lib/ac/ctype.h>
 #include <lib/ac/stdio.h>
@@ -200,7 +201,7 @@ static rcstring
 view_path_find(const rcstring &filename)
 {
     if (filename[0] == '/')
-        return filename;
+        return (exists(filename) ? filename : rcstring());
     if (view_path.empty() || view_path[0] != ".")
         view_path.push_front(".");
     for (size_t j = 0; j < view_path.size(); ++j)

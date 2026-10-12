@@ -31,7 +31,7 @@ class scope_record_pretty:
     public scope_record
 {
 public:
-    typedef boost::shared_ptr<scope_record_pretty> pointer;
+    typedef std::shared_ptr<scope_record_pretty> pointer;
 
     /**
       * The destructor.

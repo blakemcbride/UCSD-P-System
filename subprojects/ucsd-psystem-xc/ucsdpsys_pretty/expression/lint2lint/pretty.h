@@ -32,7 +32,7 @@ class expression_lint2lint_pretty:
     public expression_lint2lint
 {
 public:
-    typedef boost::shared_ptr<expression_lint2lint_pretty> pointer;
+    typedef std::shared_ptr<expression_lint2lint_pretty> pointer;
 
     /**
       * The destructor.

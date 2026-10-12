@@ -31,7 +31,7 @@ class expression_real_division_compile:
     public expression_real_division
 {
 public:
-    typedef boost::shared_ptr<expression_real_division_compile> pointer;
+    typedef std::shared_ptr<expression_real_division_compile> pointer;
 
     /**
       * The destructor.

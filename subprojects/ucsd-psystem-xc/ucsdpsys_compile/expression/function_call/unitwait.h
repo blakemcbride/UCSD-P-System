@@ -31,7 +31,7 @@ class expression_function_call_unitwait:
     public expression_function_call
 {
 public:
-    typedef boost::shared_ptr<expression_function_call_unitwait> pointer;
+    typedef std::shared_ptr<expression_function_call_unitwait> pointer;
 
     /**
       * The destructor.

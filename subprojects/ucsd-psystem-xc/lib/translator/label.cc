@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/pascal/lex.h>
 #include <lib/symbol/label.h>
 #include <lib/translator.h>
@@ -117,7 +118,7 @@ translator::label_statement(const variable_name &name,
     // track the definition
     {
         symbol_label::pointer slp =
-            boost::dynamic_pointer_cast<symbol_label>(sp);
+            std::dynamic_pointer_cast<symbol_label>(sp);
         assert(slp);
         slp->remember_definition(name);
     }
@@ -202,7 +203,7 @@ translator::goto_statement(const variable_name &name)
     // track the references
     {
         symbol_label::pointer slp =
-            boost::dynamic_pointer_cast<symbol_label>(sp);
+            std::dynamic_pointer_cast<symbol_label>(sp);
         assert(slp);
         slp->remember_reference(name);
     }

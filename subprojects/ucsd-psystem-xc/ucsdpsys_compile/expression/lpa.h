@@ -31,7 +31,7 @@ class expression_lpa:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_lpa> pointer;
+    typedef std::shared_ptr<expression_lpa> pointer;
 
     /**
       * The destructor.

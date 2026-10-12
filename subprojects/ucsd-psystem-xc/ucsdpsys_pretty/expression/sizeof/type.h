@@ -31,7 +31,7 @@ class expression_sizeof_type:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_sizeof_type> pointer;
+    typedef std::shared_ptr<expression_sizeof_type> pointer;
 
     /**
       * The destructor.

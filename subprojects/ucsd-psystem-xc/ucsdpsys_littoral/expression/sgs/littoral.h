@@ -31,7 +31,7 @@ class expression_sgs_littoral:
     public expression_sgs
 {
 public:
-    typedef boost::shared_ptr<expression_sgs_littoral> pointer;
+    typedef std::shared_ptr<expression_sgs_littoral> pointer;
 
     /**
       * The destructor.

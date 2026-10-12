@@ -31,7 +31,7 @@ class symbol_expression:
     public symbol
 {
 public:
-    typedef boost::shared_ptr<symbol_expression> pointer;
+    typedef std::shared_ptr<symbol_expression> pointer;
 
     /**
       * The destructor.

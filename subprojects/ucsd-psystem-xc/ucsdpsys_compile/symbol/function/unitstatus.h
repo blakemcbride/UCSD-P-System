@@ -31,7 +31,7 @@ class symbol_function_unitstatus:
     public symbol_function
 {
 public:
-    typedef boost::shared_ptr<symbol_function_unitstatus> pointer;
+    typedef std::shared_ptr<symbol_function_unitstatus> pointer;
 
     /**
       * The destructor.

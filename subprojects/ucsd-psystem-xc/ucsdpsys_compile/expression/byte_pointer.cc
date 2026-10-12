@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/debug.h>
 #include <lib/type/array.h>
 #include <lib/type/boolean.h>

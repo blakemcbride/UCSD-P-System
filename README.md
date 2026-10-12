@@ -13,10 +13,34 @@ build and run it. It combines four projects that used to be separate:
 
 ## Building
 
-Fedora packages needed:
+Required: a C and C++17 compiler, GNU make 3.81 or later, and curses.
 
-    sudo dnf install meson ninja-build gcc-c++ bison boost-devel fuse-devel \
-        libpng-devel ncurses-devel libX11-devel libXt-devel python3 sharutils
+The bison-generated parsers are checked in. If bison 3 or later is installed,
+they are regenerated whenever a `grammar.y` changes; otherwise the checked-in
+copies are used.
+
+Optional (built when `pkg-config` finds them):
+
+| Library  | Needed for                                    | Force with      |
+|----------|-----------------------------------------------|-----------------|
+| FUSE 2   | `ucsdpsys_mount`, `ucsdpsys_umount`           | `FUSE=yes\|no`  |
+| SDL3     | `ucsdpsys_turtleserver` (turtle graphics window) | `SDL=yes\|no` |
+| libpng   | PNG support in `ucsdpsys_foto`, `ucsdpsys_charset` | `PNG=yes\|no` |
+
+Packages:
+
+    # Fedora
+    sudo dnf install make gcc-c++ ncurses-devel \
+        pkgconf fuse-devel SDL3-devel libpng-devel
+    # Debian / Ubuntu
+    sudo apt install make g++ libncurses-dev \
+        pkg-config libfuse-dev libsdl3-dev libpng-dev
+    # macOS (Homebrew)
+    brew install pkg-config sdl3 libpng
+
+Add `bison` (version 3 or later) only if you will change a grammar.
+
+On the BSDs, use `gmake`.
 
 Then:
 
@@ -27,13 +51,12 @@ Then:
     make clean      # remove build output
     make distclean  # also remove run/ (VM working volumes)
 
-The build happens in two stages:
+Use `make -j8` (or similar) for a parallel build. `PREFIX`, `DESTDIR`, `CC`,
+`CXX`, `CFLAGS` and `CXXFLAGS` work as usual.
 
-1. `build/` holds the native Meson build. The top-level `meson.build`
-   pulls in xc, fs and vm as subprojects.
-2. `build-os/` holds a cross build of `os/` for the p-machine. It uses the
-   tools from stage 1 and produces `system.vol`, `utility.vol` and
-   `diagnostic.vol`.
+Everything goes into `build/`: the tools in `build/bin`, and the volumes
+`system.vol`, `utility.vol` and `diagnostic.vol` in `build/`. The volumes are
+compiled from `os/` by the freshly built tools.
 
 ## License
 
@@ -42,7 +65,12 @@ license for the p-System itself). See `LICENSE`.
 
 ## Notes
 
-- libexplain is no longer packaged for Fedora. `subprojects/libexplain`
-  implements the subset of its API that these tools use. If a real libexplain
-  is installed, it is used instead.
-- The C++ code predates C++20, so it's compiled as `gnu++17`.
+- libexplain is no longer packaged by most distributions.
+  `subprojects/libexplain` implements the subset of its API that these tools
+  use, and is always used.
+- The C++ code predates C++20, so it's compiled as `c++17`.
+- Turtle graphics: the VM starts `ucsdpsys_turtleserver` the first time a
+  program calls the TURTLEGRAPHICS unit and draws in its window. Without a
+  display it draws off screen; without the server, drawing is skipped. Note
+  that the II.0 system built here only allows segments 0–15, while the
+  turtle unit is segment 20, so II.0 programs can't use it unchanged.

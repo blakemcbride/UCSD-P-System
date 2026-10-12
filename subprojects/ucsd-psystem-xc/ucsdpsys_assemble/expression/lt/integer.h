@@ -29,7 +29,7 @@ class expression_lt_integer:
     public expression_lt
 {
 public:
-    typedef boost::shared_ptr<expression_lt_integer> pointer;
+    typedef std::shared_ptr<expression_lt_integer> pointer;
 
     /**
       * The destructor.

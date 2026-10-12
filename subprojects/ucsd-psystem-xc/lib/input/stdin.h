@@ -29,7 +29,7 @@ class input_stdin:
     public input
 {
 public:
-    typedef boost::shared_ptr<input_stdin> pointer;
+    typedef std::shared_ptr<input_stdin> pointer;
 
     /**
       * The destructor.

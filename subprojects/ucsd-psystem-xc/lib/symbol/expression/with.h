@@ -30,7 +30,7 @@ class symbol_expression_with:
     public symbol_expression
 {
 public:
-    typedef boost::shared_ptr<symbol_expression_with> pointer;
+    typedef std::shared_ptr<symbol_expression_with> pointer;
 
     /**
       * The destructor.

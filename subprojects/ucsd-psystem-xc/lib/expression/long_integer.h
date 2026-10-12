@@ -30,7 +30,7 @@ class expression_long_integer:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_long_integer> pointer;
+    typedef std::shared_ptr<expression_long_integer> pointer;
 
     /**
       * The destructor.

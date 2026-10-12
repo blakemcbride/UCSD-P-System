@@ -31,7 +31,7 @@ class expression_nil_compile:
     public expression_nil
 {
 public:
-    typedef boost::shared_ptr<expression_nil_compile> pointer;
+    typedef std::shared_ptr<expression_nil_compile> pointer;
 
     /**
       * The destructor.

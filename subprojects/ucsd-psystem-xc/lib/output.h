@@ -21,7 +21,7 @@
 
 #include <lib/ac/stdarg.h>
 #include <lib/ac/stddef.h>
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <lib/format_printf.h>
 
@@ -39,7 +39,7 @@ class rcstring; // forward
 class output
 {
 public:
-    typedef boost::shared_ptr<output> pointer;
+    typedef std::shared_ptr<output> pointer;
 
     /**
       * The destructor.

@@ -31,7 +31,7 @@ class symbol_variable_normal_littoral:
     public symbol_variable_normal
 {
 public:
-    typedef boost::shared_ptr<symbol_variable_normal_littoral> pointer;
+    typedef std::shared_ptr<symbol_variable_normal_littoral> pointer;
 
     /**
       * The destructor.

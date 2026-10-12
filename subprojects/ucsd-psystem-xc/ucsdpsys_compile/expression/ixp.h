@@ -31,7 +31,7 @@ class expression_ixp:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_ixp> pointer;
+    typedef std::shared_ptr<expression_ixp> pointer;
 
     /**
       * The destructor.

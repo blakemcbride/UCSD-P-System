@@ -29,7 +29,7 @@ class scope_temporary_compound:
     public scope_temporary
 {
 public:
-    typedef boost::shared_ptr<scope_temporary_compound> pointer;
+    typedef std::shared_ptr<scope_temporary_compound> pointer;
 
     /**
       * The destructor.

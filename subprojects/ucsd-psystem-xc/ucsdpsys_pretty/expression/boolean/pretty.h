@@ -31,7 +31,7 @@ class expression_boolean_pretty:
     public expression_boolean
 {
 public:
-    typedef boost::shared_ptr<expression_boolean_pretty> pointer;
+    typedef std::shared_ptr<expression_boolean_pretty> pointer;
 
     /**
       * The destructor.

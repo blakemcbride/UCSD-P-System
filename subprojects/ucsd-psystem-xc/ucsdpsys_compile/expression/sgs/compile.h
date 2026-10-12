@@ -31,7 +31,7 @@ class expression_sgs_compile:
     public expression_sgs
 {
 public:
-    typedef boost::shared_ptr<expression_sgs_compile> pointer;
+    typedef std::shared_ptr<expression_sgs_compile> pointer;
 
     /**
       * The destructor.

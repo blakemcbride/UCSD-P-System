@@ -32,7 +32,7 @@ class expression_long_integer_compile:
     public expression_long_integer
 {
 public:
-    typedef boost::shared_ptr<expression_long_integer_compile> pointer;
+    typedef std::shared_ptr<expression_long_integer_compile> pointer;
 
     /**
       * The destructor.

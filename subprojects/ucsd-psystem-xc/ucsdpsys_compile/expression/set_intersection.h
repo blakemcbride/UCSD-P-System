@@ -31,7 +31,7 @@ class expression_set_intersection:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_set_intersection> pointer;
+    typedef std::shared_ptr<expression_set_intersection> pointer;
 
     /**
       * The destructor.

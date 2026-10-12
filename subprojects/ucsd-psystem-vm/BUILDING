@@ -1,22 +1,11 @@
-Build VM using Meson:
-
-	meson setup --buildtype=debugoptimized build/
-	meson compile -C build/
-
-If unfamiliar with Meson, see https://mesonbuild.com/ for package installation,
-initial setup, and built-in build configuration options.
-
-Building VM on Debian requires the libncurses5-dev, libexplain-dev, libx11-dev,
-and libxt-dev packages.
-
-Tests require ucsdpsys_compile from the ucsd-psystem-xc project as well as
-ucsdpsys_mkfs and ucsdpsys_disk from the ucsd-psystem-fs project.
-
-The git tags indicate which distributions have been verified.
+This directory is built by the top-level Makefile of the UCSD-P-System
+repository; see README.md there.
 
 disk-images/ contains two UCSD P-System disk images that run on the VM.  Peter
 Miller included these in his ucsd-psystem-os project, but they are included here
 to make this project self-sufficient.
+
+The text below is historical.
 
 
 Peter Miller's BUILDING text

@@ -31,7 +31,7 @@ class expression_negate_asm:
     public expression_negate
 {
 public:
-    typedef boost::shared_ptr<expression_negate_asm> pointer;
+    typedef std::shared_ptr<expression_negate_asm> pointer;
 
     /**
       * The destructor.

@@ -33,7 +33,7 @@ class expression_linker_reference:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_linker_reference> pointer;
+    typedef std::shared_ptr<expression_linker_reference> pointer;
 
     /**
       * The destructor.

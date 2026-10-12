@@ -31,7 +31,7 @@ class type_set:
     public type
 {
 public:
-    typedef boost::shared_ptr<type_set> pointer;
+    typedef std::shared_ptr<type_set> pointer;
 
     /**
       * The destructor.

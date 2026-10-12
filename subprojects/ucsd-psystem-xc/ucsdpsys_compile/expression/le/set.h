@@ -31,7 +31,7 @@ class expression_le_set:
     public expression_le
 {
 public:
-    typedef boost::shared_ptr<expression_le_set> pointer;
+    typedef std::shared_ptr<expression_le_set> pointer;
 
     /**
       * The destructor.

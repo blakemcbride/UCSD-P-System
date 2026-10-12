@@ -31,7 +31,7 @@ class expression_gt_boolean:
     public expression_gt
 {
 public:
-    typedef boost::shared_ptr<expression_gt_boolean> pointer;
+    typedef std::shared_ptr<expression_gt_boolean> pointer;
 
     /**
       * The destructor.

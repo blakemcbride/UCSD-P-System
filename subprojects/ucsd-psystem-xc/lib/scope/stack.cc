@@ -156,7 +156,7 @@ scope_stack::define(const symbol::pointer &sp, bool isa_param)
     //
     {
         symbol_enumerated::pointer sep =
-            boost::dynamic_pointer_cast<symbol_enumerated>(sp);
+            std::dynamic_pointer_cast<symbol_enumerated>(sp);
         if (sep)
         {
             scope::pointer scp = topmost_will_accept_enums();

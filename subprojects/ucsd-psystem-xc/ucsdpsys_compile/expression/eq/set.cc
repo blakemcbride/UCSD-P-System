@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/debug.h>
 #include <lib/pcode.h>
 
@@ -84,10 +85,10 @@ expression_eq_set::optimize(void)
     if (e1->is_constant() && e2->is_constant())
     {
         expression_set_compile::pointer lesp =
-            boost::dynamic_pointer_cast<expression_set_compile>(e1);
+            std::dynamic_pointer_cast<expression_set_compile>(e1);
         assert(lesp);
         expression_set_compile::pointer resp =
-            boost::dynamic_pointer_cast<expression_set_compile>(e2);
+            std::dynamic_pointer_cast<expression_set_compile>(e2);
         assert(resp);
         bool result = (lesp->get_value() == resp->get_value());
         expression::pointer ep =

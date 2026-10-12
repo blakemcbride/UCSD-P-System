@@ -19,7 +19,7 @@
 #ifndef LIB_INPUT_H
 #define LIB_INPUT_H
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <lib/rcstring.h>
 #include <lib/format_printf.h>
@@ -30,7 +30,7 @@
 class input
 {
 public:
-    typedef boost::shared_ptr<input> pointer;
+    typedef std::shared_ptr<input> pointer;
 
     /**
       * The destructor is used to close the given input, and delete all

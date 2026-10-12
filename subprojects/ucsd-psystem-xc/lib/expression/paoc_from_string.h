@@ -29,7 +29,7 @@ class expression_paoc_from_string:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_paoc_from_string> pointer;
+    typedef std::shared_ptr<expression_paoc_from_string> pointer;
 
     /**
       * The destructor.

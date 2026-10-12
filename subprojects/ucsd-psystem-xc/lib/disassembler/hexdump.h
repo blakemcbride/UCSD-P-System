@@ -30,7 +30,7 @@ class disassembler_hexdump:
     public disassembler
 {
 public:
-    typedef boost::shared_ptr<disassembler_hexdump> pointer;
+    typedef std::shared_ptr<disassembler_hexdump> pointer;
 
     /**
       * The destructor.

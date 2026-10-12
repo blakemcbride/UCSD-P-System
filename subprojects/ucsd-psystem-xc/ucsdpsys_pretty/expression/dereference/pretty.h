@@ -31,7 +31,7 @@ class expression_dereference_pretty:
     public expression_dereference
 {
 public:
-    typedef boost::shared_ptr<expression_dereference_pretty> pointer;
+    typedef std::shared_ptr<expression_dereference_pretty> pointer;
 
     /**
       * The destructor.

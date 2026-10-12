@@ -30,7 +30,7 @@ class scope_temporary_compound_littoral:
     public scope_temporary_compound
 {
 public:
-    typedef boost::shared_ptr<scope_temporary_compound_littoral> pointer;
+    typedef std::shared_ptr<scope_temporary_compound_littoral> pointer;
 
     /**
       * The destructor.

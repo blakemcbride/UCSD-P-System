@@ -27,7 +27,7 @@
 class expression; // forward
 class variable_name; // forward
 class expression; // forward
-typedef boost::shared_ptr<expression> expression_pointer_t;
+typedef std::shared_ptr<expression> expression_pointer_t;
 
 /**
   * The symbol abstract base class is used to represent a generic
@@ -36,8 +36,8 @@ typedef boost::shared_ptr<expression> expression_pointer_t;
 class symbol
 {
 public:
-    typedef boost::shared_ptr<symbol> pointer;
-    typedef boost::shared_ptr<expression> expression_pointer_t;
+    typedef std::shared_ptr<symbol> pointer;
+    typedef std::shared_ptr<expression> expression_pointer_t;
 
     /**
       * The destructor.

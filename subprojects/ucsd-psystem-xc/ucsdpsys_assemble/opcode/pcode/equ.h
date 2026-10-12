@@ -29,7 +29,7 @@ class opcode_pcode_equ:
     public opcode_pcode
 {
 public:
-    typedef boost::shared_ptr<opcode_pcode_equ> pointer;
+    typedef std::shared_ptr<opcode_pcode_equ> pointer;
 
     /**
       * The destructor.

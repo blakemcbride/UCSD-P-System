@@ -29,7 +29,7 @@ class expression_integer_asm:
     public expression_integer
 {
 public:
-    typedef boost::shared_ptr<expression_integer_asm> pointer;
+    typedef std::shared_ptr<expression_integer_asm> pointer;
 
     /**
       * The destructor.

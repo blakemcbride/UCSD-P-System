@@ -28,7 +28,7 @@ class symbol_typedef:
     public symbol
 {
 public:
-    typedef boost::shared_ptr<symbol_typedef> pointer;
+    typedef std::shared_ptr<symbol_typedef> pointer;
 
     /**
       * The destructor.

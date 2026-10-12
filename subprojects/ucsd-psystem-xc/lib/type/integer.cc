@@ -89,13 +89,13 @@ type_integer::is_a(const type::pointer &arg)
     for (;;)
     {
         type_subrange::pointer rr =
-            boost::dynamic_pointer_cast<type_subrange>(r1);
+            std::dynamic_pointer_cast<type_subrange>(r1);
         if (!rr)
             break;
         r1 = rr->get_subtype();
     }
 
-    return static_cast<bool> (boost::dynamic_pointer_cast<type_integer>(r1));
+    return static_cast<bool> (std::dynamic_pointer_cast<type_integer>(r1));
 }
 
 

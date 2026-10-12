@@ -29,7 +29,7 @@ class type_pointer_packed:
     public type_pointer
 {
 public:
-    typedef boost::shared_ptr<type_pointer_packed> pointer;
+    typedef std::shared_ptr<type_pointer_packed> pointer;
 
     /**
       * The destructor.

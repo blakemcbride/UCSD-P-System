@@ -31,7 +31,7 @@ class scope_builtin_pretty:
     public scope_builtin
 {
 public:
-    typedef boost::shared_ptr<scope_builtin_pretty> pointer;
+    typedef std::shared_ptr<scope_builtin_pretty> pointer;
 
     /**
       * The destructor.

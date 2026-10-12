@@ -135,7 +135,7 @@ expression_addition_address::optimize(void)
     // and then optimize again.
     //
     expression_addition_address::pointer e1x =
-        boost::dynamic_pointer_cast<expression_addition_address>(e1);
+        std::dynamic_pointer_cast<expression_addition_address>(e1);
     if (e1x)
     {
         expression::pointer ep =
@@ -162,7 +162,7 @@ expression_addition_address::optimize(void)
         // have their offset advanced...
         //
         expression_address::pointer eap =
-            boost::dynamic_pointer_cast<expression_address>(e1);
+            std::dynamic_pointer_cast<expression_address>(e1);
         if (eap)
         {
             expression::pointer ep =

@@ -207,7 +207,7 @@ symbol_function_user_defined::name_expression_factory(const symbol::pointer &sp,
     // functions, but UCSD Pascal does not.
     //
     symbol_function::pointer sfp =
-        boost::dynamic_pointer_cast<symbol_function>(sp);
+        std::dynamic_pointer_cast<symbol_function>(sp);
     assert(sfp);
     return expression_function::create(ref_locn, sfp, &code);
 }

@@ -30,7 +30,7 @@ class directory_entry_volume_label:
     public directory_entry
 {
 public:
-    typedef boost::shared_ptr<directory_entry_volume_label> vlptr;
+    typedef std::shared_ptr<directory_entry_volume_label> vlptr;
 
     /**
       * The destructor.

@@ -29,7 +29,7 @@ class opcode_pcode_ixa:
     public opcode_pcode
 {
 public:
-    typedef boost::shared_ptr<opcode_pcode_ixa> pointer;
+    typedef std::shared_ptr<opcode_pcode_ixa> pointer;
 
     /**
       * The destructor.

@@ -31,7 +31,7 @@ class statement_while_compile:
     public statement_while
 {
 public:
-    typedef boost::shared_ptr<statement_while_compile> pointer;
+    typedef std::shared_ptr<statement_while_compile> pointer;
 
     /**
       * The destructor.

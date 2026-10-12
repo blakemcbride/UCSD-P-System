@@ -19,7 +19,7 @@
 #ifndef LIB_DISASSEMBLER_H
 #define LIB_DISASSEMBLER_H
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <lib/byte_sex.h>
 #include <lib/discolumns.h>
@@ -35,7 +35,7 @@ class code_source_map; // forward
 class disassembler
 {
 public:
-    typedef boost::shared_ptr<disassembler> pointer;
+    typedef std::shared_ptr<disassembler> pointer;
 
     /**
       * The destructor.

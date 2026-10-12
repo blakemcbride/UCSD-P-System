@@ -19,7 +19,7 @@
 #ifndef LIB_SEGMENT_H
 #define LIB_SEGMENT_H
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <lib/byte_sex.h>
 #include <lib/link_info/list.h>
@@ -37,7 +37,7 @@ class codefile; // forward
 class segment
 {
 public:
-    typedef boost::shared_ptr<segment> pointer;
+    typedef std::shared_ptr<segment> pointer;
 
     /**
       * The destructor.

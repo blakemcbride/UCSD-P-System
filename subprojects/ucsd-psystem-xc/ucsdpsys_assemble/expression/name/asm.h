@@ -29,7 +29,7 @@ class expression_name_asm:
     public expression_name
 {
 public:
-    typedef boost::shared_ptr<expression_name_asm> pointer;
+    typedef std::shared_ptr<expression_name_asm> pointer;
 
     /**
       * The destructor.

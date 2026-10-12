@@ -31,7 +31,7 @@ class expression_modulo_pretty:
     public expression_modulo
 {
 public:
-    typedef boost::shared_ptr<expression_modulo_pretty> pointer;
+    typedef std::shared_ptr<expression_modulo_pretty> pointer;
 
     /**
       * The destructor.

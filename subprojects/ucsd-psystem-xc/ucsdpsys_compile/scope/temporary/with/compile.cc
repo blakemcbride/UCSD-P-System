@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/symbol/expression/constant.h>
 
 #include <ucsdpsys_compile/scope/temporary/with/compile.h>

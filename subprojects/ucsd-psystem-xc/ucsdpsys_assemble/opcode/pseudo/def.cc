@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/expression/list.h>
 
 #include <ucsdpsys_assemble/expression/name/asm.h>
@@ -57,13 +58,13 @@ opcode_pseudo_def::interpret(const expression_list &args)
         if (ep1->is_error())
             continue;
         expression_name_asm::pointer ep2 =
-            boost::dynamic_pointer_cast<expression_name_asm>(ep1);
+            std::dynamic_pointer_cast<expression_name_asm>(ep1);
         if (ep2)
         {
             symbol::pointer sp1 = ep2->get_sp();
             assert(sp1);
             symbol_expression_asm::pointer sp2 =
-                boost::dynamic_pointer_cast<symbol_expression_asm>(sp1);
+                std::dynamic_pointer_cast<symbol_expression_asm>(sp1);
             if (sp2)
             {
                 sp2->export_def();

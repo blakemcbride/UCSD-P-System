@@ -29,7 +29,7 @@ class expression_trunc:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_trunc> pointer;
+    typedef std::shared_ptr<expression_trunc> pointer;
 
     /**
       * The destructor.

@@ -31,7 +31,7 @@ class expression_load_string:
     public expression_load
 {
 public:
-    typedef boost::shared_ptr<expression_load_string> pointer;
+    typedef std::shared_ptr<expression_load_string> pointer;
 
     /**
       * The destructor.

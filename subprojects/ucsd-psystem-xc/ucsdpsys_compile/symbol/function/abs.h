@@ -31,7 +31,7 @@ class symbol_function_abs:
     public symbol_function
 {
 public:
-    typedef boost::shared_ptr<symbol_function_abs> pointer;
+    typedef std::shared_ptr<symbol_function_abs> pointer;
 
     /**
       * The destructor.

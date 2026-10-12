@@ -31,7 +31,7 @@ class expression_address_global:
     public expression_address
 {
 public:
-    typedef boost::shared_ptr<expression_address_global> pointer;
+    typedef std::shared_ptr<expression_address_global> pointer;
 
     /**
       * The destructor.

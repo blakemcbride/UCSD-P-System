@@ -32,7 +32,7 @@ class tcontrol_too_late:
     public tcontrol
 {
 public:
-    typedef boost::shared_ptr<tcontrol_too_late> pointer;
+    typedef std::shared_ptr<tcontrol_too_late> pointer;
 
     /**
       * The destructor.

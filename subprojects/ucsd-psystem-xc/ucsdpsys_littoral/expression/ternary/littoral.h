@@ -31,7 +31,7 @@ class expression_ternary_littoral:
     public expression_ternary
 {
 public:
-    typedef boost::shared_ptr<expression_ternary_littoral> pointer;
+    typedef std::shared_ptr<expression_ternary_littoral> pointer;
 
     /**
       * The destructor.

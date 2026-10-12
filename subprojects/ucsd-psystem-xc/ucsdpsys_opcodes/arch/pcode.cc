@@ -17,6 +17,7 @@
 //
 
 #include <lib/config.h>
+#include <cstdlib>
 #include <libexplain/fclose.h>
 #include <libexplain/fflush.h>
 #include <libexplain/fopen.h>

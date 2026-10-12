@@ -17,6 +17,7 @@
 //
 
 #include <lib/config.h>
+#include <cassert>
 #include <cctype>
 #include <cmath>
 #include <cstdio>

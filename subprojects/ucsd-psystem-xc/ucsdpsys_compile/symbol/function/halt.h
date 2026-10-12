@@ -31,7 +31,7 @@ class symbol_function_halt:
     public symbol_function
 {
 public:
-    typedef boost::shared_ptr<symbol_function_halt> pointer;
+    typedef std::shared_ptr<symbol_function_halt> pointer;
 
     /**
       * The destructor.

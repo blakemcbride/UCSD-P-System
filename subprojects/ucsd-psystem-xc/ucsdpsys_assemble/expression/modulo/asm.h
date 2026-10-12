@@ -31,7 +31,7 @@ class expression_modulo_asm:
     public expression_modulo
 {
 public:
-    typedef boost::shared_ptr<expression_modulo_asm> pointer;
+    typedef std::shared_ptr<expression_modulo_asm> pointer;
 
     /**
       * The destructor.

@@ -31,7 +31,7 @@ class expression_bitwise_not_asm:
     public expression_bitwise_not
 {
 public:
-    typedef boost::shared_ptr<expression_bitwise_not_asm> pointer;
+    typedef std::shared_ptr<expression_bitwise_not_asm> pointer;
 
     /**
       * The destructor.

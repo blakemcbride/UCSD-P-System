@@ -29,7 +29,7 @@ class disassembler_pcode_i_5:
     public disassembler_pcode
 {
 public:
-    typedef boost::shared_ptr<disassembler_pcode_i_5> pointer;
+    typedef std::shared_ptr<disassembler_pcode_i_5> pointer;
 
     /**
       * The destructor.

@@ -32,7 +32,7 @@ class output_string_list:
     public output
 {
 public:
-    typedef boost::shared_ptr<output_string_list> pointer;
+    typedef std::shared_ptr<output_string_list> pointer;
 
     /**
       * The destructor.

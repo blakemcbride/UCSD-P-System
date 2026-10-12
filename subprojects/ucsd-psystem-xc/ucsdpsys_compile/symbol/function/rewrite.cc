@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/debug.h>
 #include <lib/expression/error.h>
 #include <lib/expression/list.h>
@@ -125,7 +126,7 @@ symbol_function_rewrite::name_expression_factory(const symbol::pointer &sym,
 {
     assert(this == sym.get());
     symbol_function::pointer sfp =
-        boost::dynamic_pointer_cast<symbol_function>(sym);
+        std::dynamic_pointer_cast<symbol_function>(sym);
     assert(sfp);
     return expression_function::create(where, sfp, &code);
 }

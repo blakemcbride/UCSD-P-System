@@ -31,7 +31,7 @@ class expression_negate_pretty:
     public expression_negate
 {
 public:
-    typedef boost::shared_ptr<expression_negate_pretty> pointer;
+    typedef std::shared_ptr<expression_negate_pretty> pointer;
 
     /**
       * The destructor.

@@ -30,7 +30,7 @@ class volume_file:
     public volume
 {
 public:
-    typedef boost::shared_ptr<volume_file> pointer;
+    typedef std::shared_ptr<volume_file> pointer;
 
     /**
       * The destructor.

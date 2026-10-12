@@ -31,7 +31,7 @@ class symbol_function_moveright:
     public symbol_function
 {
 public:
-    typedef boost::shared_ptr<symbol_function_moveright> pointer;
+    typedef std::shared_ptr<symbol_function_moveright> pointer;
 
     /**
       * The destructor.

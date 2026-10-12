@@ -246,7 +246,7 @@ expression_ixp::get_byte_pointer(void)
     DEBUG(1, "%s {", __PRETTY_FUNCTION__);
     DEBUG(2, "%s", lisp_representation().c_str());
     type_pointer_packed::pointer tppp =
-        boost::dynamic_pointer_cast<type_pointer_packed>(get_type());
+        std::dynamic_pointer_cast<type_pointer_packed>(get_type());
     if (!tppp)
     {
         DEBUG(1, "}");

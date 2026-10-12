@@ -31,7 +31,7 @@ class expression_lt_byte_array:
     public expression_lt
 {
 public:
-    typedef boost::shared_ptr<expression_lt_byte_array> pointer;
+    typedef std::shared_ptr<expression_lt_byte_array> pointer;
 
     /**
       * The destructor.

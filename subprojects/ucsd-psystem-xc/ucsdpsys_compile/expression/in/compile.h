@@ -31,7 +31,7 @@ class expression_in_compile:
     public expression_in
 {
 public:
-    typedef boost::shared_ptr<expression_in_compile> pointer;
+    typedef std::shared_ptr<expression_in_compile> pointer;
 
     /**
       * The destructor.

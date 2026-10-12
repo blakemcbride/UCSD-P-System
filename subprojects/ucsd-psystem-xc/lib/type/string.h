@@ -31,7 +31,7 @@ class type_string:
     public type
 {
 public:
-    typedef boost::shared_ptr<type_string> pointer;
+    typedef std::shared_ptr<type_string> pointer;
 
     /**
       * The destructor.

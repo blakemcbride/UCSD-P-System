@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <ucsdpsys_assemble/expression/segment_relative.h>
 #include <ucsdpsys_assemble/type/segment_relative.h>
 

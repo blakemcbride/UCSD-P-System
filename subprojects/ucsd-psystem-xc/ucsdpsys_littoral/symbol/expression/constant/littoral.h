@@ -29,7 +29,7 @@ class symbol_expression_constant_littoral:
     public symbol_expression_constant
 {
 public:
-    typedef boost::shared_ptr<symbol_expression_constant_littoral> pointer;
+    typedef std::shared_ptr<symbol_expression_constant_littoral> pointer;
 
     /**
       * The destructor.

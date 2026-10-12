@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/anonymous_name.h>
 #include <lib/debug.h>
 #include <lib/expression/error.h>
@@ -82,7 +83,7 @@ translator::with_scope_begin(const expression::pointer &a_base)
         return;
     }
     type_record::pointer rtp =
-        boost::dynamic_pointer_cast<type_record>(base->get_type());
+        std::dynamic_pointer_cast<type_record>(base->get_type());
     if (!rtp)
         goto yuck;
 
@@ -138,7 +139,7 @@ translator::with_scope_end(const expression::pointer &ep,
 {
     DEBUG(1, "%s {", __PRETTY_FUNCTION__);
     scope_temporary_with::pointer stw =
-        boost::dynamic_pointer_cast<scope_temporary_with>(scopes.back());
+        std::dynamic_pointer_cast<scope_temporary_with>(scopes.back());
     assert(stw);
     scopes.pop_back();
     statement::pointer sp =

@@ -29,7 +29,7 @@ class expression_ne_integer:
     public expression_ne
 {
 public:
-    typedef boost::shared_ptr<expression_ne_integer> pointer;
+    typedef std::shared_ptr<expression_ne_integer> pointer;
 
     /**
       * The destructor.

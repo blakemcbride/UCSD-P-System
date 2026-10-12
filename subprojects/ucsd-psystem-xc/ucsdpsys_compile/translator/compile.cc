@@ -17,6 +17,7 @@
 //
 
 #include <lib/config.h>
+#include <unistd.h>
 #include <lib/ac/assert.h>
 #include <lib/ac/string.h>
 #include <libexplain/output.h>
@@ -866,7 +867,7 @@ translator_compile::array_eq_array_expression_factory(
     }
 
     type_array::pointer tap =
-        boost::dynamic_pointer_cast<type_array>(lhs->get_type());
+        std::dynamic_pointer_cast<type_array>(lhs->get_type());
     assert(tap);
     if (!tap->is_packed_array_of_char())
     {
@@ -1000,7 +1001,7 @@ translator_compile::array_ne_array_expression_factory(
     }
 
     type_array::pointer tap =
-        boost::dynamic_pointer_cast<type_array>(lhs->get_type());
+        std::dynamic_pointer_cast<type_array>(lhs->get_type());
     assert(tap);
     if (!tap->is_packed_array_of_char())
     {
@@ -1225,7 +1226,7 @@ translator_compile::function_symbol_factory(rcstring const &name,
 {
     assert(scp);
     scope_function_compile::pointer sfcp =
-        boost::dynamic_pointer_cast<scope_function_compile>(scp);
+        std::dynamic_pointer_cast<scope_function_compile>(scp);
     assert(sfcp);
     int seg_num = sfcp->get_segment_number();
     int proc_num = sfcp->get_procedure_number();
@@ -1911,7 +1912,7 @@ translator_compile::range_check(const expression::pointer &value,
 {
 #if 1
     const type_subrange::pointer stp =
-        boost::dynamic_pointer_cast<type_subrange>(against);
+        std::dynamic_pointer_cast<type_subrange>(against);
     if (stp)
     {
         int min = stp->get_minimum_value();
@@ -1972,7 +1973,7 @@ translator_compile::writeln1_expression_factory(
     int w = 0;
     {
         type_array::pointer tap =
-            boost::dynamic_pointer_cast<type_array>(value->get_type());
+            std::dynamic_pointer_cast<type_array>(value->get_type());
         if (tap && tap->is_packed_array_of_char())
             w = tap->get_width();
     }
@@ -2122,7 +2123,7 @@ translator_compile::uses_interface_notify_push(const scope::pointer &sp)
     // with a pure virtual method.
     {
         scope_interface_unitseg::pointer siup =
-            boost::dynamic_pointer_cast<scope_interface_unitseg>(sp);
+            std::dynamic_pointer_cast<scope_interface_unitseg>(sp);
         if (siup)
         {
             segstack.push_back(siup->segment_builder_factory());
@@ -2132,7 +2133,7 @@ translator_compile::uses_interface_notify_push(const scope::pointer &sp)
 
     {
         scope_interface_compile::pointer sicp =
-            boost::dynamic_pointer_cast<scope_interface_compile>(sp);
+            std::dynamic_pointer_cast<scope_interface_compile>(sp);
         if(sicp)
         {
             segstack.push_back(sicp->segment_builder_factory());
@@ -2148,7 +2149,7 @@ void
 translator_compile::uses_interface_notify_pop(const scope::pointer &sp)
 {
     scope_interface::pointer sip =
-        boost::dynamic_pointer_cast<scope_interface>(sp);
+        std::dynamic_pointer_cast<scope_interface>(sp);
     assert(sip);
 
     segstack.segment_end();
@@ -2296,7 +2297,7 @@ translator_compile::array_lt_array_expression_factory(
 {
     assert(lhs->get_type() == rhs->get_type());
     type_array::pointer tap =
-        boost::dynamic_pointer_cast<type_array>(lhs->get_type());
+        std::dynamic_pointer_cast<type_array>(lhs->get_type());
     assert(tap);
     if (!tap->is_packed_array_of_char())
     {
@@ -2334,7 +2335,7 @@ translator_compile::array_le_array_expression_factory(
 {
     assert(lhs->get_type() == rhs->get_type());
     type_array::pointer tap =
-        boost::dynamic_pointer_cast<type_array>(lhs->get_type());
+        std::dynamic_pointer_cast<type_array>(lhs->get_type());
     assert(tap);
     if (!tap->is_packed_array_of_char())
     {
@@ -2372,7 +2373,7 @@ translator_compile::array_ge_array_expression_factory(
 {
     assert(lhs->get_type() == rhs->get_type());
     type_array::pointer tap =
-        boost::dynamic_pointer_cast<type_array>(lhs->get_type());
+        std::dynamic_pointer_cast<type_array>(lhs->get_type());
     assert(tap);
     if (!tap->is_packed_array_of_char())
     {
@@ -2411,7 +2412,7 @@ translator_compile::array_gt_array_expression_factory(
 {
     assert(lhs->get_type() == rhs->get_type());
     type_array::pointer tap =
-        boost::dynamic_pointer_cast<type_array>(lhs->get_type());
+        std::dynamic_pointer_cast<type_array>(lhs->get_type());
     assert(tap);
     if (!tap->is_packed_array_of_char())
     {

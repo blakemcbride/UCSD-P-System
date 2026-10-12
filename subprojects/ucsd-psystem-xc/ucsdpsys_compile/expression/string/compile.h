@@ -31,7 +31,7 @@ class expression_string_compile:
     public expression_string
 {
 public:
-    typedef boost::shared_ptr<expression_string_compile> pointer;
+    typedef std::shared_ptr<expression_string_compile> pointer;
 
     /**
       * The destructor.

@@ -32,7 +32,7 @@ class output_wrap_make:
     public output
 {
 public:
-    typedef boost::shared_ptr<output_wrap_make> pointer;
+    typedef std::shared_ptr<output_wrap_make> pointer;
 
     /**
       * The destructor.

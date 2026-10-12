@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/debug.h>
 #include <lib/expression/error.h>
 #include <lib/pascal/lex.h>
@@ -100,7 +101,7 @@ translator::array_ge_string_expression(
     DEBUG(2, "lhs = %s", lhs->lisp_representation().c_str());
     DEBUG(2, "rhs = %s", rhs->lisp_representation().c_str());
     type_array::pointer tap =
-        boost::dynamic_pointer_cast<type_array>(lhs->get_type());
+        std::dynamic_pointer_cast<type_array>(lhs->get_type());
     assert(tap);
     expression::pointer rhs2 = optional_paoc_from_string(tap, rhs);
     assert(rhs2);
@@ -116,7 +117,7 @@ translator::string_ge_array_expression(
     DEBUG(2, "lhs = %s", lhs->lisp_representation().c_str());
     DEBUG(2, "rhs = %s", rhs->lisp_representation().c_str());
     type_array::pointer tap =
-        boost::dynamic_pointer_cast<type_array>(rhs->get_type());
+        std::dynamic_pointer_cast<type_array>(rhs->get_type());
     assert(tap);
     expression::pointer lhs2 = optional_paoc_from_string(tap, lhs);
     assert(lhs2);

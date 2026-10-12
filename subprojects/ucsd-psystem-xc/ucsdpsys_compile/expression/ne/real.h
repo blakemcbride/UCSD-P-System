@@ -31,7 +31,7 @@ class expression_ne_real:
     public expression_ne
 {
 public:
-    typedef boost::shared_ptr<expression_ne_real> pointer;
+    typedef std::shared_ptr<expression_ne_real> pointer;
 
     /**
       * The destructor.

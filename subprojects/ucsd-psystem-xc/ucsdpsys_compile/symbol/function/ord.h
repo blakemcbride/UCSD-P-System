@@ -31,7 +31,7 @@ class symbol_function_ord:
     public symbol_function
 {
 public:
-    typedef boost::shared_ptr<symbol_function_ord> pointer;
+    typedef std::shared_ptr<symbol_function_ord> pointer;
 
     /**
       * The destructor.

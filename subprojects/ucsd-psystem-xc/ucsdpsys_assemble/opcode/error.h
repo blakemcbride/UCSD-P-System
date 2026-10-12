@@ -29,7 +29,7 @@ class opcode_error:
     public opcode
 {
 public:
-    typedef boost::shared_ptr<opcode_error> pointer;
+    typedef std::shared_ptr<opcode_error> pointer;
 
     /**
       * The destructor.

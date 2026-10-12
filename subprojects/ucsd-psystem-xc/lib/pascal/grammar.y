@@ -20,6 +20,7 @@
 
 %{
 
+#include <cassert>
 #include <lib/ac/stdio.h>
 #include <lib/ac/stdlib.h>
 

@@ -29,7 +29,7 @@ class scope_program:
     public scope
 {
 public:
-    typedef boost::shared_ptr<scope_program> pointer;
+    typedef std::shared_ptr<scope_program> pointer;
 
     /**
       * The destructor.

@@ -31,7 +31,7 @@ class expression_long_integer_littoral:
     public expression_long_integer
 {
 public:
-    typedef boost::shared_ptr<expression_long_integer_littoral> pointer;
+    typedef std::shared_ptr<expression_long_integer_littoral> pointer;
 
     /**
       * The destructor.

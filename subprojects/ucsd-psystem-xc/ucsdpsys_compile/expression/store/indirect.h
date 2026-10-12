@@ -31,7 +31,7 @@ class expression_store_indirect:
     public expression_store
 {
 public:
-    typedef boost::shared_ptr<expression_store_indirect> pointer;
+    typedef std::shared_ptr<expression_store_indirect> pointer;
 
     /**
       * The destructor.

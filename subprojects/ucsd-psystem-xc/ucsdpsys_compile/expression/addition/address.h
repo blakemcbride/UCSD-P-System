@@ -33,7 +33,7 @@ class expression_addition_address:
     public expression_addition
 {
 public:
-    typedef boost::shared_ptr<expression_addition_address> pointer;
+    typedef std::shared_ptr<expression_addition_address> pointer;
 
     /**
       * The destructor.

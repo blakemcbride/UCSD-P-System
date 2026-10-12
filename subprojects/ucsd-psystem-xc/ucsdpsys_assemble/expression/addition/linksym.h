@@ -29,7 +29,7 @@ class expression_addition_linksym:
     public expression_addition
 {
 public:
-    typedef boost::shared_ptr<expression_addition_linksym> pointer;
+    typedef std::shared_ptr<expression_addition_linksym> pointer;
 
     /**
       * The destructor.

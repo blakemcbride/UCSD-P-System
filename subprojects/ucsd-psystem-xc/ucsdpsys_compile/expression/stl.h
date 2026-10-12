@@ -31,7 +31,7 @@ class expression_stl:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_stl> pointer;
+    typedef std::shared_ptr<expression_stl> pointer;
 
     /**
       * The destructor.

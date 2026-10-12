@@ -31,7 +31,7 @@ class expression_addition_littoral:
     public expression_addition
 {
 public:
-    typedef boost::shared_ptr<expression_addition_littoral> pointer;
+    typedef std::shared_ptr<expression_addition_littoral> pointer;
 
     /**
       * The destructor.

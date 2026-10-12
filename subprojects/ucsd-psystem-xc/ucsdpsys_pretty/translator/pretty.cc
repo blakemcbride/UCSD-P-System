@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/pascal/lex.h>
 #include <lib/type/boolean.h>
 #include <lib/type/char.h>
@@ -1732,7 +1733,7 @@ translator_pretty::implicit_dot_expression(const expression::pointer &lhs,
     const variable_name &rhs)
 {
     type_record::pointer trp =
-        boost::dynamic_pointer_cast<type_record>(lhs->get_type());
+        std::dynamic_pointer_cast<type_record>(lhs->get_type());
     assert(trp);
     symbol::pointer sp = trp->lookup(rhs.get_name());
     assert(sp);

@@ -29,7 +29,7 @@ class target_build_makefile:
     public target_build
 {
 public:
-    typedef boost::shared_ptr<target_build_makefile> pointer;
+    typedef std::shared_ptr<target_build_makefile> pointer;
 
     /**
       * The destructor.

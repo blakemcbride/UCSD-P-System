@@ -29,7 +29,7 @@ class expression_lt_boolean:
     public expression_lt
 {
 public:
-    typedef boost::shared_ptr<expression_lt_boolean> pointer;
+    typedef std::shared_ptr<expression_lt_boolean> pointer;
 
     /**
       * The destructor.

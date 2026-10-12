@@ -30,7 +30,7 @@ class statement_goto:
     public statement
 {
 public:
-    typedef boost::shared_ptr<statement_goto> pointer;
+    typedef std::shared_ptr<statement_goto> pointer;
 
     /**
       * The destructor.

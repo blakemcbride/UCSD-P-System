@@ -30,7 +30,7 @@ class expression_addition_segrel:
     public expression_addition
 {
 public:
-    typedef boost::shared_ptr<expression_addition_segrel> pointer;
+    typedef std::shared_ptr<expression_addition_segrel> pointer;
 
     /**
       * The destructor.

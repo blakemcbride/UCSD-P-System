@@ -30,7 +30,7 @@ class type_reference_implicit:
     public type_reference
 {
 public:
-    typedef boost::shared_ptr<type_reference_implicit> pointer;
+    typedef std::shared_ptr<type_reference_implicit> pointer;
 
     /**
       * The destructor.

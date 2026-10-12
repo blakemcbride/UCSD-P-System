@@ -29,7 +29,7 @@ class opcode_pseudo_nolist:
     public opcode_pseudo
 {
 public:
-    typedef boost::shared_ptr<opcode_pseudo_nolist> pointer;
+    typedef std::shared_ptr<opcode_pseudo_nolist> pointer;
 
     /**
       * The destructor.

@@ -31,7 +31,7 @@ class expression_boolean_littoral:
     public expression_boolean
 {
 public:
-    typedef boost::shared_ptr<expression_boolean_littoral> pointer;
+    typedef std::shared_ptr<expression_boolean_littoral> pointer;
 
     /**
       * The destructor.

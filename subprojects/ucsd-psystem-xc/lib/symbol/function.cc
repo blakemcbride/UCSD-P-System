@@ -150,7 +150,7 @@ symbol_function::check_string_size_match(const name_type &nt,
     if (type_reference::is_a(formal_type))
         formal_type = formal_type->get_subtype();
     type_string::pointer formal =
-        boost::dynamic_pointer_cast<type_string>(formal_type);
+        std::dynamic_pointer_cast<type_string>(formal_type);
     if (!formal)
         return;
 
@@ -158,7 +158,7 @@ symbol_function::check_string_size_match(const name_type &nt,
     if (type_reference::is_a(actual_type))
         actual_type = actual_type->get_subtype();
     type_string::pointer actual =
-        boost::dynamic_pointer_cast<type_string>(actual_type);
+        std::dynamic_pointer_cast<type_string>(actual_type);
     if (!actual)
         return;
 
@@ -258,7 +258,7 @@ symbol_function::check_parameters(const expression_list &rhs, translator &xlat)
             if (ft->is_an_implicit_reference())
                 ft = ft->get_subtype();
             type_array::pointer tap =
-                boost::dynamic_pointer_cast<type_array>(ft);
+                std::dynamic_pointer_cast<type_array>(ft);
             if (tap)
             {
                 ep = xlat.optional_paoc_from_string(tap, ep);

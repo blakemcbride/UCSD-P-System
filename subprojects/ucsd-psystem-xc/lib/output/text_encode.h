@@ -32,7 +32,7 @@ class output_text_encode:
     public output
 {
 public:
-    typedef boost::shared_ptr<output_text_encode> pointer;
+    typedef std::shared_ptr<output_text_encode> pointer;
 
     /**
       * The destructor.

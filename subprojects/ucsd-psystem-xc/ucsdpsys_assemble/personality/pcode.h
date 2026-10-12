@@ -29,7 +29,7 @@ class personality_pcode:
     public personality
 {
 public:
-    typedef boost::shared_ptr<personality_pcode> pointer;
+    typedef std::shared_ptr<personality_pcode> pointer;
 
     /**
       * The destructor.

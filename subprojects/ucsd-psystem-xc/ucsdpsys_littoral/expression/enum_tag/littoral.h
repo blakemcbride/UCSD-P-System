@@ -31,7 +31,7 @@ class expression_enum_tag_littoral:
     public expression_enum_tag
 {
 public:
-    typedef boost::shared_ptr<expression_enum_tag_littoral> pointer;
+    typedef std::shared_ptr<expression_enum_tag_littoral> pointer;
 
     /**
       * The destructor.

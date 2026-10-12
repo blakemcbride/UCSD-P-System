@@ -31,7 +31,7 @@ class expression_ge_real:
     public expression_ge
 {
 public:
-    typedef boost::shared_ptr<expression_ge_real> pointer;
+    typedef std::shared_ptr<expression_ge_real> pointer;
 
     /**
       * The destructor.

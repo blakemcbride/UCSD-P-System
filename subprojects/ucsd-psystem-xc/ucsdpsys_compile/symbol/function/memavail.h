@@ -31,7 +31,7 @@ class symbol_function_memavail:
     public symbol_function
 {
 public:
-    typedef boost::shared_ptr<symbol_function_memavail> pointer;
+    typedef std::shared_ptr<symbol_function_memavail> pointer;
 
     /**
       * The destructor.

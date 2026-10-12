@@ -31,7 +31,7 @@ class scope_temporary_with_littoral:
     public scope_temporary_with
 {
 public:
-    typedef boost::shared_ptr<scope_temporary_with_littoral> pointer;
+    typedef std::shared_ptr<scope_temporary_with_littoral> pointer;
 
     /**
       * The destructor.

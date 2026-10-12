@@ -29,7 +29,7 @@
 class font
 {
 public:
-    typedef boost::shared_ptr<font> pointer;
+    typedef std::shared_ptr<font> pointer;
 
     /**
       * The destructor.

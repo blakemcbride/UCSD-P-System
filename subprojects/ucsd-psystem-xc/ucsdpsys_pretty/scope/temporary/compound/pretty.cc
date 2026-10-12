@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <ucsdpsys_pretty/scope/temporary/compound/pretty.h>
 #include <ucsdpsys_pretty/symbol/expression/constant/pretty.h>
 #include <ucsdpsys_pretty/symbol/variable/normal/pretty.h>

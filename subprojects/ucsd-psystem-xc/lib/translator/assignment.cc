@@ -152,7 +152,7 @@ translator::assignment_expression_factory(const expression::pointer &lhs,
     if (type_string::is_a(rhs->get_type()))
     {
         type_array::pointer tap =
-            boost::dynamic_pointer_cast<type_array>(lhs->get_type());
+            std::dynamic_pointer_cast<type_array>(lhs->get_type());
         if (tap)
         {
             rhs = optional_paoc_from_string(tap, rhs);

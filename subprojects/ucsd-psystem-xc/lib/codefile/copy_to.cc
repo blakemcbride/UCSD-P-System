@@ -16,6 +16,8 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <algorithm>
+#include <cassert>
 #include <lib/ac/vector>
 
 #include <lib/codefile.h>

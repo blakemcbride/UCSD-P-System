@@ -19,7 +19,7 @@
 #ifndef LIB_LABEL_H
 #define LIB_LABEL_H
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 /**
   * The label abstract base class is used to represent a generic
@@ -36,7 +36,7 @@ public:
     /**
       * The pointer type is to be used for all pointers to labels.
       */
-    typedef boost::shared_ptr<label> pointer;
+    typedef std::shared_ptr<label> pointer;
 
     /**
       * The destructor.

@@ -31,7 +31,7 @@ class expression_logical_or_compile:
     public expression_logical_or
 {
 public:
-    typedef boost::shared_ptr<expression_logical_or_compile> pointer;
+    typedef std::shared_ptr<expression_logical_or_compile> pointer;
 
     /**
       * The destructor.

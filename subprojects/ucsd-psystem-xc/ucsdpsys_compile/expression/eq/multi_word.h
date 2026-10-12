@@ -32,7 +32,7 @@ class expression_eq_multi_word:
     public expression_eq
 {
 public:
-    typedef boost::shared_ptr<expression_eq_multi_word> pointer;
+    typedef std::shared_ptr<expression_eq_multi_word> pointer;
 
     /**
       * The destructor.

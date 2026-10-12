@@ -22,7 +22,7 @@
 #include <lib/config.h>
 #include <sys/types.h>
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 class rcstring; // forward
 
@@ -33,7 +33,7 @@ class rcstring; // forward
 class sector_io
 {
 public:
-    typedef boost::shared_ptr<sector_io> pointer;
+    typedef std::shared_ptr<sector_io> pointer;
 
     /**
       * The destructor.

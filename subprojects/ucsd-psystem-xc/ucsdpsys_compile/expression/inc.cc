@@ -102,7 +102,7 @@ expression_inc::optimize(void)
     //
     {
         expression_inc::pointer x_lhs =
-            boost::dynamic_pointer_cast<expression_inc>(o_lhs);
+            std::dynamic_pointer_cast<expression_inc>(o_lhs);
         if (x_lhs)
         {
             int new_offset = x_lhs->get_rhs() + rhs;
@@ -128,7 +128,7 @@ expression_inc::optimize(void)
     //
     {
         expression_address::pointer eap =
-            boost::dynamic_pointer_cast<expression_address>(o_lhs);
+            std::dynamic_pointer_cast<expression_address>(o_lhs);
         if (eap)
         {
             expression::pointer ep2 =

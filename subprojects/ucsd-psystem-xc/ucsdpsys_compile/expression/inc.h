@@ -31,7 +31,7 @@ class expression_inc:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_inc> pointer;
+    typedef std::shared_ptr<expression_inc> pointer;
 
     /**
       * The destructor.

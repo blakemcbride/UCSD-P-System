@@ -31,7 +31,7 @@ class statement_if_compile:
     public statement_if
 {
 public:
-    typedef boost::shared_ptr<statement_if_compile> pointer;
+    typedef std::shared_ptr<statement_if_compile> pointer;
 
     /**
       * The destructor.

@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/debug.h>
 #include <lib/expression/list.h>
 #include <lib/pascal/lex.h>
@@ -86,16 +87,16 @@ translator_compile::writeln_statement_factory(const expression_list &args,
         if (ep->is_error())
             continue;
         expression_writeln::pointer ewp =
-            boost::dynamic_pointer_cast<expression_writeln>(ep);
+            std::dynamic_pointer_cast<expression_writeln>(ep);
         if (!ewp)
         {
             expression::pointer zero =
                 expression_integer_compile::create(ep->get_location(), 0, this);
             ep = expression_writeln::create(ep, zero, this);
-            ewp = boost::dynamic_pointer_cast<expression_writeln>(ep);
+            ewp = std::dynamic_pointer_cast<expression_writeln>(ep);
             if (!ewp)
             {
-                assert(ewp->is_error());
+                assert(ep->is_error());
                 continue;
             }
         }

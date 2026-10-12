@@ -34,7 +34,7 @@ class tcontrol_list:
     public tcontrol
 {
 public:
-    typedef boost::shared_ptr<tcontrol_list> pointer;
+    typedef std::shared_ptr<tcontrol_list> pointer;
 
     /**
       * The destructor.

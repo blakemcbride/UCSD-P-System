@@ -29,7 +29,7 @@ class opcode_pcode_lnot:
     public opcode_pcode
 {
 public:
-    typedef boost::shared_ptr<opcode_pcode_lnot> pointer;
+    typedef std::shared_ptr<opcode_pcode_lnot> pointer;
 
     /**
       * The destructor.

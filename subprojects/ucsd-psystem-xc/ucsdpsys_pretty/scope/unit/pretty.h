@@ -32,7 +32,7 @@ class scope_unit_pretty:
     public scope_unit
 {
 public:
-    typedef boost::shared_ptr<scope_unit_pretty> pointer;
+    typedef std::shared_ptr<scope_unit_pretty> pointer;
 
     /**
       * The destructor.

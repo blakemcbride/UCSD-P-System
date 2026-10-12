@@ -31,7 +31,7 @@ class expression_set_difference:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_set_difference> pointer;
+    typedef std::shared_ptr<expression_set_difference> pointer;
 
     /**
       * The destructor.

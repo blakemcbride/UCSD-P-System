@@ -30,8 +30,8 @@ class segrec; // forward
 class workrec
 {
 public:
-    typedef boost::shared_ptr<workrec> pointer;
-    typedef boost::shared_ptr<segrec> segrec_pointer;
+    typedef std::shared_ptr<workrec> pointer;
+    typedef std::shared_ptr<segrec> segrec_pointer;
 
     ~workrec();
 

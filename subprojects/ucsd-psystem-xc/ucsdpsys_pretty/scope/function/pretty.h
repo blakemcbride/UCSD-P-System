@@ -31,7 +31,7 @@ class scope_function_pretty:
     public scope_function
 {
 public:
-    typedef boost::shared_ptr<scope_function_pretty> pointer;
+    typedef std::shared_ptr<scope_function_pretty> pointer;
 
     /**
       * The destructor.

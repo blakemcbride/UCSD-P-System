@@ -32,7 +32,7 @@ class expression_ixs:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_ixs> pointer;
+    typedef std::shared_ptr<expression_ixs> pointer;
 
     /**
       * The destructor.

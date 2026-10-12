@@ -30,7 +30,7 @@ class target_debian:
     public target
 {
 public:
-    typedef boost::shared_ptr<target_debian> pointer;
+    typedef std::shared_ptr<target_debian> pointer;
 
     /**
       * The destructor.

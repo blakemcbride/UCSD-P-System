@@ -50,7 +50,7 @@ void
 symbol_functor_constructor::operator()(const symbol::pointer &sp)
 {
     assert(sp);
-    if (!boost::dynamic_pointer_cast<const symbol_variable>(sp))
+    if (!std::dynamic_pointer_cast<const symbol_variable>(sp))
         return;
     if (sp->get_type()->is_an_implicit_reference())
     {
@@ -121,7 +121,7 @@ symbol_functor_constructor::operator()(const symbol::pointer &sp)
         {
             // &window
             expression_address::pointer ep2 =
-                boost::dynamic_pointer_cast<expression_address>(ep);
+                std::dynamic_pointer_cast<expression_address>(ep);
             assert(ep2);
             expression::pointer ep3 =
                 ep2->advance_by_words

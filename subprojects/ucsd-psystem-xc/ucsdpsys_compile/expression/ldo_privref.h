@@ -31,7 +31,7 @@ class expression_ldo_privref:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_ldo_privref> pointer;
+    typedef std::shared_ptr<expression_ldo_privref> pointer;
 
     /**
       * The destructor.

@@ -32,7 +32,7 @@ class expression_bitwise_or_compile:
     public expression_bitwise_or
 {
 public:
-    typedef boost::shared_ptr<expression_bitwise_or_compile> pointer;
+    typedef std::shared_ptr<expression_bitwise_or_compile> pointer;
 
     /**
       * The destructor.

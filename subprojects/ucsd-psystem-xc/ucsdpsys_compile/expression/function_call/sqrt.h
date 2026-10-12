@@ -31,7 +31,7 @@ class expression_function_call_sqrt:
     public expression_function_call
 {
 public:
-    typedef boost::shared_ptr<expression_function_call_sqrt> pointer;
+    typedef std::shared_ptr<expression_function_call_sqrt> pointer;
 
     /**
       * The destructor.

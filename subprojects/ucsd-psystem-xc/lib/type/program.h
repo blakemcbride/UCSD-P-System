@@ -29,7 +29,7 @@ class type_program:
     public type
 {
 public:
-    typedef boost::shared_ptr<type_program> pointer;
+    typedef std::shared_ptr<type_program> pointer;
 
     /**
       * The destructor.

@@ -31,7 +31,7 @@ class expression_ge_littoral:
     public expression_ge
 {
 public:
-    typedef boost::shared_ptr<expression_ge_littoral> pointer;
+    typedef std::shared_ptr<expression_ge_littoral> pointer;
 
     /**
       * The destructor.

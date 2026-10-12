@@ -30,7 +30,7 @@ class type_array:
     public type
 {
 public:
-    typedef boost::shared_ptr<type_array> pointer;
+    typedef std::shared_ptr<type_array> pointer;
 
     /**
       * The destructor.

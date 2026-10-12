@@ -30,7 +30,7 @@ class expression_empty:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_empty> pointer;
+    typedef std::shared_ptr<expression_empty> pointer;
 
     /**
       * The destructor.

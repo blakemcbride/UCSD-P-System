@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/cardinal.h>
 #include <lib/debug.h>
 #include <lib/pascal/lex.h>
@@ -197,7 +198,7 @@ symbol_function_read::function_call_expression_factory(
             args.push_back(file);
             args.push_back(ep);
             type_string::pointer tsp =
-                boost::dynamic_pointer_cast<type_string>(ep->get_type());
+                std::dynamic_pointer_cast<type_string>(ep->get_type());
             assert(tsp);
             expression::pointer w =
                 expression_integer_compile::create
@@ -249,7 +250,7 @@ symbol_function_read::name_expression_factory(const symbol::pointer &sym,
 {
     assert(this == sym.get());
     symbol_function::pointer sfp =
-        boost::dynamic_pointer_cast<symbol_function>(sym);
+        std::dynamic_pointer_cast<symbol_function>(sym);
     assert(sfp);
     return expression_function::create(where, sfp, &code);
 }

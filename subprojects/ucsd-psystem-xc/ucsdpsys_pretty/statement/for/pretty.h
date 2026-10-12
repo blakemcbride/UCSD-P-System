@@ -31,7 +31,7 @@ class statement_for_pretty:
     public statement_for
 {
 public:
-    typedef boost::shared_ptr<statement_for_pretty> pointer;
+    typedef std::shared_ptr<statement_for_pretty> pointer;
 
     /**
       * The destructor.

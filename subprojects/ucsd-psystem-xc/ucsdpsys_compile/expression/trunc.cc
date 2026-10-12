@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/type/integer.h>
 
 #include <ucsdpsys_compile/expression/trunc.h>

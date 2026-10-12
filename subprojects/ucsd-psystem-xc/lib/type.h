@@ -19,7 +19,7 @@
 #ifndef LIB_TYPE_H
 #define LIB_TYPE_H
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <lib/rcstring.h>
 
@@ -33,7 +33,7 @@ public:
     /**
       * The pointer type is to be used for all pointers to statements.
       */
-    typedef boost::shared_ptr<type> pointer;
+    typedef std::shared_ptr<type> pointer;
 
     /**
       * The destructor.

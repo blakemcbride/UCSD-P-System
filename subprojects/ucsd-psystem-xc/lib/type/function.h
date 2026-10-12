@@ -30,7 +30,7 @@ class type_function:
     public type
 {
 public:
-    typedef boost::shared_ptr<type_function> pointer;
+    typedef std::shared_ptr<type_function> pointer;
 
     /**
       * The destructor.

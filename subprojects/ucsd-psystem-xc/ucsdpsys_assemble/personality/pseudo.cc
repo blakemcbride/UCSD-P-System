@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <ucsdpsys_assemble/personality/pseudo.h>
 #include <ucsdpsys_assemble/opcode/pseudo/arch.h>
 #include <ucsdpsys_assemble/opcode/pseudo/ascii.h>

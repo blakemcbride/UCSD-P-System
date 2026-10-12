@@ -31,7 +31,7 @@ class symbol_function_log:
     public symbol_function
 {
 public:
-    typedef boost::shared_ptr<symbol_function_log> pointer;
+    typedef std::shared_ptr<symbol_function_log> pointer;
 
     /**
       * The destructor.

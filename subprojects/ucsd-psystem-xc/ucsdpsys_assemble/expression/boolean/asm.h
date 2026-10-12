@@ -29,7 +29,7 @@ class expression_boolean_asm:
     public expression_boolean
 {
 public:
-    typedef boost::shared_ptr<expression_boolean_asm> pointer;
+    typedef std::shared_ptr<expression_boolean_asm> pointer;
 
     /**
       * The destructor.

@@ -29,7 +29,7 @@ class opcode_6502_jsr:
     public opcode_6502
 {
 public:
-    typedef boost::shared_ptr<opcode_6502_jsr> pointer;
+    typedef std::shared_ptr<opcode_6502_jsr> pointer;
 
     /**
       * The destructor.

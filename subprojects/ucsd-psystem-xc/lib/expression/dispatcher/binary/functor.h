@@ -28,7 +28,7 @@
 class expression_dispatcher_binary_functor
 {
 public:
-    typedef boost::shared_ptr<expression_dispatcher_binary_functor> pointer;
+    typedef std::shared_ptr<expression_dispatcher_binary_functor> pointer;
 
     /**
       * The destructor.

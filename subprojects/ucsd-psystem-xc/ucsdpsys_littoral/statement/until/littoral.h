@@ -31,7 +31,7 @@ class statement_until_littoral:
     public statement_until
 {
 public:
-    typedef boost::shared_ptr<statement_until_littoral> pointer;
+    typedef std::shared_ptr<statement_until_littoral> pointer;
 
     /**
       * The destructor.

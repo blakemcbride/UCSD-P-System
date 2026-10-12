@@ -29,7 +29,7 @@ class arch_adaptable_ga440:
     public arch_adaptable
 {
 public:
-    typedef boost::shared_ptr<arch_adaptable_ga440> pointer;
+    typedef std::shared_ptr<arch_adaptable_ga440> pointer;
 
     /**
       * The destructor.

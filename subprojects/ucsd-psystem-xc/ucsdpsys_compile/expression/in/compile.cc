@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/debug.h>
 #include <lib/pcode.h>
 #include <lib/type/set/unsized.h>
@@ -103,7 +104,7 @@ expression_in_compile::optimize(void)
     if (e1->is_constant() && e2->is_constant())
     {
         expression_set_compile::pointer esp =
-            boost::dynamic_pointer_cast<expression_set_compile>(e2);
+            std::dynamic_pointer_cast<expression_set_compile>(e2);
         assert(esp);
         return
             expression_boolean_compile::create
@@ -120,7 +121,7 @@ expression_in_compile::optimize(void)
     if (e2->is_constant())
     {
         expression_set_compile::pointer esp =
-            boost::dynamic_pointer_cast<expression_set_compile>(e2);
+            std::dynamic_pointer_cast<expression_set_compile>(e2);
         assert(esp);
         if (esp->get_value().empty())
         {

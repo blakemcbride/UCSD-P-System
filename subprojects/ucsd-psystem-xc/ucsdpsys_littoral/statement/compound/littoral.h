@@ -31,7 +31,7 @@ class statement_compound_littoral:
     public statement_compound
 {
 public:
-    typedef boost::shared_ptr<statement_compound_littoral> pointer;
+    typedef std::shared_ptr<statement_compound_littoral> pointer;
 
     /**
       * The destructor.

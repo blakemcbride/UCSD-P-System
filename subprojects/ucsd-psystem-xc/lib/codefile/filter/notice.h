@@ -29,7 +29,7 @@ class codefile_filter_notice:
     public codefile_filter
 {
 public:
-    typedef boost::shared_ptr<codefile_filter_notice> pointer;
+    typedef std::shared_ptr<codefile_filter_notice> pointer;
 
     /**
       * The destructor.

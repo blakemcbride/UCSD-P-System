@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/ac/stdio.h>
 
 #include <lib/codefile/file.h>
@@ -467,7 +468,7 @@ assembler::proc_begin(const variable_name &name,
     if (nparam)
     {
         expression_integer::pointer eip =
-            boost::dynamic_pointer_cast<expression_integer>(nparam->optimize());
+            std::dynamic_pointer_cast<expression_integer>(nparam->optimize());
         if (eip)
         {
             int max = 1024;
@@ -570,7 +571,7 @@ assembler::export_def(const rcstring &name, const expression::pointer &value)
         // FIXME: This would actually be an absolute symbol
         // and exported differently.  (?CONSTANT_DEF?)
         expression_integer::pointer eip =
-            boost::dynamic_pointer_cast<expression_integer>(ep);
+            std::dynamic_pointer_cast<expression_integer>(ep);
         if (eip)
         {
             export_def(name, eip->get_integer_value());
@@ -580,7 +581,7 @@ assembler::export_def(const rcstring &name, const expression::pointer &value)
 
     {
         expression_segment_relative::pointer esrp =
-            boost::dynamic_pointer_cast<expression_segment_relative>(ep);
+            std::dynamic_pointer_cast<expression_segment_relative>(ep);
         if (esrp)
         {
             export_def(name, esrp->get_integer_value());
@@ -613,7 +614,7 @@ assembler::proc_end(void)
     {
         symbol::pointer sp = **it;
         symbol_expression_asm::pointer sep =
-            boost::dynamic_pointer_cast<symbol_expression_asm>(sp);
+            std::dynamic_pointer_cast<symbol_expression_asm>(sp);
         if (sep)
         {
             if (!sep->get_value())
@@ -696,7 +697,7 @@ assembler::emit_byte(const expression::pointer &value)
     // less to remember, and checking afterwards is faster, too.
     expression::pointer ep = value->optimize();
     expression_integer::pointer eip =
-        boost::dynamic_pointer_cast<expression_integer>(ep);
+        std::dynamic_pointer_cast<expression_integer>(ep);
     if (eip)
     {
         emit_byte((unsigned char)eip->get_integer_value());
@@ -730,7 +731,7 @@ assembler::emit_word(const expression::pointer &value)
     // less to remember, and checking afterwards is faster, too.
     expression::pointer ep = value->optimize();
     expression_integer::pointer eip =
-        boost::dynamic_pointer_cast<expression_integer>(ep);
+        std::dynamic_pointer_cast<expression_integer>(ep);
     if (eip)
     {
         emit_word((unsigned short)eip->get_integer_value());
@@ -773,7 +774,7 @@ assembler::emit_big(const expression::pointer &value)
     // less to remember, and checking afterwards is faster, too.
     expression::pointer ep = value->optimize();
     expression_integer::pointer eip =
-        boost::dynamic_pointer_cast<expression_integer>(ep);
+        std::dynamic_pointer_cast<expression_integer>(ep);
     if (eip)
     {
         // do it immediately
@@ -850,7 +851,7 @@ assembler::define_symbol(const variable_name &name,
     // Defining a value for a previously seen, but undefined, symbol is OK.
     {
         symbol_expression_asm::pointer sp =
-            boost::dynamic_pointer_cast<symbol_expression_asm>(
+            std::dynamic_pointer_cast<symbol_expression_asm>(
                 symbols.lookup(lc_name));
         if (sp)
         {
@@ -1081,11 +1082,11 @@ assembler::lookup_special(const rcstring &name)
     //     crap equ x
     //          sta (oh), crap
     symbol_expression::pointer sep =
-        boost::dynamic_pointer_cast<symbol_expression>(symbols.lookup(name));
+        std::dynamic_pointer_cast<symbol_expression>(symbols.lookup(name));
     if (!sep)
         return expression::pointer();
     expression_special::pointer esp =
-        boost::dynamic_pointer_cast<expression_special>(sep->get_value());
+        std::dynamic_pointer_cast<expression_special>(sep->get_value());
     return esp;
 }
 

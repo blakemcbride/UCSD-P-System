@@ -35,7 +35,7 @@ class type_record:
     public type
 {
 public:
-    typedef boost::shared_ptr<type_record> pointer;
+    typedef std::shared_ptr<type_record> pointer;
 
     /**
       * The destructor.

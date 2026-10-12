@@ -32,7 +32,7 @@ class scope_builtin_compile:
     public scope_builtin
 {
 public:
-    typedef boost::shared_ptr<scope_builtin_compile> pointer;
+    typedef std::shared_ptr<scope_builtin_compile> pointer;
 
     /**
       * The destructor.

@@ -30,7 +30,7 @@ class input_ucsd_text:
     public input
 {
 public:
-    typedef boost::shared_ptr<input_ucsd_text> pointer;
+    typedef std::shared_ptr<input_ucsd_text> pointer;
 
     /**
       * The destructor.

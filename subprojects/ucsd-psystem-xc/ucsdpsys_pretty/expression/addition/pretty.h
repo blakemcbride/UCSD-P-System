@@ -31,7 +31,7 @@ class expression_addition_pretty:
     public expression_addition
 {
 public:
-    typedef boost::shared_ptr<expression_addition_pretty> pointer;
+    typedef std::shared_ptr<expression_addition_pretty> pointer;
 
     /**
       * The destructor.

@@ -29,7 +29,7 @@ class opcode_pcode_cip:
     public opcode_pcode
 {
 public:
-    typedef boost::shared_ptr<opcode_pcode_cip> pointer;
+    typedef std::shared_ptr<opcode_pcode_cip> pointer;
 
     /**
       * The destructor.

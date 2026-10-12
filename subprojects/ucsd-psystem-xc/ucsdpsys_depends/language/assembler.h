@@ -29,7 +29,7 @@ class language_assembler:
     public language
 {
 public:
-    typedef boost::shared_ptr<language_assembler> pointer;
+    typedef std::shared_ptr<language_assembler> pointer;
 
     /**
       * The destructor.

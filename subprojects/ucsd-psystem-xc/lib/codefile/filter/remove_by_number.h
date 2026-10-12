@@ -31,7 +31,7 @@ class codefile_filter_remove_by_number:
     public codefile_filter
 {
 public:
-    typedef boost::shared_ptr<codefile_filter_remove_by_number> pointer;
+    typedef std::shared_ptr<codefile_filter_remove_by_number> pointer;
 
     /**
       * The destructor.

@@ -31,7 +31,7 @@ class expression_boolean_compile:
     public expression_boolean
 {
 public:
-    typedef boost::shared_ptr<expression_boolean_compile> pointer;
+    typedef std::shared_ptr<expression_boolean_compile> pointer;
 
     /**
       * The destructor.

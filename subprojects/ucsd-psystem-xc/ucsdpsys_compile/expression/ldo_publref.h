@@ -31,7 +31,7 @@ class expression_ldo_publref:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_ldo_publref> pointer;
+    typedef std::shared_ptr<expression_ldo_publref> pointer;
 
     /**
       * The destructor.

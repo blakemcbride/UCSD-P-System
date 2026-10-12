@@ -109,10 +109,10 @@ expression_set_union::optimize(void)
     if (lop->is_constant() && rop->is_constant())
     {
         expression_set_compile::pointer lesp =
-            boost::dynamic_pointer_cast<expression_set_compile>(lop);
+            std::dynamic_pointer_cast<expression_set_compile>(lop);
         assert(lesp);
         expression_set_compile::pointer resp =
-            boost::dynamic_pointer_cast<expression_set_compile>(rop);
+            std::dynamic_pointer_cast<expression_set_compile>(rop);
         assert(resp);
         set value(lesp->get_value() + resp->get_value());
         type::pointer tp =

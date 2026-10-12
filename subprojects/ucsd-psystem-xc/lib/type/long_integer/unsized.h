@@ -29,7 +29,7 @@ class type_long_integer_unsized:
     public type_long_integer
 {
 public:
-    typedef boost::shared_ptr<type_long_integer_unsized> pointer;
+    typedef std::shared_ptr<type_long_integer_unsized> pointer;
 
     // This is an arbitrary limit imposed by the UBSD native compiler,
     // not any particular deficiency of the representation.

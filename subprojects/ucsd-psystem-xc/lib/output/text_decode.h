@@ -29,7 +29,7 @@ class output_text_decode:
     public output
 {
 public:
-    typedef boost::shared_ptr<output_text_decode> pointer;
+    typedef std::shared_ptr<output_text_decode> pointer;
 
     /**
       * The destructor.

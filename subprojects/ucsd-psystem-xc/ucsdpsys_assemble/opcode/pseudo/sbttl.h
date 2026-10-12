@@ -30,7 +30,7 @@ class opcode_pseudo_sbttl:
     public opcode_pseudo
 {
 public:
-    typedef boost::shared_ptr<opcode_pseudo_sbttl> pointer;
+    typedef std::shared_ptr<opcode_pseudo_sbttl> pointer;
 
     /**
       * The destructor.

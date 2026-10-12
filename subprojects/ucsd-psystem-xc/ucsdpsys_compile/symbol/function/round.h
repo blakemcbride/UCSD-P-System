@@ -31,7 +31,7 @@ class symbol_function_round:
     public symbol_function
 {
 public:
-    typedef boost::shared_ptr<symbol_function_round> pointer;
+    typedef std::shared_ptr<symbol_function_round> pointer;
 
     /**
       * The destructor.

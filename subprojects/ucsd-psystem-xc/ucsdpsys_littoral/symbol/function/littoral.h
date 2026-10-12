@@ -32,7 +32,7 @@ class symbol_function_littoral:
     public symbol_function
 {
 public:
-    typedef boost::shared_ptr<symbol_function_littoral> pointer;
+    typedef std::shared_ptr<symbol_function_littoral> pointer;
 
     /**
       * The destructor.

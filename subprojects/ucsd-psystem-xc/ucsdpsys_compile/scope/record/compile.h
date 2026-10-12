@@ -31,7 +31,7 @@ class scope_record_compile:
     public scope_record
 {
 public:
-    typedef boost::shared_ptr<scope_record_compile> pointer;
+    typedef std::shared_ptr<scope_record_compile> pointer;
 
     /**
       * The destructor.

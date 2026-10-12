@@ -29,7 +29,7 @@ class arch_pcode:
     public arch
 {
 public:
-    typedef boost::shared_ptr<arch_pcode> pointer;
+    typedef std::shared_ptr<arch_pcode> pointer;
 
     /**
       * The destructor.

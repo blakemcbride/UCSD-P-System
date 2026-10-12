@@ -127,7 +127,7 @@ expression::dot_expression_factory(const location &locn,
     if (is_lvalue())
     {
         type_record::pointer trp =
-            boost::dynamic_pointer_cast<type_record>(get_type());
+            std::dynamic_pointer_cast<type_record>(get_type());
         if (trp)
         {
             pascal_lex_error

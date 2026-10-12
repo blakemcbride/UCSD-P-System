@@ -30,7 +30,7 @@ class codefile_file_i_5:
     public codefile_file
 {
 public:
-    typedef boost::shared_ptr<codefile_file_i_5> pointer;
+    typedef std::shared_ptr<codefile_file_i_5> pointer;
 
     /**
       * The destructor.

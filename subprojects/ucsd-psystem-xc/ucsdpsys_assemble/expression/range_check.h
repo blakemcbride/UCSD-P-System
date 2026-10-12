@@ -29,7 +29,7 @@ class expression_range_check:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_range_check> pointer;
+    typedef std::shared_ptr<expression_range_check> pointer;
 
     /**
       * The destructor.

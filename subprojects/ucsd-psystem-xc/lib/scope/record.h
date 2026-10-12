@@ -28,7 +28,7 @@ class scope_record:
     public scope
 {
 public:
-    typedef boost::shared_ptr<scope_record> pointer;
+    typedef std::shared_ptr<scope_record> pointer;
 
     /**
       * The destructor.

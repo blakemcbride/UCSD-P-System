@@ -29,7 +29,7 @@ class expression_writeln_long_integer:
     public expression_writeln
 {
 public:
-    typedef boost::shared_ptr<expression_writeln_long_integer> pointer;
+    typedef std::shared_ptr<expression_writeln_long_integer> pointer;
 
     /**
       * The destructor.

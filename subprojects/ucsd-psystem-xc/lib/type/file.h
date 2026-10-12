@@ -29,7 +29,7 @@ class type_file:
     public type
 {
 public:
-    typedef boost::shared_ptr<type_file> pointer;
+    typedef std::shared_ptr<type_file> pointer;
 
     // See compiler/compglbls.text in II.0 sources
     //     compiler/decpart.a.text

@@ -17,6 +17,8 @@
 //
 
 #include <lib/config.h>
+#include <cassert>
+#include <cstdlib>
 #include <lib/ac/string.h>
 #include <libexplain/fclose.h>
 #include <libexplain/fflush.h>

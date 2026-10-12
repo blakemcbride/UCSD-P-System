@@ -29,7 +29,7 @@ class segment_filter_renumber:
     public segment_filter
 {
 public:
-    typedef boost::shared_ptr<segment_filter_renumber> pointer;
+    typedef std::shared_ptr<segment_filter_renumber> pointer;
 
     /**
       * The destructor.

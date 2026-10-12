@@ -29,7 +29,7 @@ class expression_6502_absolute_indirect:
     public expression_6502
 {
 public:
-    typedef boost::shared_ptr<expression_6502_absolute_indirect> pointer;
+    typedef std::shared_ptr<expression_6502_absolute_indirect> pointer;
 
     /**
       * The destructor.

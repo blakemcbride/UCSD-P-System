@@ -29,7 +29,7 @@ class expression_6502_immediate:
     public expression_6502
 {
 public:
-    typedef boost::shared_ptr<expression_6502_immediate> pointer;
+    typedef std::shared_ptr<expression_6502_immediate> pointer;
 
     /**
       * The destructor.

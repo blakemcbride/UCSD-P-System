@@ -32,7 +32,7 @@ class symbol_function_pretty:
     public symbol_function
 {
 public:
-    typedef boost::shared_ptr<symbol_function_pretty> pointer;
+    typedef std::shared_ptr<symbol_function_pretty> pointer;
 
     /**
       * The destructor.

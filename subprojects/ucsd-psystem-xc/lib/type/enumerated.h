@@ -31,7 +31,7 @@ class type_enumerated:
     public type
 {
 public:
-    typedef boost::shared_ptr<type_enumerated> pointer;
+    typedef std::shared_ptr<type_enumerated> pointer;
 
     /**
       * The destructor.

@@ -30,7 +30,7 @@ class expression_segment_relative:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_segment_relative> pointer;
+    typedef std::shared_ptr<expression_segment_relative> pointer;
 
     /**
       * The destructor.

@@ -29,7 +29,7 @@ class type_unit:
     public type
 {
 public:
-    typedef boost::shared_ptr<type_unit> pointer;
+    typedef std::shared_ptr<type_unit> pointer;
 
     /**
       * The destructor.

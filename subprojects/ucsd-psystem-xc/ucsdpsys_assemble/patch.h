@@ -34,7 +34,7 @@
 class patch
 {
 public:
-    typedef boost::shared_ptr<patch> pointer;
+    typedef std::shared_ptr<patch> pointer;
 
     /**
       * The destructor.

@@ -31,7 +31,7 @@ class symbol_function_length:
     public symbol_function
 {
 public:
-    typedef boost::shared_ptr<symbol_function_length> pointer;
+    typedef std::shared_ptr<symbol_function_length> pointer;
 
     /**
       * The destructor.

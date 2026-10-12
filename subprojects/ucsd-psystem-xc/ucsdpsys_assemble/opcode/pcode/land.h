@@ -29,7 +29,7 @@ class opcode_pcode_land:
     public opcode_pcode
 {
 public:
-    typedef boost::shared_ptr<opcode_pcode_land> pointer;
+    typedef std::shared_ptr<opcode_pcode_land> pointer;
 
     /**
       * The destructor.

@@ -29,7 +29,7 @@ class output_null:
     public output
 {
 public:
-    typedef boost::shared_ptr<output_null> pointer;
+    typedef std::shared_ptr<output_null> pointer;
 
     /**
       * The destructor.

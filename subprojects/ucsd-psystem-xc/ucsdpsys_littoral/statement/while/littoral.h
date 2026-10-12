@@ -31,7 +31,7 @@ class statement_while_littoral:
     public statement_while
 {
 public:
-    typedef boost::shared_ptr<statement_while_littoral> pointer;
+    typedef std::shared_ptr<statement_while_littoral> pointer;
 
     /**
       * The destructor.

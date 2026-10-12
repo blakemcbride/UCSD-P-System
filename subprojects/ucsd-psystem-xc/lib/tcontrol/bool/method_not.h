@@ -30,7 +30,7 @@ class tcontrol_bool_method_not:
     public tcontrol_bool
 {
 public:
-    typedef boost::shared_ptr<tcontrol_bool_method_not> pointer;
+    typedef std::shared_ptr<tcontrol_bool_method_not> pointer;
 
     typedef void (T::*method_t)(bool);
 

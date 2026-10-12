@@ -31,7 +31,7 @@ class expression_srs_compile:
     public expression_srs
 {
 public:
-    typedef boost::shared_ptr<expression_srs_compile> pointer;
+    typedef std::shared_ptr<expression_srs_compile> pointer;
 
     /**
       * The destructor.

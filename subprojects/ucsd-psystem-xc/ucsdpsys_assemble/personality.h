@@ -37,7 +37,7 @@ class assembler; // forward
 class personality
 {
 public:
-    typedef boost::shared_ptr<personality> pointer;
+    typedef std::shared_ptr<personality> pointer;
 
     /**
       * The destructor.

@@ -34,7 +34,7 @@ class label_compile:
     public label
 {
 public:
-    typedef boost::shared_ptr<label_compile> pointer;
+    typedef std::shared_ptr<label_compile> pointer;
 
     /**
       * The destructor.

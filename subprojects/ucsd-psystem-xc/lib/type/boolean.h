@@ -30,7 +30,7 @@ class type_boolean:
     public type
 {
 public:
-    typedef boost::shared_ptr<type_boolean> pointer;
+    typedef std::shared_ptr<type_boolean> pointer;
 
     /**
       * The destructor.

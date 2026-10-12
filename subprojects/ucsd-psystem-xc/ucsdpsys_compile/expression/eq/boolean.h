@@ -31,7 +31,7 @@ class expression_eq_boolean:
     public expression_eq
 {
 public:
-    typedef boost::shared_ptr<expression_eq_boolean> pointer;
+    typedef std::shared_ptr<expression_eq_boolean> pointer;
 
     /**
       * The destructor.

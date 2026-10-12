@@ -31,7 +31,7 @@ class statement_for_littoral:
     public statement_for
 {
 public:
-    typedef boost::shared_ptr<statement_for_littoral> pointer;
+    typedef std::shared_ptr<statement_for_littoral> pointer;
 
     /**
       * The destructor.

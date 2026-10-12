@@ -83,11 +83,11 @@ expression_ne_long_integer::optimize()
     if (code.feature_long_integer_constants())
     {
         expression_long_integer::pointer k1 =
-            boost::dynamic_pointer_cast<expression_long_integer>(e1);
+            std::dynamic_pointer_cast<expression_long_integer>(e1);
         if (k1)
         {
             expression_long_integer::pointer k2 =
-                boost::dynamic_pointer_cast<expression_long_integer>(e2);
+                std::dynamic_pointer_cast<expression_long_integer>(e2);
             if (k2)
             {
                 long_integer n1 = k1->get_value();

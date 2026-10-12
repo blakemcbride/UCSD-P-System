@@ -17,6 +17,7 @@
 //
 
 #include <lib/config.h>
+#include <cstdlib>
 #include <cstdio>
 #include <cstring>
 #include <libexplain/output.h>

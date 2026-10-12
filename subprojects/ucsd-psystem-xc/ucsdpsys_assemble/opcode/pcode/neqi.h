@@ -29,7 +29,7 @@ class opcode_pcode_neqi:
     public opcode_pcode
 {
 public:
-    typedef boost::shared_ptr<opcode_pcode_neqi> pointer;
+    typedef std::shared_ptr<opcode_pcode_neqi> pointer;
 
     /**
       * The destructor.

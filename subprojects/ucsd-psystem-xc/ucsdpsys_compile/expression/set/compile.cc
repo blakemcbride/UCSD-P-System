@@ -103,7 +103,7 @@ expression_set_compile::expression_set_compile(
     DEBUG(1, "%s", __PRETTY_FUNCTION__);
     DEBUG(2, "a_tp = %s", a_tp->get_pascal_name().c_str());
     assert(type_set::is_a(a_tp));
-    assert(!boost::dynamic_pointer_cast<type_integer>(a_tp->get_subtype()));
+    assert(!std::dynamic_pointer_cast<type_integer>(a_tp->get_subtype()));
 }
 
 

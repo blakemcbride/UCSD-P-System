@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/expression/error.h>
 #include <lib/pascal/lex.h>
 #include <lib/type/array.h>
@@ -90,7 +91,7 @@ expression_writeln::create(const expression::pointer &a_value,
 
     {
         type_array::pointer tap =
-            boost::dynamic_pointer_cast<type_array>(value->get_type());
+            std::dynamic_pointer_cast<type_array>(value->get_type());
         if (tap && tap->is_packed_array_of_char())
         {
             // As usual, packed array of char is an exception.

@@ -32,7 +32,7 @@ class expression_lint2lint_littoral:
     public expression_lint2lint
 {
 public:
-    typedef boost::shared_ptr<expression_lint2lint_littoral> pointer;
+    typedef std::shared_ptr<expression_lint2lint_littoral> pointer;
 
     /**
       * The destructor.

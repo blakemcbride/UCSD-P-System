@@ -32,7 +32,7 @@ class expression_enum_tag_pretty:
     public expression_enum_tag
 {
 public:
-    typedef boost::shared_ptr<expression_enum_tag_pretty> pointer;
+    typedef std::shared_ptr<expression_enum_tag_pretty> pointer;
 
     /**
       * The destructor.

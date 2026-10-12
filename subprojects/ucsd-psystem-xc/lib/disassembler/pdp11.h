@@ -30,7 +30,7 @@ class disassembler_pdp11:
     public disassembler
 {
 public:
-    typedef boost::shared_ptr<disassembler_pdp11> pointer;
+    typedef std::shared_ptr<disassembler_pdp11> pointer;
 
     /**
       * The destructor.

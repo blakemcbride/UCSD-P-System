@@ -29,7 +29,7 @@ class target_build_cook:
     public target_build
 {
 public:
-    typedef boost::shared_ptr<target_build_cook> pointer;
+    typedef std::shared_ptr<target_build_cook> pointer;
 
     /**
       * The destructor.

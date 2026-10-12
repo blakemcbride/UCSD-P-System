@@ -32,7 +32,7 @@
 class sink
 {
 public:
-    typedef boost::shared_ptr<sink> pointer;
+    typedef std::shared_ptr<sink> pointer;
 
     /**
       * The destructor.

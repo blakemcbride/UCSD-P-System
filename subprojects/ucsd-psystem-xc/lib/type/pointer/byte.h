@@ -31,7 +31,7 @@ class type_pointer_byte:
     public type_pointer
 {
 public:
-    typedef boost::shared_ptr<type_pointer_byte> pointer;
+    typedef std::shared_ptr<type_pointer_byte> pointer;
 
     /**
       * The destructor.

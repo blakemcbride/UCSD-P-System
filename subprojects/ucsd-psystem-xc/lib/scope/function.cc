@@ -43,7 +43,7 @@ scope_function::attach_return_type(const type::pointer &tp)
     assert(tp->get_size_in_bits() <= 32);
     return_type = tp;
     symbol_function::pointer fsp =
-        boost::dynamic_pointer_cast<symbol_function>(get_sp());
+        std::dynamic_pointer_cast<symbol_function>(get_sp());
     if (fsp)
         fsp->attach_return_type(tp);
     else
@@ -55,7 +55,7 @@ void
 scope_function::attach_function_parameters(name_type_list *ntlp)
 {
     symbol_function::pointer fsp =
-        boost::dynamic_pointer_cast<symbol_function>(get_sp());
+        std::dynamic_pointer_cast<symbol_function>(get_sp());
     if (fsp)
         fsp->attach_function_parameters(*ntlp);
     else
@@ -70,7 +70,7 @@ scope_function::was_forward(void)
     const
 {
     symbol_function::pointer sfp =
-        boost::dynamic_pointer_cast<symbol_function>(get_sp());
+        std::dynamic_pointer_cast<symbol_function>(get_sp());
     assert(sfp);
     return (sfp && sfp->is_forward());
 }
@@ -80,7 +80,7 @@ void
 scope_function::set_forward(bool ign_seg0)
 {
     symbol_function::pointer sfp =
-        boost::dynamic_pointer_cast<symbol_function>(get_sp());
+        std::dynamic_pointer_cast<symbol_function>(get_sp());
     assert(sfp);
     if (sfp)
         sfp->set_forward(ign_seg0);
@@ -91,7 +91,7 @@ void
 scope_function::drop_locals(void)
 {
     symbol_function::pointer sfp =
-        boost::dynamic_pointer_cast<symbol_function>(get_sp());
+        std::dynamic_pointer_cast<symbol_function>(get_sp());
     assert(sfp);
     if (sfp)
         sfp->drop_locals();
@@ -118,7 +118,7 @@ scope_function::get_link_info_extproc(void)
     const
 {
     symbol_function::pointer sfp =
-        boost::dynamic_pointer_cast<symbol_function>(get_sp());
+        std::dynamic_pointer_cast<symbol_function>(get_sp());
     assert(sfp);
 
     bool is_a_proc = type_nothing::is_a(sfp->get_type()->get_subtype());

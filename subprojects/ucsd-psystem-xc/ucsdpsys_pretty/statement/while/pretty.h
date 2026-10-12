@@ -31,7 +31,7 @@ class statement_while_pretty:
     public statement_while
 {
 public:
-    typedef boost::shared_ptr<statement_while_pretty> pointer;
+    typedef std::shared_ptr<statement_while_pretty> pointer;
 
     /**
       * The destructor.

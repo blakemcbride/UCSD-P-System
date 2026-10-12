@@ -29,7 +29,7 @@ class tcontrol_string_function:
     public tcontrol_string
 {
 public:
-    typedef boost::shared_ptr<tcontrol_string_function> pointer;
+    typedef std::shared_ptr<tcontrol_string_function> pointer;
 
     typedef void (*func_p)(const rcstring &);
 

@@ -31,7 +31,7 @@ class expression_multiplication_real:
     public expression_multiplication
 {
 public:
-    typedef boost::shared_ptr<expression_multiplication_real> pointer;
+    typedef std::shared_ptr<expression_multiplication_real> pointer;
 
     /**
       * The destructor.

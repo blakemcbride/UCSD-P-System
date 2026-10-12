@@ -34,7 +34,7 @@ class expression_byte_pointer:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_byte_pointer> pointer;
+    typedef std::shared_ptr<expression_byte_pointer> pointer;
 
     /**
       * The destructor.

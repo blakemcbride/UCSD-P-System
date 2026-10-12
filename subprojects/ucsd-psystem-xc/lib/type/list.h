@@ -30,7 +30,7 @@
 class type_list
 {
 public:
-    typedef boost::shared_ptr<type_list> pointer;
+    typedef std::shared_ptr<type_list> pointer;
 
     /**
       * The destructor.

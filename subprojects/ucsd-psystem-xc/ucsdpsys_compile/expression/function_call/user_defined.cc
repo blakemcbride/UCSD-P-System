@@ -68,11 +68,11 @@ expression_function_call_user_defined::create(const expression_list &a_rhs,
     //
     assert(a_rhs.size() >= 1);
     expression_function::pointer efp =
-        boost::dynamic_pointer_cast<expression_function>(a_rhs[0]);
+        std::dynamic_pointer_cast<expression_function>(a_rhs[0]);
     assert(efp);
     symbol_function::pointer sfp = efp->get_sfp();
     symbol_function_user_defined::pointer sfudp =
-        boost::dynamic_pointer_cast<symbol_function_user_defined>(sfp);
+        std::dynamic_pointer_cast<symbol_function_user_defined>(sfp);
     assert(sfudp);
 
     //

@@ -31,7 +31,7 @@ class input_divert:
     public input
 {
 public:
-    typedef boost::shared_ptr<input_divert> pointer;
+    typedef std::shared_ptr<input_divert> pointer;
 
     /**
       * The destructor.

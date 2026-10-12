@@ -31,7 +31,7 @@ class statement_goto_littoral:
     public statement_goto
 {
 public:
-    typedef boost::shared_ptr<statement_goto_littoral> pointer;
+    typedef std::shared_ptr<statement_goto_littoral> pointer;
 
     /**
       * The destructor.

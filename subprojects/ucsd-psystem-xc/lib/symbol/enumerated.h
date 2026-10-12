@@ -29,7 +29,7 @@ class symbol_enumerated:
     public symbol
 {
 public:
-    typedef boost::shared_ptr<symbol_enumerated> pointer;
+    typedef std::shared_ptr<symbol_enumerated> pointer;
 
     /**
       * The destructor.

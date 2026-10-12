@@ -30,7 +30,7 @@ class segment_filter:
     public segment
 {
 public:
-    typedef boost::shared_ptr<segment_filter> pointer;
+    typedef std::shared_ptr<segment_filter> pointer;
 
     /**
       * The destructor.

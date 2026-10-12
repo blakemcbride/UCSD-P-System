@@ -31,7 +31,7 @@ class statement_label_compile:
     public statement_label
 {
 public:
-    typedef boost::shared_ptr<statement_label_compile> pointer;
+    typedef std::shared_ptr<statement_label_compile> pointer;
 
     /**
       * The destructor.

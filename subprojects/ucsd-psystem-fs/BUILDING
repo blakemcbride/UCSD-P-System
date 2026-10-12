@@ -1,15 +1,6 @@
-Build using Meson:
+This directory is built by the top-level Makefile of the UCSD-P-System
+repository; see README.md there.  The text below is historical.
 
-	meson setup --buildtype=debugoptimized build/
-	meson compile -C build/
-
-If unfamiliar with Meson, see https://mesonbuild.com/ for package installation,
-initial setup, and built-in build configuration options.
-
-Build FS on Debian requires the libexplain-dev, libfuse-dev, libboost-dev, and
-packages.
-
-The git tags indicate which distributions have been verified.
 
 Peter Miller's original BUILDING text
 -------------------------------------

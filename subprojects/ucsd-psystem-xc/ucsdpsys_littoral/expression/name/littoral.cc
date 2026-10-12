@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/debug.h>
 #include <lib/symbol/enumerated.h>
 #include <lib/symbol/expression.h>
@@ -140,14 +141,14 @@ expression_name_littoral::is_constant(void)
 {
     {
         symbol_expression::pointer sep =
-            boost::dynamic_pointer_cast<symbol_expression>(get_sp());
+            std::dynamic_pointer_cast<symbol_expression>(get_sp());
         if (sep)
             return sep->get_value()->is_constant();
     }
 
     {
         symbol_enumerated::pointer sep =
-            boost::dynamic_pointer_cast<symbol_enumerated>(get_sp());
+            std::dynamic_pointer_cast<symbol_enumerated>(get_sp());
         if (sep)
             return true;
     }
@@ -161,12 +162,12 @@ expression_name_littoral::get_integer_value(void)
     const
 {
     symbol_enumerated::pointer s2 =
-        boost::dynamic_pointer_cast<symbol_enumerated>(get_sp());
+        std::dynamic_pointer_cast<symbol_enumerated>(get_sp());
     if (s2)
         return s2->get_value();
 
     symbol_expression::pointer sep =
-        boost::dynamic_pointer_cast<symbol_expression>(get_sp());
+        std::dynamic_pointer_cast<symbol_expression>(get_sp());
     assert(sep);
     return sep->get_value()->optimize()->get_integer_value();
 }
@@ -177,7 +178,7 @@ expression_name_littoral::get_boolean_value(void)
     const
 {
     symbol_expression::pointer sep =
-        boost::dynamic_pointer_cast<symbol_expression>(get_sp());
+        std::dynamic_pointer_cast<symbol_expression>(get_sp());
     assert(sep);
     return sep->get_value()->optimize()->get_boolean_value();
 }

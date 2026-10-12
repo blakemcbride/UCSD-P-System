@@ -28,7 +28,7 @@ class language_pascal:
     public language
 {
 public:
-    typedef boost::shared_ptr<language_pascal> pointer;
+    typedef std::shared_ptr<language_pascal> pointer;
 
     /**
       * The destructor.

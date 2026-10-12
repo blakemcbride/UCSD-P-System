@@ -51,7 +51,7 @@ expression_addition_linksym::optimize(void)
     if (e1->is_constant() && e2->is_constant())
     {
         expression_linker_reference::pointer e1a =
-            boost::dynamic_pointer_cast<expression_linker_reference>(e1);
+            std::dynamic_pointer_cast<expression_linker_reference>(e1);
         return e1a->addition_factory(e2->get_integer_value());
     }
     return create(e1, e2);

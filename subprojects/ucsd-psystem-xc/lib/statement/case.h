@@ -31,7 +31,7 @@ class statement_case:
     public statement
 {
 public:
-    typedef boost::shared_ptr<statement_case> pointer;
+    typedef std::shared_ptr<statement_case> pointer;
 
     /**
       * The destructor.

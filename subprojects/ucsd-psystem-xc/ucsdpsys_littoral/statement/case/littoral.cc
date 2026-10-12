@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <algorithm>
 #include <lib/debug.h>
 #include <lib/interval.h>
 

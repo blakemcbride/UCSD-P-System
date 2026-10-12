@@ -29,7 +29,7 @@ class expression_sqr:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_sqr> pointer;
+    typedef std::shared_ptr<expression_sqr> pointer;
 
     /**
       * The destructor.

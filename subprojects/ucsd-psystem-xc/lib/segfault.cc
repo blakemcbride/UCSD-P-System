@@ -20,11 +20,16 @@
 #include <lib/ac/stdio.h>
 #include <lib/ac/stdlib.h>
 #include <lib/ac/signal.h>
-#include <execinfo.h>
 #include <unistd.h>
 
 #include <lib/segfault.h>
 #include <lib/sizeof.h>
+
+// backtrace() is a glibc and macOS extension.
+#if defined(__GLIBC__) || defined(__APPLE__)
+#define HAVE_BACKTRACE 1
+#include <execinfo.h>
+#endif
 
 
 #ifdef HAVE_BACKTRACE

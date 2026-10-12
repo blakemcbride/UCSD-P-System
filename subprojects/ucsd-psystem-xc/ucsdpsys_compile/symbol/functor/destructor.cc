@@ -44,7 +44,7 @@ void
 symbol_functor_destructor::operator()(const symbol::pointer &sp)
 {
     assert(sp);
-    if (!boost::dynamic_pointer_cast<symbol_variable>(sp))
+    if (!std::dynamic_pointer_cast<symbol_variable>(sp))
         return;
     if (type_file::is_a(sp->get_type()))
     {

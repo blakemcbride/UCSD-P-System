@@ -31,7 +31,7 @@ class expression_subtraction_real:
     public expression_subtraction
 {
 public:
-    typedef boost::shared_ptr<expression_subtraction_real> pointer;
+    typedef std::shared_ptr<expression_subtraction_real> pointer;
 
     /**
       * The destructor.

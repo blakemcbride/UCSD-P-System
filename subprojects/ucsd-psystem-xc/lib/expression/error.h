@@ -30,7 +30,7 @@ class expression_error:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_error> pointer;
+    typedef std::shared_ptr<expression_error> pointer;
 
     /**
       * The destructor.

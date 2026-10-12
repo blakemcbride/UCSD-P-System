@@ -79,7 +79,7 @@ expression_trunc_long_integer::optimize(void)
     if (code.feature_long_integer_constants())
     {
         expression_long_integer::pointer k1 =
-            boost::dynamic_pointer_cast<expression_long_integer>(ep);
+            std::dynamic_pointer_cast<expression_long_integer>(ep);
         if (k1)
         {
             long_integer x = k1->get_value();

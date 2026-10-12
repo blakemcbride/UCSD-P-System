@@ -31,7 +31,7 @@ class statement_if_littoral:
     public statement_if
 {
 public:
-    typedef boost::shared_ptr<statement_if_littoral> pointer;
+    typedef std::shared_ptr<statement_if_littoral> pointer;
 
     /**
       * The destructor.

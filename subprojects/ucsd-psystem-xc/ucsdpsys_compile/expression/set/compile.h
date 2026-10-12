@@ -31,7 +31,7 @@ class expression_set_compile:
     public expression_set
 {
 public:
-    typedef boost::shared_ptr<expression_set_compile> pointer;
+    typedef std::shared_ptr<expression_set_compile> pointer;
 
     /**
       * The destructor.

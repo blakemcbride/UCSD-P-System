@@ -29,7 +29,7 @@ class disassembler_6502:
     public disassembler
 {
 public:
-    typedef boost::shared_ptr<disassembler_6502> pointer;
+    typedef std::shared_ptr<disassembler_6502> pointer;
 
     /**
       * The destructor.

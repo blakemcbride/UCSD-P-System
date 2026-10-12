@@ -20,7 +20,7 @@
 #define LIB_BITMAP_H
 
 #include <lib/config.h>
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <lib/rcstring.h>
 
@@ -35,7 +35,7 @@
 class bitmap
 {
 public:
-    typedef boost::shared_ptr<bitmap> pointer;
+    typedef std::shared_ptr<bitmap> pointer;
 
     /**
       * The destructor.

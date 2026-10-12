@@ -31,7 +31,7 @@ class symbol_function_eof:
     public symbol_function
 {
 public:
-    typedef boost::shared_ptr<symbol_function_eof> pointer;
+    typedef std::shared_ptr<symbol_function_eof> pointer;
 
     /**
       * The destructor.

@@ -32,7 +32,7 @@ class scope_unit_littoral:
     public scope_unit
 {
 public:
-    typedef boost::shared_ptr<scope_unit_littoral> pointer;
+    typedef std::shared_ptr<scope_unit_littoral> pointer;
 
     /**
       * The destructor.

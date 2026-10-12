@@ -30,7 +30,7 @@ class symbol_variable_normal:
     public symbol_variable
 {
 public:
-    typedef boost::shared_ptr<symbol_variable_normal> pointer;
+    typedef std::shared_ptr<symbol_variable_normal> pointer;
 
     /**
       * The destructor.

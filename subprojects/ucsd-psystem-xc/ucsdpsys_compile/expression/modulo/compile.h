@@ -31,7 +31,7 @@ class expression_modulo_compile:
     public expression_addition
 {
 public:
-    typedef boost::shared_ptr<expression_modulo_compile> pointer;
+    typedef std::shared_ptr<expression_modulo_compile> pointer;
 
     /**
       * The destructor.

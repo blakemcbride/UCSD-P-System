@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <ucsdpsys_littoral/scope/temporary/compound/littoral.h>
 #include <ucsdpsys_littoral/symbol/expression/constant/littoral.h>
 #include <ucsdpsys_littoral/symbol/variable/normal/littoral.h>

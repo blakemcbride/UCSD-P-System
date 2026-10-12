@@ -29,7 +29,7 @@ class type_reference:
     public type
 {
 public:
-    typedef boost::shared_ptr<type_reference> pointer;
+    typedef std::shared_ptr<type_reference> pointer;
 
     /**
       * The destructor.

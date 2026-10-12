@@ -30,7 +30,7 @@ class output_stracc:
     public output
 {
 public:
-    typedef boost::shared_ptr<output_stracc> pointer;
+    typedef std::shared_ptr<output_stracc> pointer;
 
     /**
       * The destructor.

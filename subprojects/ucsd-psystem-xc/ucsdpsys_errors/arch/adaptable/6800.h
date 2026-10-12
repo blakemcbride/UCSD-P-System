@@ -29,7 +29,7 @@ class arch_adaptable_6800:
     public arch_adaptable
 {
 public:
-    typedef boost::shared_ptr<arch_adaptable_6800> pointer;
+    typedef std::shared_ptr<arch_adaptable_6800> pointer;
 
     /**
       * The destructor.

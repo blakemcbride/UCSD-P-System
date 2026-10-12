@@ -30,7 +30,7 @@ class opcode_pseudo_asciz:
     public opcode_pseudo
 {
 public:
-    typedef boost::shared_ptr<opcode_pseudo_asciz> pointer;
+    typedef std::shared_ptr<opcode_pseudo_asciz> pointer;
 
     /**
       * The destructor.

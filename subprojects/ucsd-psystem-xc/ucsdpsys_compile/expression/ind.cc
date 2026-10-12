@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/type/boolean.h>
 #include <lib/type/pointer.h>
 #include <lib/pcode.h>
@@ -129,7 +130,7 @@ expression_ind::optimize(void)
     const
 {
     expression_inc::pointer eip =
-        boost::dynamic_pointer_cast<expression_inc>(lhs);
+        std::dynamic_pointer_cast<expression_inc>(lhs);
     if (eip)
     {
         expression::pointer ep = eip->indirect_load(tp, rhs);

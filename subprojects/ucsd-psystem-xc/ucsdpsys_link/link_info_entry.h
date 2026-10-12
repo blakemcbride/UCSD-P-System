@@ -20,7 +20,7 @@
 #define UCSDPSYS_LINK_LINK_INFO_ENTRY_H
 
 #include <lib/ac/list>
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <lib/link_info.h>
 #include <lib/opformat.h>
@@ -41,7 +41,7 @@ class segrec; // forward
 class link_info_entry
 {
 public:
-    typedef boost::shared_ptr<link_info_entry> pointer;
+    typedef std::shared_ptr<link_info_entry> pointer;
 
     /**
       * The destructor.

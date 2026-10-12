@@ -30,7 +30,7 @@ class type_long_integer_sized:
     public type_long_integer
 {
 public:
-    typedef boost::shared_ptr<type_long_integer_sized> pointer;
+    typedef std::shared_ptr<type_long_integer_sized> pointer;
 
     /**
       * The destructor.

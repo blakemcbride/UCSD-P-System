@@ -30,7 +30,7 @@ class opcode_pseudo_macro:
     public opcode_pseudo
 {
 public:
-    typedef boost::shared_ptr<opcode_pseudo_macro> pointer;
+    typedef std::shared_ptr<opcode_pseudo_macro> pointer;
 
     /**
       * The destructor.

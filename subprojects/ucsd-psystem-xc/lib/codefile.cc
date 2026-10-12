@@ -17,6 +17,7 @@
 //
 
 #include <lib/config.h>
+#include <cassert>
 #include <libexplain/output.h>
 #include <unistd.h>
 

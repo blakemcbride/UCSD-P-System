@@ -99,14 +99,14 @@ type_enumerated::same_type_as(const type::pointer &rhs)
     for (;;)
     {
         type_subrange::pointer rr =
-            boost::dynamic_pointer_cast<type_subrange>(r1);
+            std::dynamic_pointer_cast<type_subrange>(r1);
         if (!rr)
             break;
         r1 = rr->get_subtype();
     }
 
     type_enumerated::pointer r2 =
-        boost::dynamic_pointer_cast<type_enumerated>(r1);
+        std::dynamic_pointer_cast<type_enumerated>(r1);
     if (!r2)
         return false;
     return (get_name() == r2->get_name());
@@ -127,13 +127,13 @@ type_enumerated::is_a(const type::pointer &tp)
     for (;;)
     {
         type_subrange::pointer rr =
-            boost::dynamic_pointer_cast<type_subrange>(r1);
+            std::dynamic_pointer_cast<type_subrange>(r1);
         if (!rr)
             break;
         r1 = rr->get_subtype();
     }
 
-    return static_cast<bool> (boost::dynamic_pointer_cast<type_enumerated>(r1));
+    return static_cast<bool> (std::dynamic_pointer_cast<type_enumerated>(r1));
 }
 
 

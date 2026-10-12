@@ -30,7 +30,7 @@ class tcontrol_string_method:
     public tcontrol_string
 {
 public:
-    typedef boost::shared_ptr<tcontrol_string_method> pointer;
+    typedef std::shared_ptr<tcontrol_string_method> pointer;
 
     typedef void (T::*method_t)(const rcstring &);
 

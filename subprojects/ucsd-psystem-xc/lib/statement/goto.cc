@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/statement/goto.h>
 
 
@@ -25,7 +26,7 @@ statement_goto::~statement_goto()
 
 
 statement_goto::statement_goto(const symbol::pointer &asym) :
-    sym(boost::dynamic_pointer_cast<symbol_label>(asym))
+    sym(std::dynamic_pointer_cast<symbol_label>(asym))
 {
     assert(sym);
 }

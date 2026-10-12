@@ -29,7 +29,7 @@ class opcode_6502_phy:
     public opcode_6502
 {
 public:
-    typedef boost::shared_ptr<opcode_6502_phy> pointer;
+    typedef std::shared_ptr<opcode_6502_phy> pointer;
 
     /**
       * The destructor.

@@ -32,7 +32,7 @@ class expression_function_call_exit:
     public expression_function_call
 {
 public:
-    typedef boost::shared_ptr<expression_function_call_exit> pointer;
+    typedef std::shared_ptr<expression_function_call_exit> pointer;
 
     /**
       * The destructor.

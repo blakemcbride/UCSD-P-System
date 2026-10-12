@@ -29,7 +29,7 @@ class opcode_pcode_lesi:
     public opcode_pcode
 {
 public:
-    typedef boost::shared_ptr<opcode_pcode_lesi> pointer;
+    typedef std::shared_ptr<opcode_pcode_lesi> pointer;
 
     /**
       * The destructor.

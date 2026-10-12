@@ -31,7 +31,7 @@ class expression_ne_byte_array:
     public expression_ne
 {
 public:
-    typedef boost::shared_ptr<expression_ne_byte_array> pointer;
+    typedef std::shared_ptr<expression_ne_byte_array> pointer;
 
     /**
       * The destructor.

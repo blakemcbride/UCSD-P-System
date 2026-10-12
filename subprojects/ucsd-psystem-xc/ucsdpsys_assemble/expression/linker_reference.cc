@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <ucsdpsys_assemble/assembler.h>
 #include <ucsdpsys_assemble/expression/linker_reference.h>
 #include <ucsdpsys_assemble/type/linksym_relative.h>
@@ -68,7 +69,7 @@ expression_linker_reference::traversal(int)
 {
     assert(litype == GLOBREF);
     type_linksym_relative::pointer r =
-        boost::dynamic_pointer_cast<type_linksym_relative>(tp);
+        std::dynamic_pointer_cast<type_linksym_relative>(tp);
     assert(r);
     context->emit_globref(r->get_symbol_name());
     context->emit_word(offset);

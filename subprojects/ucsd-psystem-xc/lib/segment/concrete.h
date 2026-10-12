@@ -30,7 +30,7 @@ class segment_concrete:
     public segment
 {
 public:
-    typedef boost::shared_ptr<segment_concrete> pointer;
+    typedef std::shared_ptr<segment_concrete> pointer;
 
     /**
       * The destructor.

@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/expression/error.h>
 #include <lib/pascal/lex.h>
 #include <lib/pcode.h>
@@ -87,7 +88,7 @@ expression_sqr_long_integer::optimize(void)
     if (code.feature_long_integer_constants())
     {
         expression_long_integer::pointer k1 =
-            boost::dynamic_pointer_cast<expression_long_integer>(ep);
+            std::dynamic_pointer_cast<expression_long_integer>(ep);
         if (k1)
         {
             long_integer n = k1->get_value();

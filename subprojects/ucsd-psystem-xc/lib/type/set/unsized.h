@@ -29,7 +29,7 @@ class type_set_unsized:
     public type_set
 {
 public:
-    typedef boost::shared_ptr<type_set_unsized> pointer;
+    typedef std::shared_ptr<type_set_unsized> pointer;
 
     /**
       * The destructor.

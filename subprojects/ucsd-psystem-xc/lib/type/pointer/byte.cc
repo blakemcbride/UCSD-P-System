@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/debug.h>
 #include <lib/type/char.h>
 #include <lib/type/pointer/byte.h>
@@ -54,7 +55,7 @@ type_pointer_byte::get_size_in_bits(void)
 bool
 type_pointer_byte::is_a(const type::pointer &candidate)
 {
-    return !!boost::dynamic_pointer_cast<const type_pointer_byte>(candidate);
+    return !!std::dynamic_pointer_cast<const type_pointer_byte>(candidate);
 }
 
 

@@ -20,7 +20,7 @@
 #define LIB_VARIANT_H
 
 #include <lib/ac/map>
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <lib/type.h>
 
@@ -31,7 +31,7 @@
 class variant
 {
 public:
-    typedef boost::shared_ptr<variant> pointer;
+    typedef std::shared_ptr<variant> pointer;
 
     /**
       * The destructor.

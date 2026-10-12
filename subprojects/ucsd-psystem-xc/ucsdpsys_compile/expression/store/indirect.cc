@@ -106,7 +106,7 @@ expression_store_indirect::optimize(void)
     if (o_lhs->get_type()->get_subtype()->get_size_in_words() >= 2)
     {
         expression_load_indirect::pointer rhs2 =
-            boost::dynamic_pointer_cast<expression_load_indirect>(o_rhs);
+            std::dynamic_pointer_cast<expression_load_indirect>(o_rhs);
         if (rhs2)
         {
             expression::pointer ep = rhs2->mov_factory(o_lhs);
@@ -120,7 +120,7 @@ expression_store_indirect::optimize(void)
     //
     {
         expression_address::pointer eap =
-            boost::dynamic_pointer_cast<expression_address>(o_lhs);
+            std::dynamic_pointer_cast<expression_address>(o_lhs);
         if (eap)
         {
             expression::pointer ep = eap->fast_store(o_rhs);

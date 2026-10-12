@@ -31,7 +31,7 @@ class expression_ldb:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_ldb> pointer;
+    typedef std::shared_ptr<expression_ldb> pointer;
 
     /**
       * The destructor.

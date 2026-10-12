@@ -31,7 +31,7 @@ class symbol_function_sqrt:
     public symbol_function
 {
 public:
-    typedef boost::shared_ptr<symbol_function_sqrt> pointer;
+    typedef std::shared_ptr<symbol_function_sqrt> pointer;
 
     /**
       * The destructor.

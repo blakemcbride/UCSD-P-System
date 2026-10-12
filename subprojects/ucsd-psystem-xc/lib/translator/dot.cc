@@ -63,7 +63,7 @@ translator::dot_expression(const expression::pointer &a_lhs,
     // Make sure the left hand side is a record type.
     //
     type_record::pointer trp =
-        boost::dynamic_pointer_cast<type_record>(lhs->get_type());
+        std::dynamic_pointer_cast<type_record>(lhs->get_type());
     if (!trp)
     {
         pascal_lex_error

@@ -1,7 +1,4 @@
-/.bin
 /etc/*.pdf
-/lib/libdir.cc
-grammar.yacc.*
 /man/cat*/
 
 /build/
@@ -11,13 +8,6 @@ grammar.yacc.*
 .cproject
 
 /bin/
-
-# Autotools
-Makefile
-config.log
-config.status
-lib/config.h
-
 
 # Prerequisites
 *.d

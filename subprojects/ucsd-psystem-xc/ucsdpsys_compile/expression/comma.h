@@ -33,7 +33,7 @@ class expression_comma:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_comma> pointer;
+    typedef std::shared_ptr<expression_comma> pointer;
 
     /**
       * The destructor.

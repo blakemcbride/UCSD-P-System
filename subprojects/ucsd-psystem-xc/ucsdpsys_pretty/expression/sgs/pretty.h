@@ -31,7 +31,7 @@ class expression_sgs_pretty:
     public expression_sgs
 {
 public:
-    typedef boost::shared_ptr<expression_sgs_pretty> pointer;
+    typedef std::shared_ptr<expression_sgs_pretty> pointer;
 
     /**
       * The destructor.

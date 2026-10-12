@@ -30,7 +30,7 @@
 class source
 {
 public:
-    typedef boost::shared_ptr<source> pointer;
+    typedef std::shared_ptr<source> pointer;
 
     /**
       * The destructor.

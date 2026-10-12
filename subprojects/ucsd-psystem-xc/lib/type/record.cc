@@ -138,7 +138,7 @@ bool
 type_record::same_type_as(const type::pointer &rhs)
     const
 {
-    type_record::pointer rhs2 = boost::dynamic_pointer_cast<type_record>(rhs);
+    type_record::pointer rhs2 = std::dynamic_pointer_cast<type_record>(rhs);
     return (rhs2 && name == rhs2->name);
 }
 

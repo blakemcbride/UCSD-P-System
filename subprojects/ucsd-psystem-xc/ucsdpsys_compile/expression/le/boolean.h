@@ -31,7 +31,7 @@ class expression_le_boolean:
     public expression_le
 {
 public:
-    typedef boost::shared_ptr<expression_le_boolean> pointer;
+    typedef std::shared_ptr<expression_le_boolean> pointer;
 
     /**
       * The destructor.

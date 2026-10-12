@@ -30,7 +30,7 @@ class expression_dispatcher_binary_functor_method:
     public expression_dispatcher_binary_functor
 {
 public:
-    typedef boost::shared_ptr<expression_dispatcher_binary_functor_method>
+    typedef std::shared_ptr<expression_dispatcher_binary_functor_method>
         pointer;
 
     /**

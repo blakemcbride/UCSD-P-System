@@ -31,7 +31,7 @@ class expression_sqr_integer:
     public expression_sqr
 {
 public:
-    typedef boost::shared_ptr<expression_sqr_integer> pointer;
+    typedef std::shared_ptr<expression_sqr_integer> pointer;
 
     /**
       * The destructor.

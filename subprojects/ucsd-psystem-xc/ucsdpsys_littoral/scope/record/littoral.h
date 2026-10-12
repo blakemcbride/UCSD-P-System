@@ -31,7 +31,7 @@ class scope_record_littoral:
     public scope_record
 {
 public:
-    typedef boost::shared_ptr<scope_record_littoral> pointer;
+    typedef std::shared_ptr<scope_record_littoral> pointer;
 
     /**
       * The destructor.

@@ -29,7 +29,7 @@ class expression_xor:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_xor> pointer;
+    typedef std::shared_ptr<expression_xor> pointer;
 
     /**
       * The destructor.

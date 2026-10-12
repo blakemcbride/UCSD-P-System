@@ -32,7 +32,7 @@ class statement_expression_compile:
     public statement_expression
 {
 public:
-    typedef boost::shared_ptr<statement_expression_compile> pointer;
+    typedef std::shared_ptr<statement_expression_compile> pointer;
 
     /**
       * The destructor.

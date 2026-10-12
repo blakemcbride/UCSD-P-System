@@ -30,7 +30,7 @@ class output_wrap_cook:
     public output
 {
 public:
-    typedef boost::shared_ptr<output_wrap_cook> pointer;
+    typedef std::shared_ptr<output_wrap_cook> pointer;
 
     /**
       * The destructor.

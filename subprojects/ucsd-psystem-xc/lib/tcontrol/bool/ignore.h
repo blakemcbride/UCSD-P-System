@@ -29,7 +29,7 @@ class tcontrol_bool_ignore:
     public tcontrol_bool
 {
 public:
-    typedef boost::shared_ptr<tcontrol_bool_ignore> pointer;
+    typedef std::shared_ptr<tcontrol_bool_ignore> pointer;
 
     /**
       * The destructor.

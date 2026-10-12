@@ -44,7 +44,7 @@ class symbol_variable_normal_privref:
     public symbol_variable_normal
 {
 public:
-    typedef boost::shared_ptr<symbol_variable_normal_privref> pointer;
+    typedef std::shared_ptr<symbol_variable_normal_privref> pointer;
 
     /**
       * The destructor.

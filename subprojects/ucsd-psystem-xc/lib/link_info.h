@@ -20,7 +20,7 @@
 #define LIB_LINK_INFO_H
 
 #include <lib/ac/vector>
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <lib/library_map_columns.h>
 #include <lib/link_info_type.h>
@@ -40,7 +40,7 @@ class codefile; // forward
 class link_info
 {
 public:
-    typedef boost::shared_ptr<link_info> pointer;
+    typedef std::shared_ptr<link_info> pointer;
 
     /**
       * The destructor.

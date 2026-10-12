@@ -69,7 +69,7 @@ expression_name::is_lvalue()
     const
 {
     symbol_variable::pointer svp =
-        boost::dynamic_pointer_cast<symbol_variable>(get_sp());
+        std::dynamic_pointer_cast<symbol_variable>(get_sp());
     return (svp != 0);
 }
 
@@ -93,7 +93,7 @@ expression_name::function_call_expression_factory(const expression_list &rhs)
     // Make sure this is a valid function expression.
     //
     symbol_function::pointer fsp =
-        boost::dynamic_pointer_cast<symbol_function>(get_sp());
+        std::dynamic_pointer_cast<symbol_function>(get_sp());
     if (!fsp)
     {
         // If it isn't valid, use the parent class's generic error.
@@ -111,7 +111,7 @@ bool
 expression_name::is_constant(void)
     const
 {
-    bool result = !!boost::dynamic_pointer_cast<symbol_expression_constant>(sp);
+    bool result = !!std::dynamic_pointer_cast<symbol_expression_constant>(sp);
     DEBUG(1, "%d", result);
     return result;
 }

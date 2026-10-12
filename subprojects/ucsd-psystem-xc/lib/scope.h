@@ -20,7 +20,7 @@
 #define LIB_SCOPE_H
 
 #include <lib/ac/list>
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <lib/bit_address.h>
 #include <lib/expression.h>
@@ -47,7 +47,7 @@ public:
     /**
       * The pointer type is to be used for all pointers to scopes.
       */
-    typedef boost::shared_ptr<scope> pointer;
+    typedef std::shared_ptr<scope> pointer;
 
     /**
       * The destructor.
@@ -314,7 +314,7 @@ public:
     virtual void type_declaration_notify(const variable_name &name,
         const type::pointer &tp) = 0;
 
-    typedef boost::shared_ptr<symbol_variable> symbol_variable_p;
+    typedef std::shared_ptr<symbol_variable> symbol_variable_p;
 
     /**
       * The variable_declaration_notify method is used to let the

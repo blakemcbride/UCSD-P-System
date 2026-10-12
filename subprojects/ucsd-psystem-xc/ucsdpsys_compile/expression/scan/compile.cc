@@ -105,10 +105,10 @@ expression_scan_compile::create(const expression::pointer &a_maxdisp,
     {
         pascal_lex_error
         (
-            start2->get_location(),
+            a_start->get_location(),
             "call of function scan: parameter three: must be a packed "
                 "array of char, not a %s",
-            start2->get_description().c_str()
+            a_start->get_description().c_str()
         );
         DEBUG(1, "}");
         return expression_error::create(start2->get_location());

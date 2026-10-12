@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/debug.h>
 #include <lib/type/anything.h>
 #include <lib/type/integer.h>
@@ -40,12 +41,12 @@ translator_compile::fix_binary_set_operands(expression::pointer &lhs,
         lhs = lhs->optimize();
         // this only happens for the empty set.
         expression_set_compile::pointer escp =
-            boost::dynamic_pointer_cast<expression_set_compile>(lhs);
+            std::dynamic_pointer_cast<expression_set_compile>(lhs);
         assert(escp);
         assert(escp->get_value().empty());
 
         type::pointer tp = rhs->get_type();
-        if (boost::dynamic_pointer_cast<type_anything>(tp->get_subtype()))
+        if (std::dynamic_pointer_cast<type_anything>(tp->get_subtype()))
         {
             tp =
                 type_set_sized::create
@@ -66,7 +67,7 @@ translator_compile::fix_binary_set_operands(expression::pointer &lhs,
     // make sure the set on the stack is sized (includes the size)
     {
         type_set_unsized::pointer tsup =
-            boost::dynamic_pointer_cast<type_set_unsized>(lhs->get_type());
+            std::dynamic_pointer_cast<type_set_unsized>(lhs->get_type());
         if (tsup)
         {
             lhs =
@@ -85,7 +86,7 @@ translator_compile::fix_binary_set_operands(expression::pointer &lhs,
         rhs = rhs->optimize();
         // this only happens for the empty set.
         expression_set_compile::pointer escp =
-            boost::dynamic_pointer_cast<expression_set_compile>(rhs);
+            std::dynamic_pointer_cast<expression_set_compile>(rhs);
         assert(escp);
         assert(escp->get_value().empty());
 
@@ -102,7 +103,7 @@ translator_compile::fix_binary_set_operands(expression::pointer &lhs,
     // make sure the set on the stack is sized (includes the size)
     {
         type_set_unsized::pointer tsup =
-            boost::dynamic_pointer_cast<type_set_unsized>(rhs->get_type());
+            std::dynamic_pointer_cast<type_set_unsized>(rhs->get_type());
         if (tsup)
         {
             rhs =

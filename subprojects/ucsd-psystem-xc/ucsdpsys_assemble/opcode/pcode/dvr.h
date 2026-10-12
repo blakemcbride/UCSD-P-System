@@ -29,7 +29,7 @@ class opcode_pcode_dvr:
     public opcode_pcode
 {
 public:
-    typedef boost::shared_ptr<opcode_pcode_dvr> pointer;
+    typedef std::shared_ptr<opcode_pcode_dvr> pointer;
 
     /**
       * The destructor.

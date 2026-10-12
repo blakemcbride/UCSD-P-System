@@ -30,7 +30,7 @@ class type_long_integer:
     public type
 {
 public:
-    typedef boost::shared_ptr<type_long_integer> pointer;
+    typedef std::shared_ptr<type_long_integer> pointer;
 
     enum { max_digits = 36 };
 

@@ -29,7 +29,7 @@ class expression_writeln_bytes:
     public expression_writeln
 {
 public:
-    typedef boost::shared_ptr<expression_writeln_bytes> pointer;
+    typedef std::shared_ptr<expression_writeln_bytes> pointer;
 
     /**
       * The destructor.

@@ -19,7 +19,7 @@
 #ifndef UCSDPSYS_ERRORS_ARCH_H
 #define UCSDPSYS_ERRORS_ARCH_H
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <lib/mtype.h>
 #include <lib/rcstring.h>
@@ -32,7 +32,7 @@
 class arch
 {
 public:
-    typedef boost::shared_ptr<arch> pointer;
+    typedef std::shared_ptr<arch> pointer;
 
     /**
       * The destructor.

@@ -31,7 +31,7 @@ class symbol_function_unitwait:
     public symbol_function
 {
 public:
-    typedef boost::shared_ptr<symbol_function_unitwait> pointer;
+    typedef std::shared_ptr<symbol_function_unitwait> pointer;
 
     /**
       * The destructor.

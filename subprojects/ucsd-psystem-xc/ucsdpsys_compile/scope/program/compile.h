@@ -31,7 +31,7 @@ class scope_program_compile:
     public scope_program
 {
 public:
-    typedef boost::shared_ptr<scope_program_compile> pointer;
+    typedef std::shared_ptr<scope_program_compile> pointer;
 
     /**
       * The destructor.

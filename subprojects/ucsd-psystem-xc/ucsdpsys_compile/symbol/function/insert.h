@@ -31,7 +31,7 @@ class symbol_function_insert:
     public symbol_function
 {
 public:
-    typedef boost::shared_ptr<symbol_function_insert> pointer;
+    typedef std::shared_ptr<symbol_function_insert> pointer;
 
     /**
       * The destructor.

@@ -20,7 +20,7 @@
 #define UCSDPSYS_VOLUME_H
 
 #include <lib/config.h>
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <lib/rcstring.h>
 #include <lib/rcstring/list.h>
@@ -32,7 +32,7 @@
 class volume
 {
 public:
-    typedef boost::shared_ptr<volume> pointer;
+    typedef std::shared_ptr<volume> pointer;
 
     /**
       * The destructor.

@@ -29,7 +29,7 @@ class type_label:
     public type
 {
 public:
-    typedef boost::shared_ptr<type_label> pointer;
+    typedef std::shared_ptr<type_label> pointer;
 
     /**
       * The destructor.

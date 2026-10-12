@@ -34,7 +34,7 @@ class segment_builder_code:
     public segment_builder
 {
 public:
-    typedef boost::shared_ptr<segment_builder_code> pointer;
+    typedef std::shared_ptr<segment_builder_code> pointer;
 
     /**
       * The destructor.

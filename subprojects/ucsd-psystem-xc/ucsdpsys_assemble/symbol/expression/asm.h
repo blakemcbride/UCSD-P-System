@@ -31,7 +31,7 @@ class symbol_expression_asm:
     public symbol_expression
 {
 public:
-    typedef boost::shared_ptr<symbol_expression_asm> pointer;
+    typedef std::shared_ptr<symbol_expression_asm> pointer;
 
     /**
       * The destructor.

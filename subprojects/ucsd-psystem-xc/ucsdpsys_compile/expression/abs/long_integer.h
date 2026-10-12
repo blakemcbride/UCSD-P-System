@@ -31,7 +31,7 @@ class expression_abs_long_integer:
     public expression_abs
 {
 public:
-    typedef boost::shared_ptr<expression_abs_long_integer> pointer;
+    typedef std::shared_ptr<expression_abs_long_integer> pointer;
 
     /**
       * The destructor.

@@ -30,7 +30,7 @@ class label_placebo:
     public label
 {
 public:
-    typedef boost::shared_ptr<label_placebo> pointer;
+    typedef std::shared_ptr<label_placebo> pointer;
 
     /**
       * The destructor.

@@ -34,7 +34,7 @@ class statement_var_expression:
     public statement
 {
 public:
-    typedef boost::shared_ptr<statement_var_expression> pointer;
+    typedef std::shared_ptr<statement_var_expression> pointer;
 
     /**
       * The destructor.

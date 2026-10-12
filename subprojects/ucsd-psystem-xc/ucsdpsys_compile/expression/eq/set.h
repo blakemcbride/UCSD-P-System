@@ -31,7 +31,7 @@ class expression_eq_set:
     public expression_eq
 {
 public:
-    typedef boost::shared_ptr<expression_eq_set> pointer;
+    typedef std::shared_ptr<expression_eq_set> pointer;
 
     /**
       * The destructor.

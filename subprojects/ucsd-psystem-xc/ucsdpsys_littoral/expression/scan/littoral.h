@@ -32,7 +32,7 @@ class expression_scan_littoral:
     public expression_scan
 {
 public:
-    typedef boost::shared_ptr<expression_scan_littoral> pointer;
+    typedef std::shared_ptr<expression_scan_littoral> pointer;
 
     /**
       * The destructor.

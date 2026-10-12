@@ -19,7 +19,7 @@
 #ifndef UCSDPSYS_OPCODES_ARCH_H
 #define UCSDPSYS_OPCODES_ARCH_H
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <lib/byte_sex.h>
 #include <lib/mtype.h>
@@ -32,7 +32,7 @@
 class arch
 {
 public:
-    typedef boost::shared_ptr<arch> pointer;
+    typedef std::shared_ptr<arch> pointer;
 
     /**
       * The destructor.

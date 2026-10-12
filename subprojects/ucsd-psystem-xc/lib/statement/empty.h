@@ -29,7 +29,7 @@ class statement_empty:
     public statement
 {
 public:
-    typedef boost::shared_ptr<statement_empty> pointer;
+    typedef std::shared_ptr<statement_empty> pointer;
 
     /**
       * The destructor.

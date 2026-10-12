@@ -54,7 +54,7 @@ class expression_uptr2pptr:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_uptr2pptr> pointer;
+    typedef std::shared_ptr<expression_uptr2pptr> pointer;
 
     /**
       * The destructor.

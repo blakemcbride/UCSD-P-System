@@ -60,7 +60,7 @@ static label::pointer
 get_goto_label(const statement::pointer &sp)
 {
     statement_goto::pointer sgp =
-        boost::dynamic_pointer_cast<statement_goto>(sp);
+        std::dynamic_pointer_cast<statement_goto>(sp);
     if (!sgp)
         return label::pointer();
     return sgp->get_label();

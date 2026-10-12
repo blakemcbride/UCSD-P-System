@@ -33,7 +33,7 @@ class scope_interface_unitseg:
     public scope_interface
 {
 public:
-    typedef boost::shared_ptr<scope_interface_unitseg> pointer;
+    typedef std::shared_ptr<scope_interface_unitseg> pointer;
 
     /**
       * The destructor.

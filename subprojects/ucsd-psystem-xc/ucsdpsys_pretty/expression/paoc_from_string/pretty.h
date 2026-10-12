@@ -30,7 +30,7 @@ class expression_paoc_from_string_pretty:
     public expression_paoc_from_string
 {
 public:
-    typedef boost::shared_ptr<expression_paoc_from_string_pretty> pointer;
+    typedef std::shared_ptr<expression_paoc_from_string_pretty> pointer;
 
     /**
       * The destructor.

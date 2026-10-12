@@ -29,7 +29,7 @@ class tcontrol_string:
     public tcontrol
 {
 public:
-    typedef boost::shared_ptr<tcontrol_string> pointer;
+    typedef std::shared_ptr<tcontrol_string> pointer;
 
     /**
       * The destructor.

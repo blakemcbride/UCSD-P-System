@@ -29,7 +29,7 @@ class input_string:
     public input
 {
 public:
-    typedef boost::shared_ptr<input_string> pointer;
+    typedef std::shared_ptr<input_string> pointer;
 
     /**
       * The destructor.

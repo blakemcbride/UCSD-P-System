@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/pcode.h>
 #include <lib/type/long_integer/sized.h>
 #include <lib/type/nothing.h>
@@ -71,7 +72,7 @@ expression_function_call_str::traversal(int)
 
     // Hidden third paramater: maximum string length.
     type::pointer tp = e2->get_type()->get_subtype();
-    type_string::pointer tsp = boost::dynamic_pointer_cast<type_string>(tp);
+    type_string::pointer tsp = std::dynamic_pointer_cast<type_string>(tp);
     assert(tsp);
     assert(type_string::is_a(tp));
     expression::pointer e3 =
@@ -114,7 +115,7 @@ expression_function_call_str::optimize()
     if (code.feature_long_integer_constants())
     {
         expression_long_integer::pointer k2 =
-            boost::dynamic_pointer_cast<expression_long_integer>(e2);
+            std::dynamic_pointer_cast<expression_long_integer>(e2);
         if (k2)
         {
             expression::pointer a1 = get_child(0);

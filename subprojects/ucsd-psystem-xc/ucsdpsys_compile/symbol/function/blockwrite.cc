@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/cardinal.h>
 #include <lib/debug.h>
 #include <lib/expression/error.h>
@@ -139,8 +140,8 @@ symbol_function_blockwrite::function_call_expression_factory(
     {
         expression::pointer ep = code.call_noparam_func_if_necessary(rhs[2]);
         DEBUG(2, "arg 2 = %s", ep->lisp_representation().c_str());
-        ep = ep->get_byte_pointer();
-        if (!ep)
+        expression::pointer bp = ep->get_byte_pointer();
+        if (!bp)
         {
             pascal_lex_error
             (
@@ -153,6 +154,7 @@ symbol_function_blockwrite::function_call_expression_factory(
             DEBUG(1, "}");
             return expression_error::create(rhs.get_location());
         }
+        ep = bp;
         rhs2.push_back(ep);
     }
 
@@ -224,7 +226,7 @@ symbol_function_blockwrite::name_expression_factory(const symbol::pointer &sym,
 {
     assert(this == sym.get());
     symbol_function::pointer sfp =
-        boost::dynamic_pointer_cast<symbol_function>(sym);
+        std::dynamic_pointer_cast<symbol_function>(sym);
     assert(sfp);
     return expression_function::create(where, sfp, &code);
 }

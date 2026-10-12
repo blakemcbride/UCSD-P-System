@@ -19,7 +19,7 @@
 #ifndef UCSDPSYS_DEPENDS_CONTEXT_H
 #define UCSDPSYS_DEPENDS_CONTEXT_H
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 #include <lib/ac/stdio.h>
 
 #include <lib/location.h>
@@ -31,7 +31,7 @@
 class context
 {
 public:
-    typedef boost::shared_ptr<context> pointer;
+    typedef std::shared_ptr<context> pointer;
 
     /**
       * The destructor.

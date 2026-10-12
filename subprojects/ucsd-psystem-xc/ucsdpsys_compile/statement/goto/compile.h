@@ -32,7 +32,7 @@ class statement_goto_compile:
     public statement_goto
 {
 public:
-    typedef boost::shared_ptr<statement_goto_compile> pointer;
+    typedef std::shared_ptr<statement_goto_compile> pointer;
 
     /**
       * The destructor.

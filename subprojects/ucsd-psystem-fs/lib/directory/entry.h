@@ -22,7 +22,7 @@
 #include <lib/config.h>
 #include <ctime>
 #include <sys/types.h>
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <lib/concern.h>
 #include <lib/endof.h>
@@ -43,7 +43,7 @@ public:
       * The pointer typedef allows the pointers to be replaced with
       * different sorts of smart pointers with one line of code.
       */
-    typedef boost::shared_ptr<directory_entry> pointer;
+    typedef std::shared_ptr<directory_entry> pointer;
 
     /**
       * The destructor.

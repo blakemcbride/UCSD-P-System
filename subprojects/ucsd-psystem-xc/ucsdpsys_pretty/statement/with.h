@@ -32,7 +32,7 @@ class statement_with:
     public statement
 {
 public:
-    typedef boost::shared_ptr<statement_with> pointer;
+    typedef std::shared_ptr<statement_with> pointer;
 
     /**
       * The destructor.

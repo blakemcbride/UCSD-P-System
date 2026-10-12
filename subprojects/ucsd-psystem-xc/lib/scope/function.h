@@ -30,7 +30,7 @@ class scope_function:
     public scope
 {
 public:
-    typedef boost::shared_ptr<scope_function> pointer;
+    typedef std::shared_ptr<scope_function> pointer;
 
     /**
       * The destructor.

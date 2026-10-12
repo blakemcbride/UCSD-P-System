@@ -16,6 +16,8 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
+#include <cstdlib>
 #include <lib/ac/sys/stat.h>
 
 #include <lib/codefile/file.h>

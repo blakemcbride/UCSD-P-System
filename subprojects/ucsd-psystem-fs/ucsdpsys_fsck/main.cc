@@ -17,6 +17,8 @@
 //
 
 #include <lib/config.h>
+#include <cassert>
+#include <cstdlib>
 #include <cstdio>
 #include <getopt.h>
 #include <libexplain/output.h>

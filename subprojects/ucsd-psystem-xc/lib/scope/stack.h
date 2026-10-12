@@ -207,7 +207,7 @@ public:
     void type_declaration_notify(const variable_name &name,
         const type::pointer &tp);
 
-    typedef boost::shared_ptr<symbol_variable> symbol_variable_p;
+    typedef std::shared_ptr<symbol_variable> symbol_variable_p;
 
     /**
       * The variable_declaration_notify method is used to let the

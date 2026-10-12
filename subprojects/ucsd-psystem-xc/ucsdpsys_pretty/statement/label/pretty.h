@@ -31,7 +31,7 @@ class statement_label_pretty:
     public statement_label
 {
 public:
-    typedef boost::shared_ptr<statement_label_pretty> pointer;
+    typedef std::shared_ptr<statement_label_pretty> pointer;
 
     /**
       * The destructor.

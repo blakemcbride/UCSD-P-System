@@ -31,7 +31,7 @@ class expression_function_call_memavail:
     public expression_function_call
 {
 public:
-    typedef boost::shared_ptr<expression_function_call_memavail> pointer;
+    typedef std::shared_ptr<expression_function_call_memavail> pointer;
 
     /**
       * The destructor.

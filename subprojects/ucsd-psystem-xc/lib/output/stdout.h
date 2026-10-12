@@ -30,7 +30,7 @@ class output_stdout:
     public output
 {
 public:
-    typedef boost::shared_ptr<output_stdout> pointer;
+    typedef std::shared_ptr<output_stdout> pointer;
 
     /**
       * The destructor.

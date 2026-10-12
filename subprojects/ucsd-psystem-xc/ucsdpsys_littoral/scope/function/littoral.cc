@@ -171,7 +171,7 @@ scope_function_littoral::traversal()
         littoral.print_eoln();
 
     statement_compound::pointer scp =
-        boost::dynamic_pointer_cast<statement_compound>(get_body());
+        std::dynamic_pointer_cast<statement_compound>(get_body());
     if (scp)
     {
         const statement_list sl = scp->get_content();

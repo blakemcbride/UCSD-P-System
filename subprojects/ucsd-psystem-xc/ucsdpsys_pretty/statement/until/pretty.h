@@ -31,7 +31,7 @@ class statement_until_pretty:
     public statement_until
 {
 public:
-    typedef boost::shared_ptr<statement_until_pretty> pointer;
+    typedef std::shared_ptr<statement_until_pretty> pointer;
 
     /**
       * The destructor.

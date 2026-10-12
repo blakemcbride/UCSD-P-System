@@ -30,7 +30,7 @@ class expression_6502_absolute_indirect_indexed:
     public expression_6502
 {
 public:
-    typedef boost::shared_ptr<expression_6502_absolute_indirect_indexed>
+    typedef std::shared_ptr<expression_6502_absolute_indirect_indexed>
         pointer;
 
     /**

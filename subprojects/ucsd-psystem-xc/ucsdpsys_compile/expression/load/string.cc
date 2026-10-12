@@ -135,7 +135,7 @@ expression_load_string::array_index_expression_factory(
 {
     DEBUG(1, "%s", __PRETTY_FUNCTION__);
     type_string::pointer tsp =
-        boost::dynamic_pointer_cast<type_string>(get_type());
+        std::dynamic_pointer_cast<type_string>(get_type());
     assert(tsp);
     expression::pointer ep = expression_byte_pointer::create(operand, rhs);
     if (code.issue_range_check())

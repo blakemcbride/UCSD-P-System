@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/statement/label.h>
 
 
@@ -28,7 +29,7 @@ statement_label::statement_label(
     const symbol::pointer &a_sym,
     const statement::pointer &a_body
 ) :
-    sym(boost::dynamic_pointer_cast<symbol_label>(a_sym)),
+    sym(std::dynamic_pointer_cast<symbol_label>(a_sym)),
     body(a_body)
 {
     assert(sym);

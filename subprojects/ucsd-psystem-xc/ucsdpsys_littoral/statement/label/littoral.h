@@ -31,7 +31,7 @@ class statement_label_littoral:
     public statement_label
 {
 public:
-    typedef boost::shared_ptr<statement_label_littoral> pointer;
+    typedef std::shared_ptr<statement_label_littoral> pointer;
 
     /**
       * The destructor.

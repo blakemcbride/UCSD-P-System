@@ -31,7 +31,7 @@ class symbol_variable:
     public symbol
 {
 public:
-    typedef boost::shared_ptr<symbol_variable> pointer;
+    typedef std::shared_ptr<symbol_variable> pointer;
 
     enum kind_t
     {

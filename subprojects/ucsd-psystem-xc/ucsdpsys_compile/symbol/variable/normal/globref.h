@@ -41,7 +41,7 @@ class symbol_variable_normal_globref:
     public symbol_variable_normal
 {
 public:
-    typedef boost::shared_ptr<symbol_variable_normal_globref> pointer;
+    typedef std::shared_ptr<symbol_variable_normal_globref> pointer;
 
     /**
       * The destructor.

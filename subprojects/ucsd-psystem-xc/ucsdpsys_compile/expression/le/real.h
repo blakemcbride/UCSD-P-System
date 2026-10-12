@@ -31,7 +31,7 @@ class expression_le_real:
     public expression_le
 {
 public:
-    typedef boost::shared_ptr<expression_le_real> pointer;
+    typedef std::shared_ptr<expression_le_real> pointer;
 
     /**
       * The destructor.

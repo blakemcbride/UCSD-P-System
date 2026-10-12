@@ -31,7 +31,7 @@ class expression_xor_asm:
     public expression_xor
 {
 public:
-    typedef boost::shared_ptr<expression_xor_asm> pointer;
+    typedef std::shared_ptr<expression_xor_asm> pointer;
 
     /**
       * The destructor.

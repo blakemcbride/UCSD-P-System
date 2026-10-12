@@ -21,7 +21,7 @@
 
 #include <lib/ac/stdio.h>
 #include <lib/ac/list>
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <lib/location.h>
 #include <lib/rcstring/list.h>
@@ -35,7 +35,7 @@
 class language
 {
 public:
-    typedef boost::shared_ptr<language> pointer;
+    typedef std::shared_ptr<language> pointer;
 
     /**
       * The destructor.

@@ -29,7 +29,7 @@ class expression_subtraction_segrel:
     public expression_subtraction
 {
 public:
-    typedef boost::shared_ptr<expression_subtraction_segrel> pointer;
+    typedef std::shared_ptr<expression_subtraction_segrel> pointer;
 
     /**
       * The destructor.

@@ -17,6 +17,7 @@
 //
 
 #include <lib/config.h>
+#include <cassert>
 #include <cstring>
 #include <fcntl.h>
 #include <libexplain/close.h>

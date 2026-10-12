@@ -62,7 +62,7 @@ opcode_6502::argument_list_error(const expression_list &args)
     (
         args.size() == 1
     &&
-        boost::dynamic_pointer_cast<expression_6502>(args[0])
+        std::dynamic_pointer_cast<expression_6502>(args[0])
     )
     {
         lex_error
@@ -147,7 +147,7 @@ opcode_6502::mode_is_absolute(const expression_list &args, unsigned char opc)
         return false;
     DEBUG(1, "%s", __PRETTY_FUNCTION__);
     expression_6502_absolute::pointer ep =
-        boost::dynamic_pointer_cast<expression_6502_absolute>(args[0]);
+        std::dynamic_pointer_cast<expression_6502_absolute>(args[0]);
     if (!ep)
         return false;
     expression::pointer ep2 = ep->get_address()->optimize();
@@ -174,7 +174,7 @@ opcode_6502::mode_is_absolute(const expression_list &args, unsigned char opc)
     {
         emit_byte(opc);
         expression_linker_reference::pointer ep3 =
-            boost::dynamic_pointer_cast<expression_linker_reference>(ep2);
+            std::dynamic_pointer_cast<expression_linker_reference>(ep2);
         if (ep3)
             ep2->traversal(0);
         else
@@ -204,13 +204,13 @@ opcode_6502::mode_is_zeropage_indexed_x(const expression_list &args,
     if (args.size() != 1)
         return false;
     expression_6502_absolute_indexed::pointer ep1 =
-        boost::dynamic_pointer_cast<expression_6502_absolute_indexed>(args[0]);
+        std::dynamic_pointer_cast<expression_6502_absolute_indexed>(args[0]);
     if (!ep1)
         return false;
 
     expression::pointer ep2a = ep1->get_address()->optimize();
     expression_integer::pointer ep2 =
-        boost::dynamic_pointer_cast<expression_integer>(ep2a);
+        std::dynamic_pointer_cast<expression_integer>(ep2a);
     if (!ep2)
         return false;
     long n = ep2->get_integer_value();
@@ -218,7 +218,7 @@ opcode_6502::mode_is_zeropage_indexed_x(const expression_list &args,
         return false;
 
     expression_special_x::pointer ep3 =
-        boost::dynamic_pointer_cast<expression_special_x>(ep1->get_special());
+        std::dynamic_pointer_cast<expression_special_x>(ep1->get_special());
     if (!ep3)
         return false;
 
@@ -236,13 +236,13 @@ opcode_6502::mode_is_zeropage_indexed_y(const expression_list &args,
     if (args.size() != 1)
         return false;
     expression_6502_absolute_indexed::pointer ep1 =
-        boost::dynamic_pointer_cast<expression_6502_absolute_indexed>(args[0]);
+        std::dynamic_pointer_cast<expression_6502_absolute_indexed>(args[0]);
     if (!ep1)
         return false;
 
     expression::pointer ep2a = ep1->get_address()->optimize();
     expression_integer::pointer ep2 =
-        boost::dynamic_pointer_cast<expression_integer>(ep2a);
+        std::dynamic_pointer_cast<expression_integer>(ep2a);
     if (!ep2)
         return false;
     long n = ep2->get_integer_value();
@@ -250,7 +250,7 @@ opcode_6502::mode_is_zeropage_indexed_y(const expression_list &args,
         return false;
 
     expression_special_y::pointer ep3 =
-        boost::dynamic_pointer_cast<expression_special_y>(ep1->get_special());
+        std::dynamic_pointer_cast<expression_special_y>(ep1->get_special());
     if (!ep3)
         return false;
 
@@ -268,14 +268,14 @@ opcode_6502::mode_is_absolute_indexed_x(const expression_list &args,
         return false;
     DEBUG(1, "%s", __PRETTY_FUNCTION__);
     expression_6502_absolute_indexed::pointer ep1 =
-        boost::dynamic_pointer_cast<expression_6502_absolute_indexed>(args[0]);
+        std::dynamic_pointer_cast<expression_6502_absolute_indexed>(args[0]);
     if (!ep1)
         return false;
 
     expression::pointer ep2 = ep1->get_address();
 
     expression_special_x::pointer ep3 =
-        boost::dynamic_pointer_cast<expression_special_x>(ep1->get_special());
+        std::dynamic_pointer_cast<expression_special_x>(ep1->get_special());
     if (!ep3)
         return false;
 
@@ -314,14 +314,14 @@ opcode_6502::mode_is_absolute_indexed_y(const expression_list &args,
         return false;
     DEBUG(1, "%s", __PRETTY_FUNCTION__);
     expression_6502_absolute_indexed::pointer ep1 =
-        boost::dynamic_pointer_cast<expression_6502_absolute_indexed>(args[0]);
+        std::dynamic_pointer_cast<expression_6502_absolute_indexed>(args[0]);
     if (!ep1)
         return false;
 
     expression::pointer ep2 = ep1->get_address();
 
     expression_special_y::pointer ep3 =
-        boost::dynamic_pointer_cast<expression_special_y>(ep1->get_special());
+        std::dynamic_pointer_cast<expression_special_y>(ep1->get_special());
     if (!ep3)
         return false;
 
@@ -359,12 +359,12 @@ opcode_6502::mode_is_zeropage(const expression_list &args, unsigned char opc)
         return false;
     DEBUG(1, "%s", __PRETTY_FUNCTION__);
     expression_6502_absolute::pointer ep =
-        boost::dynamic_pointer_cast<expression_6502_absolute>(args[0]);
+        std::dynamic_pointer_cast<expression_6502_absolute>(args[0]);
     if (!ep)
         return false;
     expression::pointer ep2a = ep->get_address()->optimize();
     expression_integer::pointer ep2 =
-        boost::dynamic_pointer_cast<expression_integer>(ep2a);
+        std::dynamic_pointer_cast<expression_integer>(ep2a);
     if (!ep2)
         return false;
     long n = ep2->get_integer_value();
@@ -384,7 +384,7 @@ opcode_6502::mode_is_immediate(const expression_list &args, unsigned char opc)
         return false;
     DEBUG(1, "%s", __PRETTY_FUNCTION__);
     expression_6502_immediate::pointer ep =
-        boost::dynamic_pointer_cast<expression_6502_immediate>(args[0]);
+        std::dynamic_pointer_cast<expression_6502_immediate>(args[0]);
     if (!ep)
     {
         DEBUG(2, "no");
@@ -403,7 +403,7 @@ opcode_6502::mode_is_accumulator(const expression_list &args, unsigned char opc)
         return false;
     DEBUG(1, "%s", __PRETTY_FUNCTION__);
     expression_special_a::pointer ep =
-        boost::dynamic_pointer_cast<expression_special_a>(args[0]);
+        std::dynamic_pointer_cast<expression_special_a>(args[0]);
     if (!ep)
     {
         DEBUG(2, "no");
@@ -422,7 +422,7 @@ opcode_6502::mode_is_zeropage_indirect(const expression_list &args,
         return false;
     DEBUG(1, "%s", __PRETTY_FUNCTION__);
     expression_6502_absolute_indirect::pointer ep1 =
-        boost::dynamic_pointer_cast<expression_6502_absolute_indirect>(args[0]);
+        std::dynamic_pointer_cast<expression_6502_absolute_indirect>(args[0]);
     if (!ep1)
     {
         DEBUG(2, "no");
@@ -431,7 +431,7 @@ opcode_6502::mode_is_zeropage_indirect(const expression_list &args,
 
     expression::pointer ep2a = ep1->get_address()->optimize();
     expression_integer::pointer ep2 =
-        boost::dynamic_pointer_cast<expression_integer>(ep2a);
+        std::dynamic_pointer_cast<expression_integer>(ep2a);
     if (!ep2)
     {
         DEBUG(2, "no");
@@ -458,7 +458,7 @@ opcode_6502::mode_is_absolute_indirect(const expression_list &args,
         return false;
     DEBUG(1, "%s", __PRETTY_FUNCTION__);
     expression_6502_absolute_indirect::pointer ep1 =
-        boost::dynamic_pointer_cast<expression_6502_absolute_indirect>(args[0]);
+        std::dynamic_pointer_cast<expression_6502_absolute_indirect>(args[0]);
     if (!ep1)
     {
         DEBUG(2, "no");
@@ -500,7 +500,7 @@ opcode_6502::mode_is_absolute_indexed_indirect_x(const expression_list &args,
         return false;
     DEBUG(1, "%s", __PRETTY_FUNCTION__);
     expression_6502_absolute_indexed_indirect::pointer ep1 =
-        boost::dynamic_pointer_cast<expression_6502_absolute_indexed_indirect>(
+        std::dynamic_pointer_cast<expression_6502_absolute_indexed_indirect>(
             args[0]);
     if (!ep1)
     {
@@ -511,7 +511,7 @@ opcode_6502::mode_is_absolute_indexed_indirect_x(const expression_list &args,
     expression::pointer ep2 = ep1->get_address();
 
     expression_special_x::pointer ep3 =
-        boost::dynamic_pointer_cast<expression_special_x>(ep1->get_special());
+        std::dynamic_pointer_cast<expression_special_x>(ep1->get_special());
     if (!ep3)
     {
         DEBUG(2, "no");
@@ -543,7 +543,7 @@ opcode_6502::mode_is_zeropage_indexed_indirect_x(const expression_list &args,
         return false;
     DEBUG(1, "%s", __PRETTY_FUNCTION__);
     expression_6502_absolute_indexed_indirect::pointer ep1 =
-        boost::dynamic_pointer_cast<expression_6502_absolute_indexed_indirect>(
+        std::dynamic_pointer_cast<expression_6502_absolute_indexed_indirect>(
             args[0]);
     if (!ep1)
     {
@@ -553,7 +553,7 @@ opcode_6502::mode_is_zeropage_indexed_indirect_x(const expression_list &args,
 
     expression::pointer ep2a = ep1->get_address()->optimize();
     expression_integer::pointer ep2 =
-        boost::dynamic_pointer_cast<expression_integer>(ep2a);
+        std::dynamic_pointer_cast<expression_integer>(ep2a);
     if (!ep2)
     {
         DEBUG(2, "no");
@@ -567,7 +567,7 @@ opcode_6502::mode_is_zeropage_indexed_indirect_x(const expression_list &args,
     }
 
     expression_special_x::pointer ep3 =
-        boost::dynamic_pointer_cast<expression_special_x>(ep1->get_special());
+        std::dynamic_pointer_cast<expression_special_x>(ep1->get_special());
     if (!ep3)
     {
         DEBUG(2, "no");
@@ -605,7 +605,7 @@ opcode_6502::mode_is_zeropage_indirect_indexed_y(const expression_list &args,
         return false;
     DEBUG(1, "%s", __PRETTY_FUNCTION__);
     expression_6502_absolute_indirect_indexed::pointer ep1 =
-        boost::dynamic_pointer_cast<expression_6502_absolute_indirect_indexed>(
+        std::dynamic_pointer_cast<expression_6502_absolute_indirect_indexed>(
             args[0]);
     if (!ep1)
     {
@@ -616,7 +616,7 @@ opcode_6502::mode_is_zeropage_indirect_indexed_y(const expression_list &args,
     expression::pointer ep2 = ep1->get_address()->optimize();
 
     expression_special_y::pointer ep3 =
-        boost::dynamic_pointer_cast<expression_special_y>(ep1->get_special());
+        std::dynamic_pointer_cast<expression_special_y>(ep1->get_special());
     if (!ep3)
     {
         DEBUG(2, "no");

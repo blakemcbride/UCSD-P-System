@@ -31,7 +31,7 @@ class personality_pseudo:
     public personality
 {
 public:
-    typedef boost::shared_ptr<personality_pseudo> pointer;
+    typedef std::shared_ptr<personality_pseudo> pointer;
 
     /**
       * The destructor.

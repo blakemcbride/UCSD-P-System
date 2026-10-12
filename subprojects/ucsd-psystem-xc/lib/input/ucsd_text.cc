@@ -16,6 +16,8 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
+#include <unistd.h>
 #include <lib/ac/ctype.h>
 #include <fcntl.h>
 #include <libexplain/close.h>

@@ -30,7 +30,7 @@ class type_linksym_relative:
     public type
 {
 public:
-    typedef boost::shared_ptr<type_linksym_relative> pointer;
+    typedef std::shared_ptr<type_linksym_relative> pointer;
 
     /**
       * The destructor.

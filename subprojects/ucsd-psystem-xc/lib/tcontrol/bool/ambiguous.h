@@ -30,7 +30,7 @@ class tcontrol_bool_ambiguous:
     public tcontrol_bool
 {
 public:
-    typedef boost::shared_ptr<tcontrol_bool_ambiguous> pointer;
+    typedef std::shared_ptr<tcontrol_bool_ambiguous> pointer;
 
     /**
       * The destructor.

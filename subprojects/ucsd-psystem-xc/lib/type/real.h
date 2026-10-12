@@ -30,7 +30,7 @@ class type_real:
     public type
 {
 public:
-    typedef boost::shared_ptr<type_real> pointer;
+    typedef std::shared_ptr<type_real> pointer;
 
     /**
       * The destructor.

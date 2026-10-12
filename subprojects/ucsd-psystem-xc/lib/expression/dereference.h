@@ -29,7 +29,7 @@ class expression_dereference:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_dereference> pointer;
+    typedef std::shared_ptr<expression_dereference> pointer;
 
     /**
       * The destructor.

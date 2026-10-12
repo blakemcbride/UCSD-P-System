@@ -30,7 +30,7 @@ class statement_compound:
     public statement
 {
 public:
-    typedef boost::shared_ptr<statement_compound> pointer;
+    typedef std::shared_ptr<statement_compound> pointer;
 
     /**
       * The destructor.

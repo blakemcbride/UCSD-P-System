@@ -20,7 +20,7 @@
 #define UCSDPSYS_CHARSET_GLYPH_H
 
 #include <lib/config.h>
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <lib/rcstring.h>
 
@@ -32,7 +32,7 @@
 class glyph
 {
 public:
-    typedef boost::shared_ptr<glyph> pointer;
+    typedef std::shared_ptr<glyph> pointer;
 
     /**
       * The destructor.

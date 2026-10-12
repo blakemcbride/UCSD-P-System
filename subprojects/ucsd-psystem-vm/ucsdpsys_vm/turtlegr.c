@@ -21,6 +21,7 @@
 #include <libexplain/fork.h>
 #include <libexplain/socketpair.h>
 #include <math.h>
+#include <signal.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
@@ -56,6 +57,12 @@ StartTurtleServer(void)
     int pid;
     int i;
 
+    /*
+     * If the server can't start, writes to it fail; don't let that
+     * kill the VM.
+     */
+    signal(SIGPIPE, SIG_IGN);
+
     if (explain_socketpair_on_error(PF_UNIX, SOCK_STREAM, 0, fd) < 0)
         return;
     pid = explain_fork_on_error();
@@ -77,8 +84,8 @@ StartTurtleServer(void)
             close(i);
         explain_execlp_or_die
         (
-            "ucsdpsys_xturtleserver",
-            "ucsdpsys_xturtleserver",
+            "ucsdpsys_turtleserver",
+            "ucsdpsys_turtleserver",
             NULL
         );
     }
@@ -110,18 +117,22 @@ tgetint(void)
     int i = 0;
     char Buffer[20];
 
+    if (!TurtleServer)
+        return 0;
     fflush(TurtleServer);
 
     for (i = 0; i < 19; i++)
     {
-        Buffer[i] = getc(TurtleServer);
-        if (Buffer[i] == '\n')
+        int c = getc(TurtleServer);
+        if (c == EOF || c == '\n')
             break;
+        Buffer[i] = c;
     }
 
     Buffer[i] = '\0';
 
-    sscanf(Buffer, "%d", &i);
+    if (sscanf(Buffer, "%d", &i) != 1)
+        i = 0;
     return ((Integer) i);
 }
 
@@ -244,8 +255,14 @@ TurtleGraphics(word EntryPoint)
     }
     else if (strcmp(p, "SCREENBIT") == 0)
     {
-        Integer y = PopInteger();
-        Integer x = PopInteger();
+        Integer y;
+        Integer x;
+
+        /* the function result space is on top, as for TURTLEX */
+        Pop();
+        Pop();
+        y = PopInteger();
+        x = PopInteger();
         tprintf("SCREENBIT %d %d", x, y);
         Push(tgetint());
     }
@@ -270,8 +287,9 @@ TurtleGraphics(word EntryPoint)
         {
             for (x = (XSkip & 7); x < ((XSkip + Width + 7) & ~7); x += 8)
             {
-                putc(MemRdByte(Source, (y + YSkip) * RowSize + x / 8),
-                    TurtleServer);
+                if (TurtleServer)
+                    putc(MemRdByte(Source, (y + YSkip) * RowSize + x / 8),
+                        TurtleServer);
             }
         }
     }
@@ -289,17 +307,18 @@ TurtleGraphics(word EntryPoint)
         int j;
 
         tprintf("WSTRING %d", Len);
-        for (j = 0; j < Len; j++)
+        for (j = 0; j < Len && TurtleServer; j++)
             putc(MemRdByte(Addr, j + 1), TurtleServer);
 #ifdef TURTLE_SPEEDUP
         CurrentTurtleX += 7 * Len;
 #endif
     }
     else if (strcmp(p, "CHARTYPE") == 0)
-        tprintf("WCHAR %d", Pop() & 0x0f);
+        tprintf("CHARTYPE %d", Pop() & 0x0f);
     else
         XeqError(XNOTIMP);
-    fflush(TurtleServer);
+    if (TurtleServer)
+        fflush(TurtleServer);
 }
 
 

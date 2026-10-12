@@ -31,7 +31,7 @@ class expression_enum_tag:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_enum_tag> pointer;
+    typedef std::shared_ptr<expression_enum_tag> pointer;
 
     /**
       * The destructor.

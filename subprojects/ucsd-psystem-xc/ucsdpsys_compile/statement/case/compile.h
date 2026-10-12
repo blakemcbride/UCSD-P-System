@@ -31,7 +31,7 @@ class statement_case_compile:
     public statement_case
 {
 public:
-    typedef boost::shared_ptr<statement_case_compile> pointer;
+    typedef std::shared_ptr<statement_case_compile> pointer;
 
     /**
       * The destructor.

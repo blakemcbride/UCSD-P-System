@@ -31,7 +31,7 @@ class statement_writeln_pretty:
     public statement_writeln
 {
 public:
-    typedef boost::shared_ptr<statement_writeln_pretty> pointer;
+    typedef std::shared_ptr<statement_writeln_pretty> pointer;
 
     /**
       * The destructor.

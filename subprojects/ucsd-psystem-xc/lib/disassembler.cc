@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/code_source_map.h>
 #include <lib/debug.h>
 #include <lib/disassembler.h>

@@ -17,6 +17,7 @@
 //
 
 #include <lib/config.h>
+#include <cassert>
 #include <lib/ac/string.h>
 #include <libexplain/output.h>
 

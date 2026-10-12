@@ -11,13 +11,6 @@
 
 /bin/
 
-# Autotools
-Makefile
-config.log
-config.status
-lib/config.h
-
-
 # Prerequisites
 *.d
 

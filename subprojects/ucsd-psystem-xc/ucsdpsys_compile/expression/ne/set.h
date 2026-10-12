@@ -31,7 +31,7 @@ class expression_ne_set:
     public expression_ne
 {
 public:
-    typedef boost::shared_ptr<expression_ne_set> pointer;
+    typedef std::shared_ptr<expression_ne_set> pointer;
 
     /**
       * The destructor.

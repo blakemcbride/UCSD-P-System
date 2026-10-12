@@ -144,7 +144,7 @@ expression_load_indirect::optimize(void)
         // LOD (intermediate) opcodes.
         //
         expression_address::pointer eap =
-            boost::dynamic_pointer_cast<expression_address>(o2);
+            std::dynamic_pointer_cast<expression_address>(o2);
         if (eap)
         {
             DEBUG(2, "fast load?");
@@ -162,7 +162,7 @@ expression_load_indirect::optimize(void)
         // See if we can use IND (INDirect load).
         //
         expression_inc::pointer eip =
-            boost::dynamic_pointer_cast<expression_inc>(o2);
+            std::dynamic_pointer_cast<expression_inc>(o2);
         if (eip)
         {
             DEBUG(2, "INDirect load?");
@@ -308,7 +308,7 @@ expression_load_indirect::array_index_expression_factory(
     //
     {
         type_string::pointer tsp =
-            boost::dynamic_pointer_cast<type_string>(left_type);
+            std::dynamic_pointer_cast<type_string>(left_type);
         if (tsp)
         {
             expression::pointer ep =
@@ -320,7 +320,7 @@ expression_load_indirect::array_index_expression_factory(
     }
 
     type_array::pointer tap =
-        boost::dynamic_pointer_cast<type_array>(left_type);
+        std::dynamic_pointer_cast<type_array>(left_type);
     assert(tap);
     type::pointer index_type = tap->get_index_type();
     DEBUG(1, "index_type = %s", index_type->get_pascal_name().c_str());
@@ -452,7 +452,7 @@ expression_load_indirect::is_simple_with_stmt()
 
     {
         expression_load_indirect::pointer p2 =
-            boost::dynamic_pointer_cast<expression_load_indirect>(arg);
+            std::dynamic_pointer_cast<expression_load_indirect>(arg);
         if (p2)
             arg = p2->operand;
     }
@@ -460,21 +460,21 @@ expression_load_indirect::is_simple_with_stmt()
     // (@arg)^
     {
         expression_address_local::pointer p2 =
-            boost::dynamic_pointer_cast<expression_address_local>(arg);
+            std::dynamic_pointer_cast<expression_address_local>(arg);
         if (p2)
             return true;
     }
 
     {
         expression_address_global::pointer p2 =
-            boost::dynamic_pointer_cast<expression_address_global>(arg);
+            std::dynamic_pointer_cast<expression_address_global>(arg);
         if (p2)
             return true;
     }
 
     {
         expression_address_intermediate::pointer p2 =
-            boost::dynamic_pointer_cast<expression_address_intermediate>(arg);
+            std::dynamic_pointer_cast<expression_address_intermediate>(arg);
         if (p2)
             return true;
     }

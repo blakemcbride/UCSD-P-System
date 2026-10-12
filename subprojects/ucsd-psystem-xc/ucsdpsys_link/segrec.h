@@ -33,7 +33,7 @@
 class segrec
 {
 public:
-    typedef boost::shared_ptr<segrec> pointer;
+    typedef std::shared_ptr<segrec> pointer;
 
     /**
       * The destructor.

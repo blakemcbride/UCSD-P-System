@@ -29,7 +29,7 @@ class arch_normal:
     public arch
 {
 public:
-    typedef boost::shared_ptr<arch_normal> pointer;
+    typedef std::shared_ptr<arch_normal> pointer;
 
     /**
       * The destructor.

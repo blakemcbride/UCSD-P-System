@@ -31,7 +31,7 @@ class statement_until_compile:
     public statement_until
 {
 public:
-    typedef boost::shared_ptr<statement_until_compile> pointer;
+    typedef std::shared_ptr<statement_until_compile> pointer;
 
     /**
       * The destructor.

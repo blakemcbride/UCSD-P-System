@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/expression/error.h>
 #include <lib/expression/list.h>
 #include <lib/pascal/lex.h>
@@ -38,7 +39,7 @@ translator::array_index_expression(const expression::pointer &lhs,
     // Strings are a special case of "array [0..N] of char"
     // but the user can't get at [0] without (*$R-*).
     type_string::pointer tsp =
-        boost::dynamic_pointer_cast<type_string>(lhs->get_type());
+        std::dynamic_pointer_cast<type_string>(lhs->get_type());
     if (tsp)
     {
         type::pointer index_type = type_integer::create();

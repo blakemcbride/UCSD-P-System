@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/expression.h>
 #include <lib/set.h>
 #include <lib/type/integer.h>
@@ -38,13 +39,13 @@ type_set::bounded(const type::pointer &tp)
     // FIXME: enumerated type could be a problem, if there were
     // (set::maximum_range + 1) enumerated constants defined.
     //
-    if (boost::dynamic_pointer_cast<type_integer>(tp))
+    if (std::dynamic_pointer_cast<type_integer>(tp))
         return type_subrange::create(0, set::range_maximum, tp);
 
     //
     // Check that subrange types are small enough.
     //
-    type_subrange::pointer tsp = boost::dynamic_pointer_cast<type_subrange>(tp);
+    type_subrange::pointer tsp = std::dynamic_pointer_cast<type_subrange>(tp);
     if
     (
         tsp
@@ -67,7 +68,7 @@ type_set::bounded(const type::pointer &tp)
 type_set::type_set(const type::pointer &a_subtype) :
     subtype(bounded(a_subtype))
 {
-    assert(!boost::dynamic_pointer_cast<type_integer>(get_subtype()));
+    assert(!std::dynamic_pointer_cast<type_integer>(get_subtype()));
 }
 
 

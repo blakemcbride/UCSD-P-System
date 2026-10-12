@@ -30,7 +30,7 @@ class output_filter_expand:
     public output_filter
 {
 public:
-    typedef boost::shared_ptr<output_filter_expand> pointer;
+    typedef std::shared_ptr<output_filter_expand> pointer;
 
     /**
       * The destructor.

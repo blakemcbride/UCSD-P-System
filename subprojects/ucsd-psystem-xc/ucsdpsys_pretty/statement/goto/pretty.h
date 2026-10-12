@@ -31,7 +31,7 @@ class statement_goto_pretty:
     public statement_goto
 {
 public:
-    typedef boost::shared_ptr<statement_goto_pretty> pointer;
+    typedef std::shared_ptr<statement_goto_pretty> pointer;
 
     /**
       * The destructor.

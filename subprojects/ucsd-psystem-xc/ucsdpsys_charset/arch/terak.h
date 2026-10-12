@@ -29,7 +29,7 @@ class arch_terak:
     public arch
 {
 public:
-    typedef boost::shared_ptr<arch_terak> pointer;
+    typedef std::shared_ptr<arch_terak> pointer;
 
     /**
       * The destructor.

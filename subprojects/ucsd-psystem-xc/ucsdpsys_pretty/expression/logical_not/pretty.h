@@ -31,7 +31,7 @@ class expression_logical_not_pretty:
     public expression_logical_not
 {
 public:
-    typedef boost::shared_ptr<expression_logical_not_pretty> pointer;
+    typedef std::shared_ptr<expression_logical_not_pretty> pointer;
 
     /**
       * The destructor.

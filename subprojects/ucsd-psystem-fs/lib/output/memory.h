@@ -30,7 +30,7 @@ class output_memory:
     public output
 {
 public:
-    typedef boost::shared_ptr<output_memory> mpointer;
+    typedef std::shared_ptr<output_memory> mpointer;
 
     /**
       * The destructor.

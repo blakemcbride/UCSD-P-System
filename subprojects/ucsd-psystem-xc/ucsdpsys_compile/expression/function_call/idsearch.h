@@ -31,7 +31,7 @@ class expression_function_call_idsearch:
     public expression_function_call
 {
 public:
-    typedef boost::shared_ptr<expression_function_call_idsearch> pointer;
+    typedef std::shared_ptr<expression_function_call_idsearch> pointer;
 
     /**
       * The destructor.

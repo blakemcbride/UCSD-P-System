@@ -34,7 +34,7 @@ class statement_var_names:
     public statement
 {
 public:
-    typedef boost::shared_ptr<statement_var_names> pointer;
+    typedef std::shared_ptr<statement_var_names> pointer;
 
     /**
       * The destructor.

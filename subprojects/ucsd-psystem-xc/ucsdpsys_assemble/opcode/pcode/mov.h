@@ -29,7 +29,7 @@ class opcode_pcode_mov:
     public opcode_pcode
 {
 public:
-    typedef boost::shared_ptr<opcode_pcode_mov> pointer;
+    typedef std::shared_ptr<opcode_pcode_mov> pointer;
 
     /**
       * The destructor.

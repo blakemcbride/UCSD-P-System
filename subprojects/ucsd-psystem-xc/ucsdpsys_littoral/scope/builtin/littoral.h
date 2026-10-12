@@ -31,7 +31,7 @@ class scope_builtin_littoral:
     public scope_builtin
 {
 public:
-    typedef boost::shared_ptr<scope_builtin_littoral> pointer;
+    typedef std::shared_ptr<scope_builtin_littoral> pointer;
 
     /**
       * The destructor.

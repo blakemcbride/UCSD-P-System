@@ -32,7 +32,7 @@ class expression_ne_multi_word:
     public expression_ne
 {
 public:
-    typedef boost::shared_ptr<expression_ne_multi_word> pointer;
+    typedef std::shared_ptr<expression_ne_multi_word> pointer;
 
     /**
       * The destructor.

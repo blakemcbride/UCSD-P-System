@@ -31,7 +31,7 @@ class expression_gt_byte_array:
     public expression_gt
 {
 public:
-    typedef boost::shared_ptr<expression_gt_byte_array> pointer;
+    typedef std::shared_ptr<expression_gt_byte_array> pointer;
 
     /**
       * The destructor.

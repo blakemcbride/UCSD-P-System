@@ -33,7 +33,7 @@ class scope_interface_compile:
     public scope_interface
 {
 public:
-    typedef boost::shared_ptr<scope_interface_compile> pointer;
+    typedef std::shared_ptr<scope_interface_compile> pointer;
 
     /**
       * The destructor.

@@ -29,7 +29,7 @@ class type_char:
     public type
 {
 public:
-    typedef boost::shared_ptr<type_char> pointer;
+    typedef std::shared_ptr<type_char> pointer;
 
     /**
       * The destructor.

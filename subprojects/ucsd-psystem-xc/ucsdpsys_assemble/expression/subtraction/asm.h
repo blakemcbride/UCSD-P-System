@@ -29,7 +29,7 @@ class expression_subtraction_asm:
     public expression_subtraction
 {
 public:
-    typedef boost::shared_ptr<expression_subtraction_asm> pointer;
+    typedef std::shared_ptr<expression_subtraction_asm> pointer;
 
     /**
       * The destructor.

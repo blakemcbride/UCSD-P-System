@@ -31,7 +31,7 @@ class expression_set_union:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_set_union> pointer;
+    typedef std::shared_ptr<expression_set_union> pointer;
 
     /**
       * The destructor.

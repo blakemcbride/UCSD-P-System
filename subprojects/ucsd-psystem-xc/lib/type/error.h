@@ -29,7 +29,7 @@ class type_error:
     public type
 {
 public:
-    typedef boost::shared_ptr<type_error> pointer;
+    typedef std::shared_ptr<type_error> pointer;
 
     /**
       * The destructor.

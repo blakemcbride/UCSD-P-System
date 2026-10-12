@@ -31,7 +31,7 @@ class expression_negate_littoral:
     public expression_negate
 {
 public:
-    typedef boost::shared_ptr<expression_negate_littoral> pointer;
+    typedef std::shared_ptr<expression_negate_littoral> pointer;
 
     /**
       * The destructor.

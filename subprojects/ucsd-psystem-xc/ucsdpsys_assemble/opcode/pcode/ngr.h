@@ -29,7 +29,7 @@ class opcode_pcode_ngr:
     public opcode_pcode
 {
 public:
-    typedef boost::shared_ptr<opcode_pcode_ngr> pointer;
+    typedef std::shared_ptr<opcode_pcode_ngr> pointer;
 
     /**
       * The destructor.

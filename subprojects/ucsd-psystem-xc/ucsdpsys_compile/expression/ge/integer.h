@@ -31,7 +31,7 @@ class expression_ge_integer:
     public expression_ge
 {
 public:
-    typedef boost::shared_ptr<expression_ge_integer> pointer;
+    typedef std::shared_ptr<expression_ge_integer> pointer;
 
     /**
       * The destructor.

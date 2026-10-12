@@ -31,7 +31,7 @@ class expression_eq_littoral:
     public expression_eq
 {
 public:
-    typedef boost::shared_ptr<expression_eq_littoral> pointer;
+    typedef std::shared_ptr<expression_eq_littoral> pointer;
 
     /**
       * The destructor.

@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/type/char.h>
 #include <lib/type/file.h>
 #include <lib/type/nothing.h>

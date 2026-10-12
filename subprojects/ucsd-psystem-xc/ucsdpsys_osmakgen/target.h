@@ -30,7 +30,7 @@
 class target
 {
 public:
-    typedef boost::shared_ptr<target> pointer;
+    typedef std::shared_ptr<target> pointer;
 
     /**
       * The destructor.

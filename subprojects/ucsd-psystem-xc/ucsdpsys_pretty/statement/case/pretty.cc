@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <algorithm>
 #include <lib/interval.h>
 
 #include <ucsdpsys_pretty/statement/case/pretty.h>

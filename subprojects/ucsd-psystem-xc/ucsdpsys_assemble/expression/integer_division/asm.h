@@ -29,7 +29,7 @@ class expression_integer_division_asm:
     public expression_integer_division
 {
 public:
-    typedef boost::shared_ptr<expression_integer_division_asm> pointer;
+    typedef std::shared_ptr<expression_integer_division_asm> pointer;
 
     /**
       * The destructor.

@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/anonymous_name.h>
 #include <lib/scope/temporary.h>
 #include <lib/scope/stack.h>

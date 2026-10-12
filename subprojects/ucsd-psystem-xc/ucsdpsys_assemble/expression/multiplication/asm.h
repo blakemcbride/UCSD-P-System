@@ -29,7 +29,7 @@ class expression_multiplication_asm:
     public expression_multiplication
 {
 public:
-    typedef boost::shared_ptr<expression_multiplication_asm> pointer;
+    typedef std::shared_ptr<expression_multiplication_asm> pointer;
 
     /**
       * The destructor.

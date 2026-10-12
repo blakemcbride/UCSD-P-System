@@ -29,7 +29,7 @@ class type_integer:
     public type
 {
 public:
-    typedef boost::shared_ptr<type_integer> pointer;
+    typedef std::shared_ptr<type_integer> pointer;
 
     /**
       * The destructor.

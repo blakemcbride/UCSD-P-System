@@ -29,7 +29,7 @@ class expression_nil:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_nil> pointer;
+    typedef std::shared_ptr<expression_nil> pointer;
 
     /**
       * The destructor.

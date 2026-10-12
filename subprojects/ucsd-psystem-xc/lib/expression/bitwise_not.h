@@ -29,7 +29,7 @@ class expression_bitwise_not:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_bitwise_not> pointer;
+    typedef std::shared_ptr<expression_bitwise_not> pointer;
 
     /**
       * The destructor.

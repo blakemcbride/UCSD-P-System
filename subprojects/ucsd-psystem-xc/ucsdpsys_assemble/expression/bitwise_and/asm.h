@@ -30,7 +30,7 @@ class expression_bitwise_and_asm:
     public expression_bitwise_and
 {
 public:
-    typedef boost::shared_ptr<expression_bitwise_and_asm> pointer;
+    typedef std::shared_ptr<expression_bitwise_and_asm> pointer;
 
     /**
       * The destructor.

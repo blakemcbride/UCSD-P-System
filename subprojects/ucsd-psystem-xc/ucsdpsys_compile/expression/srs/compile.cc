@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/pascal/lex.h>
 #include <lib/pcode.h>
 #include <lib/set.h>

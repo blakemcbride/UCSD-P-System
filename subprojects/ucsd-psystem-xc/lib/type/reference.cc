@@ -61,7 +61,7 @@ type_reference::get_c_declaration(const rcstring &vname)
     // reference to array of 7 int
     // int (&fred)[7];
     type_array::pointer tap =
-        boost::dynamic_pointer_cast<type_array>(get_subtype());
+        std::dynamic_pointer_cast<type_array>(get_subtype());
     if (tap)
     {
         return get_subtype()->get_c_declaration("(&" + vname + ")");

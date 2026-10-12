@@ -31,7 +31,7 @@ class symbol_function_sin:
     public symbol_function
 {
 public:
-    typedef boost::shared_ptr<symbol_function_sin> pointer;
+    typedef std::shared_ptr<symbol_function_sin> pointer;
 
     /**
       * The destructor.

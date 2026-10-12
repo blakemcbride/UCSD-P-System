@@ -19,7 +19,7 @@
 #ifndef UCSDPSYS_ASSEMBLE_OPCODE_H
 #define UCSDPSYS_ASSEMBLE_OPCODE_H
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <lib/expression.h>
 
@@ -33,7 +33,7 @@ class expression_list; // forward
 class opcode
 {
 public:
-    typedef boost::shared_ptr<opcode> pointer;
+    typedef std::shared_ptr<opcode> pointer;
 
     /**
       * The destructor.

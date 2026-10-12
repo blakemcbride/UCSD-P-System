@@ -31,7 +31,7 @@ class expression_string_littoral:
     public expression_string
 {
 public:
-    typedef boost::shared_ptr<expression_string_littoral> pointer;
+    typedef std::shared_ptr<expression_string_littoral> pointer;
 
     /**
       * The destructor.

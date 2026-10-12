@@ -31,7 +31,7 @@ class symbol_label:
     public symbol
 {
 public:
-    typedef boost::shared_ptr<symbol_label> pointer;
+    typedef std::shared_ptr<symbol_label> pointer;
 
     /**
       * The destructor.

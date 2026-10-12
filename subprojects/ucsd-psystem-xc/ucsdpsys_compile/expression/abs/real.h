@@ -31,7 +31,7 @@ class expression_abs_real:
     public expression_abs
 {
 public:
-    typedef boost::shared_ptr<expression_abs_real> pointer;
+    typedef std::shared_ptr<expression_abs_real> pointer;
 
     /**
       * The destructor.

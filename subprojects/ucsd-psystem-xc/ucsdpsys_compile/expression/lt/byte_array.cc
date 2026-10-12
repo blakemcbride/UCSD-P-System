@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/pcode.h>
 #include <lib/type/array.h>
 
@@ -64,7 +65,7 @@ expression_lt_byte_array::traversal(int pprec)
     code.emit_byte(OP_CMP_BYTE_ARRAY);
 
     type_array::pointer tap =
-        boost::dynamic_pointer_cast<type_array>(get_lhs()->get_type());
+        std::dynamic_pointer_cast<type_array>(get_lhs()->get_type());
     assert(tap);
     int width = tap->get_width();
     assert(width > 0);

@@ -29,7 +29,7 @@ class symbol_expression_constant:
     public symbol_expression
 {
 public:
-    typedef boost::shared_ptr<symbol_expression_constant> pointer;
+    typedef std::shared_ptr<symbol_expression_constant> pointer;
 
     /**
       * The destructor.

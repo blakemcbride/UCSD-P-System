@@ -31,7 +31,7 @@ class expression_multiplication_pretty:
     public expression_multiplication
 {
 public:
-    typedef boost::shared_ptr<expression_multiplication_pretty> pointer;
+    typedef std::shared_ptr<expression_multiplication_pretty> pointer;
 
     /**
       * The destructor.

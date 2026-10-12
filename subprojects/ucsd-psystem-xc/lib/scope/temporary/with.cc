@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/anonymous_name.h>
 #include <lib/debug.h>
 #include <lib/pascal/lex.h>
@@ -38,7 +39,7 @@ scope_temporary_with::scope_temporary_with(
 ) :
     scope_temporary(stk),
     base(a_base),
-    trp(boost::dynamic_pointer_cast<type_record>(a_base->get_type())),
+    trp(std::dynamic_pointer_cast<type_record>(a_base->get_type())),
     base_assignment(a_base_asgn),
     context(a_context)
 {

@@ -29,7 +29,7 @@ class opcode_pseudo_include:
     public opcode_pseudo
 {
 public:
-    typedef boost::shared_ptr<opcode_pseudo_include> pointer;
+    typedef std::shared_ptr<opcode_pseudo_include> pointer;
 
     /**
       * The destructor.

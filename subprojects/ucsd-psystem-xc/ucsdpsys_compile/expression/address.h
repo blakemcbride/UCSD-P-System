@@ -29,7 +29,7 @@ class expression_address:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_address> pointer;
+    typedef std::shared_ptr<expression_address> pointer;
 
     /**
       * The destructor.

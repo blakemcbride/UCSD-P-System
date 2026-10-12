@@ -31,7 +31,7 @@ class symbol_variable_normal_global:
     public symbol_variable_normal
 {
 public:
-    typedef boost::shared_ptr<symbol_variable_normal_global> pointer;
+    typedef std::shared_ptr<symbol_variable_normal_global> pointer;
 
     /**
       * The destructor.

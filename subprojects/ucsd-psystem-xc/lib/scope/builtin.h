@@ -29,7 +29,7 @@ class scope_builtin:
     public scope
 {
 public:
-    typedef boost::shared_ptr<scope_builtin> pointer;
+    typedef std::shared_ptr<scope_builtin> pointer;
 
     /**
       * The destructor.

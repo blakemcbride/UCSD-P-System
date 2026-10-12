@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/pcode.h>
 #include <lib/type/long_integer/sized.h>
 #include <lib/type/long_integer/unsized.h>
@@ -138,7 +139,7 @@ expression_lint2lint_compile::optimize(void)
     )
     {
         expression_long_integer::pointer k1 =
-            boost::dynamic_pointer_cast<expression_long_integer>(ep);
+            std::dynamic_pointer_cast<expression_long_integer>(ep);
         if (k1)
         {
             return

@@ -31,7 +31,7 @@ class statement_empty_littoral:
     public statement_empty
 {
 public:
-    typedef boost::shared_ptr<statement_empty_littoral> pointer;
+    typedef std::shared_ptr<statement_empty_littoral> pointer;
 
     /**
       * The destructor.

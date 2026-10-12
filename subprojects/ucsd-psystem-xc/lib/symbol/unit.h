@@ -30,7 +30,7 @@ class symbol_unit:
     public symbol
 {
 public:
-    typedef boost::shared_ptr<symbol_unit> pointer;
+    typedef std::shared_ptr<symbol_unit> pointer;
 
     /**
       * The destructor.

@@ -31,7 +31,7 @@ class type_forward:
     public type
 {
 public:
-    typedef boost::shared_ptr<type_forward> pointer;
+    typedef std::shared_ptr<type_forward> pointer;
 
     /**
       * The destructor.

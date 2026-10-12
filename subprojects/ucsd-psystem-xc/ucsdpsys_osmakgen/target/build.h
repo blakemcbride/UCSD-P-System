@@ -31,7 +31,7 @@ class target_build:
     public target
 {
 public:
-    typedef boost::shared_ptr<target_build> pointer;
+    typedef std::shared_ptr<target_build> pointer;
 
     /**
       * The destructor.

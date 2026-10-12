@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/pcode.h>
 #include <lib/type/long_integer/sized.h>
 
@@ -79,11 +80,11 @@ expression_addition_long_integer::optimize(void)
     if (code.feature_long_integer_constants())
     {
         expression_long_integer::pointer k1 =
-            boost::dynamic_pointer_cast<expression_long_integer>(e1);
+            std::dynamic_pointer_cast<expression_long_integer>(e1);
         if (k1)
         {
             expression_long_integer::pointer k2 =
-                boost::dynamic_pointer_cast<expression_long_integer>(e2);
+                std::dynamic_pointer_cast<expression_long_integer>(e2);
             if (k2)
             {
                 long_integer n = k1->get_value() + k2->get_value();

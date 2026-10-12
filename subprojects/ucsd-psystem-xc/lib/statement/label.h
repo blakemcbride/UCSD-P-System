@@ -30,7 +30,7 @@ class statement_label:
     public statement
 {
 public:
-    typedef boost::shared_ptr<statement_label> pointer;
+    typedef std::shared_ptr<statement_label> pointer;
 
     /**
       * The destructor.

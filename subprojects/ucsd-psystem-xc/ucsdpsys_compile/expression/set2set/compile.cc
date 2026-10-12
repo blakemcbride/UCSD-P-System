@@ -120,7 +120,7 @@ expression_set2set_compile::optimize(void)
     if (e1->is_constant())
     {
         expression_set::pointer esp =
-            boost::dynamic_pointer_cast<expression_set>(e1);
+            std::dynamic_pointer_cast<expression_set>(e1);
         assert(esp);
         expression::pointer e2 =
             expression_set_compile::create

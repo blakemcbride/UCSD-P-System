@@ -19,7 +19,7 @@
 #ifndef LIB_CODEFILE_H
 #define LIB_CODEFILE_H
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <lib/byte_sex.h>
 #include <lib/output.h>
@@ -39,8 +39,8 @@ class code_source_map; // forward
 class codefile
 {
 public:
-    typedef boost::shared_ptr<codefile> pointer;
-    typedef boost::shared_ptr<disassembler> disassembler_pointer;
+    typedef std::shared_ptr<codefile> pointer;
+    typedef std::shared_ptr<disassembler> disassembler_pointer;
 
     enum { sizeof_block = 512 };
 

@@ -31,7 +31,7 @@ class symbol_enumerated_compile:
     public symbol_enumerated
 {
 public:
-    typedef boost::shared_ptr<symbol_enumerated_compile> pointer;
+    typedef std::shared_ptr<symbol_enumerated_compile> pointer;
 
     /**
       * The destructor.

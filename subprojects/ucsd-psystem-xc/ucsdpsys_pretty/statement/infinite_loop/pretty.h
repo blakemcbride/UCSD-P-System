@@ -31,7 +31,7 @@ class statement_infinite_loop_pretty:
     public statement_infinite_loop
 {
 public:
-    typedef boost::shared_ptr<statement_infinite_loop_pretty> pointer;
+    typedef std::shared_ptr<statement_infinite_loop_pretty> pointer;
 
     /**
       * The destructor.

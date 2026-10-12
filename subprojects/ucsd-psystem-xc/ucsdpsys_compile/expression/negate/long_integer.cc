@@ -73,7 +73,7 @@ expression_negate_long_integer::optimize(void)
     if (code.feature_long_integer_constants())
     {
         expression_long_integer::pointer k1 =
-            boost::dynamic_pointer_cast<expression_long_integer>(e1);
+            std::dynamic_pointer_cast<expression_long_integer>(e1);
         if (k1)
         {
             long_integer n = k1->get_value();

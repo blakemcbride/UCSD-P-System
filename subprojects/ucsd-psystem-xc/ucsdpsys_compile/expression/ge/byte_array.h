@@ -31,7 +31,7 @@ class expression_ge_byte_array:
     public expression_le
 {
 public:
-    typedef boost::shared_ptr<expression_ge_byte_array> pointer;
+    typedef std::shared_ptr<expression_ge_byte_array> pointer;
 
     /**
       * The destructor.

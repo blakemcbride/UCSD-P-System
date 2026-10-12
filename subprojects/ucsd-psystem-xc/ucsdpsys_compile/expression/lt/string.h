@@ -31,7 +31,7 @@ class expression_lt_string:
     public expression_lt
 {
 public:
-    typedef boost::shared_ptr<expression_lt_string> pointer;
+    typedef std::shared_ptr<expression_lt_string> pointer;
 
     /**
       * The destructor.

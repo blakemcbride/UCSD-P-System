@@ -29,7 +29,7 @@ class tcontrol_int8min:
     public tcontrol
 {
 public:
-    typedef boost::shared_ptr<tcontrol_int8min> pointer;
+    typedef std::shared_ptr<tcontrol_int8min> pointer;
 
     /**
       * The destructor.

@@ -31,7 +31,7 @@ class symbol_expression_constant_pretty:
     public symbol_expression_constant
 {
 public:
-    typedef boost::shared_ptr<symbol_expression_constant_pretty> pointer;
+    typedef std::shared_ptr<symbol_expression_constant_pretty> pointer;
 
     /**
       * The destructor.

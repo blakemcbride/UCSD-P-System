@@ -32,7 +32,7 @@ class symbol_variable_external_compile:
     public symbol_variable_external
 {
 public:
-    typedef boost::shared_ptr<symbol_variable_external_compile> pointer;
+    typedef std::shared_ptr<symbol_variable_external_compile> pointer;
 
     /**
       * The destructor.

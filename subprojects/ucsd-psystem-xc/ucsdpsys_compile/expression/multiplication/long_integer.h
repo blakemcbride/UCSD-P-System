@@ -32,7 +32,7 @@ class expression_multiplication_long_integer:
     public expression_multiplication
 {
 public:
-    typedef boost::shared_ptr<expression_multiplication_long_integer> pointer;
+    typedef std::shared_ptr<expression_multiplication_long_integer> pointer;
 
     /**
       * The destructor.

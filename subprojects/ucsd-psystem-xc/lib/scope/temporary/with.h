@@ -34,7 +34,7 @@ class scope_temporary_with:
     public scope_temporary
 {
 public:
-    typedef boost::shared_ptr<scope_temporary_with> pointer;
+    typedef std::shared_ptr<scope_temporary_with> pointer;
 
     /**
       * The destructor.

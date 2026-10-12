@@ -32,7 +32,7 @@ class expression_mov:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_mov> pointer;
+    typedef std::shared_ptr<expression_mov> pointer;
 
     /**
       * The destructor.

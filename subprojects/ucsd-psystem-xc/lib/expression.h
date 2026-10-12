@@ -19,7 +19,7 @@
 #ifndef LIB_EXPRESSION_H
 #define LIB_EXPRESSION_H
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <lib/label.h>
 #include <lib/location.h>
@@ -39,7 +39,7 @@ public:
     /**
       * The pointer type is to be used for all pointers to statements.
       */
-    typedef boost::shared_ptr<expression> pointer;
+    typedef std::shared_ptr<expression> pointer;
 
     /**
       * The destructor.

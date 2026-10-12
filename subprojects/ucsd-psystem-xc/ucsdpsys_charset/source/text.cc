@@ -17,6 +17,7 @@
 //
 
 #include <lib/config.h>
+#include <cassert>
 #include <libexplain/fclose.h>
 #include <libexplain/fopen.h>
 #include <libexplain/getc.h>

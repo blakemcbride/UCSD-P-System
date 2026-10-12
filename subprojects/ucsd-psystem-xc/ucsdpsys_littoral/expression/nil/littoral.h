@@ -31,7 +31,7 @@ class expression_nil_littoral:
     public expression_nil
 {
 public:
-    typedef boost::shared_ptr<expression_nil_littoral> pointer;
+    typedef std::shared_ptr<expression_nil_littoral> pointer;
 
     /**
       * The destructor.

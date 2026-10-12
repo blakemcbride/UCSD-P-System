@@ -19,7 +19,7 @@
 #ifndef LIB_TCONTROL_H
 #define LIB_TCONTROL_H
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <lib/rcstring/list.h>
 
@@ -34,7 +34,7 @@
 class tcontrol
 {
 public:
-    typedef boost::shared_ptr<tcontrol> pointer;
+    typedef std::shared_ptr<tcontrol> pointer;
 
     /**
       * The destructor.

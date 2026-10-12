@@ -29,7 +29,7 @@ class expression_special_x:
     public expression_special
 {
 public:
-    typedef boost::shared_ptr<expression_special_x> pointer;
+    typedef std::shared_ptr<expression_special_x> pointer;
 
     /**
       * The destructor.

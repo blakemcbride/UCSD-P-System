@@ -58,7 +58,7 @@ translator::type_lookup(const rcstring &name, bool deferable)
         }
     }
     symbol_typedef::pointer stdp =
-        boost::dynamic_pointer_cast<symbol_typedef>(sp);
+        std::dynamic_pointer_cast<symbol_typedef>(sp);
     if (!stdp)
     {
         pascal_lex_error

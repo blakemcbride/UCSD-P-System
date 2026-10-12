@@ -29,7 +29,7 @@ class volume_list:
     public volume
 {
 public:
-    typedef boost::shared_ptr<volume_list> pointer;
+    typedef std::shared_ptr<volume_list> pointer;
 
     /**
       * The destructor.

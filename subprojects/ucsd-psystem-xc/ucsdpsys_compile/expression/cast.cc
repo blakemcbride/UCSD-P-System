@@ -207,7 +207,7 @@ expression_cast::optimize()
     // look for addresses
     {
         expression_address::pointer eap =
-            boost::dynamic_pointer_cast<expression_address>(e1);
+            std::dynamic_pointer_cast<expression_address>(e1);
         if (eap)
             return eap->cast(to);
     }

@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cstdlib>
 #include <lib/ac/stdio.h>
 #include <lib/ac/getopt.h>
 #include <libexplain/output.h>

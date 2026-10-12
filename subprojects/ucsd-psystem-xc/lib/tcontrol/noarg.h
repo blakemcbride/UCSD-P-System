@@ -29,7 +29,7 @@ class tcontrol_noarg:
     public tcontrol
 {
 public:
-    typedef boost::shared_ptr<tcontrol_noarg> pointer;
+    typedef std::shared_ptr<tcontrol_noarg> pointer;
 
     /**
       * The destructor.

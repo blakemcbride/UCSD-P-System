@@ -31,7 +31,7 @@ class statement_for_compile:
     public statement_for
 {
 public:
-    typedef boost::shared_ptr<statement_for_compile> pointer;
+    typedef std::shared_ptr<statement_for_compile> pointer;
 
     /**
       * The destructor.

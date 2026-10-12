@@ -29,7 +29,7 @@ class opcode_pcode_leq:
     public opcode_pcode
 {
 public:
-    typedef boost::shared_ptr<opcode_pcode_leq> pointer;
+    typedef std::shared_ptr<opcode_pcode_leq> pointer;
 
     /**
       * The destructor.

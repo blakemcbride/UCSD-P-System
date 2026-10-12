@@ -30,7 +30,7 @@ class output_filter_wrap:
     public output_filter
 {
 public:
-    typedef boost::shared_ptr<output_filter_wrap> pointer;
+    typedef std::shared_ptr<output_filter_wrap> pointer;
 
     /**
       * The destructor.

@@ -31,7 +31,7 @@ class expression_trunc_real:
     public expression_trunc
 {
 public:
-    typedef boost::shared_ptr<expression_trunc_real> pointer;
+    typedef std::shared_ptr<expression_trunc_real> pointer;
 
     /**
       * The destructor.

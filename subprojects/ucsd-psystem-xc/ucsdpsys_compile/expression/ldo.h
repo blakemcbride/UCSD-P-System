@@ -31,7 +31,7 @@ class expression_ldo:
     public expression
 {
 public:
-    typedef boost::shared_ptr<expression_ldo> pointer;
+    typedef std::shared_ptr<expression_ldo> pointer;
 
     /**
       * The destructor.

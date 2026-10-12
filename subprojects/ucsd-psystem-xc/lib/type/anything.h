@@ -35,7 +35,7 @@ class type_anything:
     public type
 {
 public:
-    typedef boost::shared_ptr<type_anything> pointer;
+    typedef std::shared_ptr<type_anything> pointer;
 
     /**
       * The destructor.

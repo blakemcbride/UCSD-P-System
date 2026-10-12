@@ -29,7 +29,7 @@ class expression_dereference_asm:
     public expression_dereference
 {
 public:
-    typedef boost::shared_ptr<expression_dereference_asm> pointer;
+    typedef std::shared_ptr<expression_dereference_asm> pointer;
 
     /**
       * The destructor.

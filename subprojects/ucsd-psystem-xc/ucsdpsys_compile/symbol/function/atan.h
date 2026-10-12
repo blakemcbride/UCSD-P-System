@@ -31,7 +31,7 @@ class symbol_function_atan:
     public symbol_function
 {
 public:
-    typedef boost::shared_ptr<symbol_function_atan> pointer;
+    typedef std::shared_ptr<symbol_function_atan> pointer;
 
     /**
       * The destructor.

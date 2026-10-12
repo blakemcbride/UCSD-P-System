@@ -19,7 +19,7 @@
 #ifndef LIB_STATEMENT_H
 #define LIB_STATEMENT_H
 
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 #include <lib/location.h>
 
@@ -34,7 +34,7 @@ public:
     /**
       * The pointer type is to be used for all pointers to statements.
       */
-    typedef boost::shared_ptr<statement> pointer;
+    typedef std::shared_ptr<statement> pointer;
 
     /**
       * The destructor.

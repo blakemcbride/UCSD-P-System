@@ -32,7 +32,7 @@ class scope_interface_pretty:
     public scope_interface
 {
 public:
-    typedef boost::shared_ptr<scope_interface_pretty> pointer;
+    typedef std::shared_ptr<scope_interface_pretty> pointer;
 
     /**
       * The destructor.

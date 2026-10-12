@@ -80,7 +80,7 @@ scope::define(const rcstring &key, const symbol::pointer &arg, bool isa_param)
     // If it's not a variable (it could be a function or a constant,
     // etc) then do nothing.
     //
-    if (!boost::dynamic_pointer_cast<symbol_variable>(arg))
+    if (!std::dynamic_pointer_cast<symbol_variable>(arg))
     {
         // do nothing
     }
@@ -163,7 +163,7 @@ scope::define(const symbol::pointer &arg, const bit_address &where)
     // Set the variable's bit address
     //
     assert(!arg->need_late_binding());
-    assert(boost::dynamic_pointer_cast<symbol_variable>(arg));
+    assert(std::dynamic_pointer_cast<symbol_variable>(arg));
     arg->set_bit_offset(where, true);
     DEBUG(1, "}");
 }

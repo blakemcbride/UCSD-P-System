@@ -31,7 +31,7 @@ class sink_apple:
     public sink
 {
 public:
-    //typedef boost::shared_ptr<sink_apple> pointer;
+    //typedef std::shared_ptr<sink_apple> pointer;
 
     /**
       * The destructor.

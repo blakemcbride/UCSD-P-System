@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/debug.h>
 #include <lib/symbol/expression.h>
 
@@ -53,7 +54,7 @@ expression_name_asm::optimize(void)
 {
     DEBUG(1, "%s", __PRETTY_FUNCTION__);
     symbol_expression::pointer sep =
-        boost::dynamic_pointer_cast<symbol_expression>(get_sp());
+        std::dynamic_pointer_cast<symbol_expression>(get_sp());
     if (sep)
     {
         expression::pointer value = sep->get_value();

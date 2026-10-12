@@ -29,7 +29,7 @@ class opcode_6502_beq:
     public opcode_6502
 {
 public:
-    typedef boost::shared_ptr<opcode_6502_beq> pointer;
+    typedef std::shared_ptr<opcode_6502_beq> pointer;
 
     /**
       * The destructor.

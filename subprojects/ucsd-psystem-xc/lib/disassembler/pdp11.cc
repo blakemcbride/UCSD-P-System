@@ -16,6 +16,7 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
 #include <lib/disassembler/pdp11.h>
 #include <lib/sizeof.h>
 

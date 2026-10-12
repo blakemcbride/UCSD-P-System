@@ -16,6 +16,8 @@
 // with this program. If not, see <http://www.gnu.org/licenses/>
 //
 
+#include <cassert>
+#include <cstdlib>
 #include <lib/ac/ctype.h>
 #include <lib/ac/string.h>
 #include <libexplain/output.h>

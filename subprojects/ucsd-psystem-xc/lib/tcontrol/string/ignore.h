@@ -29,7 +29,7 @@ class tcontrol_string_ignore:
     public tcontrol_string
 {
 public:
-    typedef boost::shared_ptr<tcontrol_string_ignore> pointer;
+    typedef std::shared_ptr<tcontrol_string_ignore> pointer;
 
     /**
       * The destructor.

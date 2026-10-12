@@ -18,8 +18,10 @@
 
 #include <lib/config.h>
 #include <string.h>
+#ifndef NO_PNG
 #include <png.h>
 #include <zlib.h>
+#endif
 #include <libexplain/fclose.h>
 #include <libexplain/fopen.h>
 #include <libexplain/output.h>
@@ -45,6 +47,8 @@ bitmap_png::create(const rcstring &a_filename)
     return pointer(new bitmap_png(a_filename));
 }
 
+
+#ifndef NO_PNG
 
 static rcstring
 string_from_color_type(int x)
@@ -259,6 +263,30 @@ bitmap_png::write(unsigned width, unsigned height, const unsigned char *data)
     explain_fclose_or_die(ofp);
 }
 
+#else // NO_PNG
+
+void
+bitmap_png::read(unsigned &, unsigned &, unsigned char *&)
+{
+    explain_output_error_and_die
+    (
+        "%s: this program was built without PNG support",
+        filename.c_str()
+    );
+}
+
+
+void
+bitmap_png::write(unsigned, unsigned, const unsigned char *)
+{
+    explain_output_error_and_die
+    (
+        "%s: this program was built without PNG support",
+        filename.c_str()
+    );
+}
+
+#endif // NO_PNG
 
 
 void

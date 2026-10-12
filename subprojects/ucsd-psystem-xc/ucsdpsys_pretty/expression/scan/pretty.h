@@ -32,7 +32,7 @@ class expression_scan_pretty:
     public expression_scan
 {
 public:
-    typedef boost::shared_ptr<expression_scan_pretty> pointer;
+    typedef std::shared_ptr<expression_scan_pretty> pointer;
 
     /**
       * The destructor.

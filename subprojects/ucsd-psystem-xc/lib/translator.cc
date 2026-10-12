@@ -747,7 +747,7 @@ translator::function_scope(const rcstring &name, bool is_func, bool new_seg)
     if (sp)
     {
         symbol_function::pointer sfp =
-            boost::dynamic_pointer_cast<symbol_function>(sp);
+            std::dynamic_pointer_cast<symbol_function>(sp);
         if
         (
             sfp
@@ -965,7 +965,7 @@ translator::scope_attach_function_parameters(name_type_list *ntlp)
         )
         {
             type_string::pointer tsp =
-                boost::dynamic_pointer_cast<type_string>(nt.get_type());
+                std::dynamic_pointer_cast<type_string>(nt.get_type());
             assert(tsp);
             if (tsp->get_size() != type_string::default_size)
             {
@@ -1456,7 +1456,7 @@ translator::get_type_by_name(const rcstring &name)
     if (!sp)
         return type::pointer();
     symbol_typedef::pointer stp =
-        boost::dynamic_pointer_cast<symbol_typedef>(sp);
+        std::dynamic_pointer_cast<symbol_typedef>(sp);
     if (!stp)
         return type::pointer();
     return stp->get_type();

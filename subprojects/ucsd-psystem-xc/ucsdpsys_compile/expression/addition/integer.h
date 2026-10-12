@@ -31,7 +31,7 @@ class expression_addition_integer:
     public expression_addition
 {
 public:
-    typedef boost::shared_ptr<expression_addition_integer> pointer;
+    typedef std::shared_ptr<expression_addition_integer> pointer;
 
     /**
       * The destructor.

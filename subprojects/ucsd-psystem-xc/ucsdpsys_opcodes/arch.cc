@@ -17,6 +17,7 @@
 //
 
 #include <lib/config.h>
+#include <cstdlib>
 #include <libexplain/output.h>
 
 #include <ucsdpsys_opcodes/arch.h>

@@ -29,7 +29,7 @@ class opcode_6502_bvs:
     public opcode_6502
 {
 public:
-    typedef boost::shared_ptr<opcode_6502_bvs> pointer;
+    typedef std::shared_ptr<opcode_6502_bvs> pointer;
 
     /**
       * The destructor.

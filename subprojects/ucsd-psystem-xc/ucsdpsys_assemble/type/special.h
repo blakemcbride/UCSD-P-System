@@ -29,7 +29,7 @@ class type_special:
     public type
 {
 public:
-    typedef boost::shared_ptr<type_special> pointer;
+    typedef std::shared_ptr<type_special> pointer;
 
     /**
       * The destructor.

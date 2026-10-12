@@ -33,7 +33,7 @@ class personality_6502:
     public personality
 {
 public:
-    typedef boost::shared_ptr<personality_6502> pointer;
+    typedef std::shared_ptr<personality_6502> pointer;
 
     typedef opcode_6502::model_t chip_model_t;
 

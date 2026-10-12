@@ -31,7 +31,7 @@ class codefile_filter_insert:
     public codefile_filter
 {
 public:
-    typedef boost::shared_ptr<codefile_filter_insert> pointer;
+    typedef std::shared_ptr<codefile_filter_insert> pointer;
 
     /**
       * The destructor.

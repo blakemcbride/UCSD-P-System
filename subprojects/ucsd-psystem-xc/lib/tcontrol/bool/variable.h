@@ -29,7 +29,7 @@ class tcontrol_bool_variable:
     public tcontrol_bool
 {
 public:
-    typedef boost::shared_ptr<tcontrol_bool_variable> pointer;
+    typedef std::shared_ptr<tcontrol_bool_variable> pointer;
 
     /**
       * The destructor.

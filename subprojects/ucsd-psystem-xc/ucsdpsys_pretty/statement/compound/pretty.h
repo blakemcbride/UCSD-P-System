@@ -31,7 +31,7 @@ class statement_compound_pretty:
     public statement_compound
 {
 public:
-    typedef boost::shared_ptr<statement_compound_pretty> pointer;
+    typedef std::shared_ptr<statement_compound_pretty> pointer;
 
     /**
       * The destructor.

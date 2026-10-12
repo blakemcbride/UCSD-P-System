@@ -29,7 +29,7 @@ class expression_6502_absolute:
     public expression_6502
 {
 public:
-    typedef boost::shared_ptr<expression_6502_absolute> pointer;
+    typedef std::shared_ptr<expression_6502_absolute> pointer;
 
     /**
       * The destructor.

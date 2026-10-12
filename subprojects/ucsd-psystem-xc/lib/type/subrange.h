@@ -28,7 +28,7 @@ class type_subrange:
     public type
 {
 public:
-    typedef boost::shared_ptr<type_subrange> pointer;
+    typedef std::shared_ptr<type_subrange> pointer;
 
     /**
       * The destructor.

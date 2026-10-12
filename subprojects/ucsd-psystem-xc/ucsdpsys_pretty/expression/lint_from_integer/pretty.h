@@ -29,7 +29,7 @@ class expression_lint_from_integer_pretty:
     public expression_lint_from_integer
 {
 public:
-    typedef boost::shared_ptr<expression_lint_from_integer_pretty> pointer;
+    typedef std::shared_ptr<expression_lint_from_integer_pretty> pointer;
 
     /**
       * The destructor.

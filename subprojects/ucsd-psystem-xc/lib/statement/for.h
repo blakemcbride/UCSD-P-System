@@ -30,7 +30,7 @@ class statement_for:
     public statement
 {
 public:
-    typedef boost::shared_ptr<statement_for> pointer;
+    typedef std::shared_ptr<statement_for> pointer;
 
     /**
       * The destructor.

@@ -33,7 +33,7 @@ class opcode_6502:
     public opcode
 {
 public:
-    typedef boost::shared_ptr<opcode_6502> pointer;
+    typedef std::shared_ptr<opcode_6502> pointer;
 
     /**
       * There are several revisions of the 6502, this enum captures some
