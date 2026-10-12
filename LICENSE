@@ -1,0 +1,59 @@
+UCSD-P-System Licensing
+=======================
+
+UCSD-P-System combines several separately licensed works. Each one keeps its
+original license, and the full license texts are in the files listed below.
+Individual source files carry their own copyright and license notices, and
+those notices take precedence over this summary.
+
+Component                        License                       Full text
+-------------------------------  ----------------------------  ----------------------------------
+subprojects/ucsd-psystem-xc      GNU GPL v3 or later (*)       subprojects/ucsd-psystem-xc/LICENSE
+subprojects/ucsd-psystem-fs      GNU GPL v3 or later (*)       subprojects/ucsd-psystem-fs/LICENSE
+subprojects/ucsd-psystem-vm      GNU GPL v2 or later           subprojects/ucsd-psystem-vm/LICENSE
+os (UCSD Pascal II.0 sources)    UCSD License 2.0              os/LICENSE-UCSD
+os (ucsd-psystem-os additions)   BSD-style 3-clause            os/LICENSE
+subprojects/libexplain,          GNU GPL v3 or later           subprojects/ucsd-psystem-xc/LICENSE
+top-level build files
+
+(*) Most of these files are licensed "GPL version 2 or later" and some are
+    "GPL version 3 or later". The programs built from them are therefore
+    distributed under GPL version 3 or later.
+
+
+UCSD Pascal II.0
+----------------
+
+The p-System itself (compiler, editor, filer, operating system, and so on,
+under os/) is:
+
+    UCSD PASCAL - Version II.0
+    Copyright (C) 1979 Regents of the University of California
+    All Rights Reserved
+
+The UCSD license allows use, copying, modification and distribution only for
+educational, research and non-profit purposes. Commercial use requires a
+separate agreement with the University of California, San Diego. See
+os/LICENSE-UCSD for the complete terms.
+
+The disk volumes produced by the build (system.vol, utility.vol,
+diagnostic.vol) contain this code and are covered by the UCSD license.
+
+
+Unix-hosted tools
+-----------------
+
+    ucsd-psystem-xc, ucsd-psystem-fs, ucsd-psystem-vm
+    Copyright (C) Peter Miller
+    Copyright (C) Mario Klebsch (portions of ucsd-psystem-vm)
+    and other contributors as noted in the individual source files
+
+These programs are free software. You can redistribute them and/or modify
+them under the terms of the GNU General Public License as published by the
+Free Software Foundation, either the version stated above or (at your option)
+any later version.
+
+These programs are distributed in the hope that they will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+details.
