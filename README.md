@@ -71,6 +71,10 @@ license for the p-System itself). See `LICENSE`.
 - The C++ code predates C++20, so it's compiled as `c++17`.
 - Turtle graphics: the VM starts `ucsdpsys_turtleserver` the first time a
   program calls the TURTLEGRAPHICS unit and draws in its window. Without a
-  display it draws off screen; without the server, drawing is skipped. Note
-  that the II.0 system built here only allows segments 0–15, while the
-  turtle unit is segment 20, so II.0 programs can't use it unchanged.
+  display it draws off screen; without the server, drawing is skipped.
+  II.0 has no intrinsic units, so a program that `uses turtlegr` must carry
+  the unit (segment 15) in its own code file:
+
+      ucsdpsys_compile --arch=p-code-le prog.text
+      ucsdpsys_librarian --create prog2.code --copy prog.code --segment prog=1 \
+          --copy build/os/system/system.library --segment turtlegr=15

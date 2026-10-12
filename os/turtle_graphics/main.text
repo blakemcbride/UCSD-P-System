@@ -19,8 +19,11 @@
 
 (*$S+*)
 unit turtlegr;
-intrinsic code 20 (* data 21 *);
+intrinsic code 15 (* data 21 *);
 (* The ucsd-psystem-xc project cannot yet link DATASEG segments. *)
+(* Segment 15, not Apple's 20: II.0 allows only segments 0..15.  A
+   program gives its own segment procedures 7 up (ucsd-psystem-xc) or
+   10 up (the II.0 compiler), so 15 is the least likely to collide. *)
 
 interface
 

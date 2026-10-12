@@ -277,7 +277,7 @@ $(OSB)/system/system.library: $(addprefix $(OSB)/,$(addsuffix /main.code,long_in
 		--copy $(OSB)/long_integer/main.code --segment longinte=30 \
 		--copy $(OSB)/pascalio/system.pascalio --segment pascalio=31 \
 		--copy $(OSB)/transcendental/main.code --segment transcen=29 \
-		--copy $(OSB)/turtle_graphics/main.code --segment turtlegr=20
+		--copy $(OSB)/turtle_graphics/main.code --segment turtlegr=15
 
 # Disk volumes.  The volume label is the file name without '.vol'.
 VOLUMES := $(B)/system.vol $(B)/utility.vol $(B)/diagnostic.vol
